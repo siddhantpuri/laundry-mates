@@ -14,3 +14,4 @@ if (Posts.find().count() === 0) {
     url: 'http://themeteorbook.com'
   });
 }
+
