@@ -1,6 +1,6 @@
 Template.upcomingList.helpers({
-  upcomings: function() {
-    return Upcomings.find();
+  lounges: function() {
+    return Lounges.find();
   }
 });
 
