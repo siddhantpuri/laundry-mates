@@ -1,13 +1,19 @@
 <body id="form_layout">
-	{{renderPage}}
+{{renderPage}}
 </body>
 
 <template name="form_layout">
-	<div class="container">
-
-		{{> flashMessages}}
-      	{{> yield}}
-
-    </div> <!-- /container -->
-
+  
+  <div class="littlex">
+    <a href="http://thoughtlounge.org">x</a>
+  </div>
+  <div id="home-logo-div">
+    <a href="http://thoughtlounge.org">
+      <img id="home-logo" src="http://i63.tinypic.com/f1kuv7.jpg" alt=""/>
+    </a>
+  </div>
+  <div class="container">
+    {{> flashMessages}}
+    {{> yield}}     
+  </div>
 </template>
