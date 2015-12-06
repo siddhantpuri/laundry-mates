@@ -1,0 +1,33 @@
+<template name="accountInfo">
+	<div class="account-info">
+		<h1 class="main-title">Account Info</h1>
+		<form class="account-info-form standard-form">
+			<div class="upload-prof-pic">
+				<img src="https://static1.squarespace.com/static/56395a91e4b0e877f7abcb75/t/56634898e4b02fb599039420/1449347225210/VivianLiu.jpg?format=300w" alt="" />
+			    <input type="file" name="pic" accept="image/*">
+			</div>
+		    <label for="first_name" class="sr-only">First Name</label>
+        <p>First Name</p>
+        <input type="text" id="first_name" name="first_name" class="form-control" placeholder="{{firstName}}" value="test" required autofocus>
+        <p>Last Name</p>
+        <input type="text" id="last_name" name="last_name" class="form-control" placeholder="{{lastName}}" required autofocus>
+        <p>Email Address</p>
+        <input type="email" id="email" name="email" class="form-control" placeholder="{{email}}" required autofocus>
+        <p>Phone (note: this is so that your Host can find you if you get lost on the way to the TL. Noone else can see it)</p>
+        <input type="text" id="phone" name="phone" class="form-control" placeholder="{{#if phone}}{{phone}}{{else}}e.g. (619)123-4566{{/if}}" autofocus>
+        <p>Primary Chapter</p>
+	   <select name="primary-chapter">
+		  <option value="primary-chapter">{{#if primaryChapter}}{{primaryChapter}}{{else}}Select Primary Chapter{{/if}}</option>
+		  <option value="uc-berkeley">UC Berkeley</option>
+		  <option value="ucla">UCLA</option>
+		  <option value="ucsb">UCSB</option>
+		  <option value="other">Other</option>
+		</select>
+        <input type="password" id="new-password" name="new-password" class="form-control" placeholder="New password" required>
+        <input type="password" id="confirm-new-password" name="confirm-new-password" class="form-control" placeholder="Confirm new password" required>
+        <p>Your Bio</p>
+        <textarea rows="5" cols="56">{{#if bio}}{{bio}}{{else}}Introduce yourself! What's your story? What might you talk about?{{/if}}</textarea>
+		<button class="save-account-info-button btn btn-lg btn-primary btn-block" type="submit">Save Account Changes</button>
+		  </form>
+	</div>
+</template>

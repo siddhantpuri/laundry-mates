@@ -1,11 +1,19 @@
 <template name="create">
 	<div class="create">
-		<form class="create-form">
+		<form class="create-form standard-form">
+			<h2>Create Your TL</h2>
+		   <p>Select a Chapter</p>
+		   <select name="cars">
+			  <option value="indy-host">Host Independently of a Chapter</option>
+			  <option value="uc-berkeley">UC Berkeley</option>
+			  <option value="ucla">UCLA</option>
+			  <option value="ucsb">UCSB</option>
+			</select>
 		    <div class="create-form-date">
 		    <p>Date of Lounge</p>
-		    <input type="date" id="date" name="date" class="form-control middle-input" placeholder="12/12/1993" required autofocus>
-		 		</div>
-		 		<div class="create-form-time">
+		    	<input type="date" id="date" name="date" class="form-control middle-input" placeholder="12/12/1993" required autofocus>
+		 	</div>
+		 	<div class="create-form-time">
 		    <p>Time (e.g. 07:00 PM)</p>
 		    <input type="time" id="time" name="time" class="form-control middle-input" placeholder="Time" required autofocus>
 		  	</div>
