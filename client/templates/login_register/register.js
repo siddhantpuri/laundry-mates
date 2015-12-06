@@ -5,6 +5,10 @@ Template.register.events({
 		var password2 = trimInput(event.target.password2.value);
 		var first_name = trimInput(event.target.first_name.value);
 		var last_name = trimInput(event.target.last_name.value);
+		var phone = trimInput(event.target.phone.value);
+		var primary_chapter = event.target.primary_chapter.value;
+		
+		
 
 		if(isNotEmpty(email) && 
 			isNotEmpty(password) && 
@@ -18,8 +22,11 @@ Template.register.events({
 				password: password,
 				profile: {
 					first_name: first_name,
-					last_name: last_name
-				}
+					last_name: last_name,
+					phone: phone,
+					primary_chapter: primary_chapter
+				},
+				role: 'lounger'
 			}, function(err){
 				if(err){
 					FlashMessages.sendError('There was an error with registration');
