@@ -24,9 +24,17 @@ Template.register.events({
 					first_name: first_name,
 					last_name: last_name,
 					phone: phone,
-					primary_chapter: primary_chapter
-				},
-				role: 'lounger'
+					primary_chapter: primary_chapter,
+					role: {
+					    UC_Berkeley: "lounger",
+					    UC_Santa_Barbara: "lounger",
+					    UC_Sanat_Cruz: "lounger",
+					    University_of_Colorado_at_Boulder: "lounger",
+					    UC_Los_Angeles: "lounger",
+					    Harvard_University: "lounger",
+					    Independent: "lounger"
+					}
+				}
 			}, function(err){
 				if(err){
 					FlashMessages.sendError('There was an error with registration');

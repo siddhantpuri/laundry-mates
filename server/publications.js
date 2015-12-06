@@ -7,3 +7,12 @@ Meteor.publish('posts', function() {
 Meteor.publish('lounges', function() {
   return Lounges.find();
 });
+
+Meteor.publish('requests', function() {
+  return Requests.find();
+});
+
+Meteor.publish("userData", function () {
+    return Meteor.users.find({_id: this.userId},
+        {fields: {role:1}});
+});

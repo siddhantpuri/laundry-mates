@@ -25,3 +25,7 @@ Template.registerHelper('primaryChapter', function() {
 Template.registerHelper('bio', function() {
     return Meteor.user().profile.bio;
 });
+
+Template.registerHelper('role', function() {
+    return Meteor.user().profile.role;
+});
