@@ -1,3 +1,7 @@
+Template.registerHelper('profPic', function() {
+    return Meteor.user().profile.prof_pic;
+});
+
 Template.registerHelper('firstName', function() {
     return Meteor.user().profile.first_name;
 });
