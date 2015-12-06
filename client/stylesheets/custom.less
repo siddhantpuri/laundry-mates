@@ -1,5 +1,13 @@
 /* GENERAL STYLING
 ---------------------------------*/
+#wrapper {
+	margin-top: 6em
+}
+
+a:hover {
+	text-decoration: none
+}
+
 body#form_layout {
 	background-color: #fff
 }
@@ -38,6 +46,160 @@ body#form_layout {
 		margin-bottom:3px;
 		margin-top: 1em
 	}	
+}
+
+/* NAVBAR 
+--------------------*/
+.tlnav {
+	margin-top: 6em;
+	background-color: grey;
+	.chapters-button {
+		color: white;
+		&:hover {
+			color: #f06aa7;
+		}
+	}
+	.tl-now-button {
+		color: white;
+		&:hover {
+			color: #f39b1f
+		}
+	}
+	.be-involved-button {
+		color: white;
+		&:hover {
+			color: #39eec5;
+		}
+	}
+	.initiatives-button {
+		color: white;
+		&:hover {
+			color: #39bdee
+		}
+	}
+	.about-button {
+		color: white;
+		&:hover {
+			color: #f06aa7
+		}
+	}
+	.folder-child {
+		background-color: rgba(0, 0, 0, 0.78);
+		text-align: center;
+		margin-left: 19px;
+		margin-right:10px;
+		li {
+			display: block !important;
+			border-bottom: 1px solid #515151;
+		    margin-left: 0px !important;
+		    padding-left: 10px;
+		    padding-right: 10px;
+		}
+	}
+	.tlnav-logo {
+		height: 63px;
+		margin-top:1em;
+		margin-bottom:1em;
+		margin-left:2em;
+	}
+	.nav-lower-text ul {
+		display: inline-block;
+		margin-left:0px;
+		padding-left:0px
+	}
+	.nav-lower-text ul {
+		vertical-align: top;
+		margin-top:10px
+	}
+	.nav-text, .nav-lower-text {
+		float: right;
+		display: inline;
+		list-style-type: none;
+		color: white;
+		margin-top: 11px;
+		margin-right: 40px;
+		font-family: "proxima-nova";
+	    font-size: 15px;
+	    text-transform: uppercase;
+	    text-decoration: none;
+	    letter-spacing: .1em;
+	    font-weight: 400;
+	    font-style: normal;
+	    line-height: 2em;
+		li {
+			display: inline-block;
+			margin-left:30px;
+			font-family: "Montserrat";
+			cursor: pointer;
+		}
+		#nav-doatl-button, #nav-login-button {
+			float: right;
+			color: #39bdee;
+		}
+		#nav-doatl-button {
+			border: 2px solid #39bdee;
+			border-radius: 3px;
+			border-radius: 3px;
+		    padding-top: 2px;
+		    padding-bottom: 2px;
+		    padding-left: 4px;
+		    padding-right: 4px;
+			&:hover {
+				background-color: #39bdee;
+				opacity: .7;
+				color: white;
+			}
+		}
+		#nav-login-button {
+			padding-top:7px
+		}
+	}
+	.nav-lower-text {
+		position: absolute;
+		right: 0px;
+		height:0em
+	}
+}
+
+/* SIDEBAR
+------------------------ */
+ul#vert_nav {
+    padding: 10px;
+    border-radius: 5px;
+    line-height: 2em;
+	    a {
+	    color: #39bdee;
+	    text-decoration: none;
+	    font-size: 1.2em;
+	    &:hover {
+	    	background-color: none;
+	    	opacity: .7
+	    }
+	}
+}
+
+#left {
+  float: left;
+  width: 25%;
+  overflow: hidden;
+}
+
+#right {
+  overflow: hidden;
+}
+
+#vert_nav {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 200px;
+    background-color: #f1f1f1;
+}
+
+#vert_nav_item {
+    display: block;
+    color: #000;
+    text-decoration: none;
 }
 
 
