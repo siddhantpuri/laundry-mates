@@ -1,0 +1,36 @@
+<template name="updateInfo">
+	<div class="account-info">
+		<h3 >Please Update Your Info</h3>
+		<p>You must include a picure and phone number</p>
+		<form class="account-info-form standard-form">
+			<div class="upload-prof-pic">
+				<img src="https://static1.squarespace.com/static/56395a91e4b0e877f7abcb75/t/56634898e4b02fb599039420/1449347225210/VivianLiu.jpg?format=300w" alt="" />
+			    <input type="file" name="pic" class="upload-file" accept="image/*">
+			</div>
+		    <label for="first_name" class="sr-only">First Name</label>
+        <p>First Name</p>
+        <input type="text" id="first_name" name="first_name" class="form-control" value="{{firstName}}" required autofocus>
+        <p>Last Name</p>
+        <input type="text" id="last_name" name="last_name" class="form-control" value="{{lastName}}" required autofocus>
+        <p>Email Address</p>
+        <input type="email" id="email" name="email" class="form-control" value="{{email}}" required autofocus>
+        <p>Phone (note: this is so that your Host can find you if you get lost on the way to the TL. Noone else can see it)</p>
+        <input type="text" id="phone" name="phone" class="form-control" value="{{#if phone}}{{phone}}{{/if}}" placeholder="e.g. (619)123-4566" autofocus>
+        <p>Where do you want to be a Host?</p>
+	   <select id="primary-chapter" name="primary-chapter">
+		  <option value="{{#if primaryChapter}}{{primaryChapter}}{{else}}Select Primary Chapter{{/if}}">{{#if primaryChapter}}{{primaryChapter}}{{else}}Select Primary Chapter{{/if}}</option>
+		  <option value="UC Berkeley">UC Berkeley</option>
+		  <option value="UCLA">UCLA</option>
+		  <option value="UCSB">UCSB</option>
+		  <option value="N/A">N/A</option>
+		  <option value="Other">Other</option>
+		</select>
+        <p>Your Bio</p>
+        <textarea id="bio" rows="5" cols="56">{{#if bio}}{{bio}}{{else}}Introduce yourself! What's your story? What might you talk about?{{/if}}</textarea>
+		<button class="save-account-info-button btn btn-lg btn-primary btn-block" type="submit">Submit Request</button>
+		  </form>
+	</div>
+	<div class="sent display-none">
+		<h3>You're request has been sent! Hopefully we will get you hosting soon!</h3>
+	</div>
+</template>
