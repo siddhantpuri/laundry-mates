@@ -1,6 +1,8 @@
 <template name="register">
 	<form class="form-signup">
         <h2 class="form-signup-heading">Create An Account</h2>
+        <br>
+        <p>Have An Account? <a href="/">Log In</a></p>
         <label for="first_name" class="sr-only">First Name</label>
         <input type="text" id="first_name" name="first_name" class="form-control" placeholder="First name" required autofocus>
         <label for="last_name" class="sr-only">Last Name</label>
@@ -10,10 +12,27 @@
         <label for="password" class="sr-only">Password</label>
         <input type="password" id="password" name="password" class="form-control" placeholder="Password" required>
         <label for="password2" class="sr-only">Password Confirm</label>
-        <input type="password" id="password2" name="password2" class="form-control" placeholder="Password confirm" required>
-        
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Register</button>
+        <input type="password" id="password2" name="password2" class="form-control" placeholder="Confirm Password" required>
         <br>
-        <p>Hav An Account? <a href="/">Log In</a></p>
+        <p class='text-left'>Optional:</p>
+        <input type="text" id="phone" name="phone" class="form-control" placeholder="Phone (in case you get lost)" required>
+        <select id="primary_chapter" name="primary_chapter" class="form-control" placeholder="Select a Primary Chapter" required>
+            <option value="Error">Select a Primary Chapter</option>
+            <option value="UC_Berkley">UC Berkeley</option>
+            <option value="UC_Santa_Barbara">UC Santa Barbara</option>
+            <option value="UC_Sanat_Cruz">UC Santa Cruz</option>
+            <option value="University_of_Colorado_at_Boulder">University of Colorado at Boulder</option>
+            <option value="UC_Los_Angeles">UC Los Angeles</option>
+            <option value="Harvard_University">Harvard University</option>
+            <option value="n/a">N/A</option>
+        </select>
+        <br>
+        <input type="checkbox" name="remember_me" value="True">  Remember Me
+        <p>By signing up, I agree to Thought Lounge's <a href="/terms_of_service">terms of service</a></p>
+
+
+
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign Up</button>
+        
       </form>
 </template>
