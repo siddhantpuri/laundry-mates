@@ -1,0 +1,12 @@
+<template name="permissions_admin">
+	<div class="description">
+		<h3>You are an Admin</h3>
+		<p>Request to become a super admin</p>
+		<button>Request</button>
+	</div>
+	<div class="host_permission_list">
+		{{#each host_requests}}
+			{{> permissionItem}}
+		{{/each}}
+	</div>
+</template>
