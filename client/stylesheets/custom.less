@@ -1,7 +1,14 @@
 /* GENERAL STYLING
 ---------------------------------*/
+
+a:hover {
+	text-decoration: none
+}
+
 body#form_layout {
-	background-color: #fff
+	background-color: #fff;
+	margin-bottom: 0px;
+	padding-bottom: 0px;
 }
 
 .display-none {
@@ -38,6 +45,361 @@ body#form_layout {
 		margin-bottom:3px;
 		margin-top: 1em
 	}	
+}
+
+/* ANNOUNCEMENT BAR
+--------------------------*/
+.announcement-bar {
+	background-color: #f39b1f;
+	height: 2.5em;
+	text-align: center;
+	p {
+		padding-top:7px;
+		color: white;
+		font-family: "Montserrat";
+		display: inline-block;
+		a {
+		    color: white;
+		    text-decoration: underline;
+		    background: transparent;
+		}
+	}
+	.announcement-bar-para {
+		width: 80%
+	}
+	.announcement-bar-x {
+	    padding-right: 19px;
+	    cursor: pointer;
+	    position: absolute;
+	    right: 0px;
+	    padding-left: 16px;
+	    background-color: rgba(0, 0, 0, 0.34);
+	    padding-bottom: 8px;
+	}
+}
+@media only screen and (max-width: 773px) {
+	.announcement-bar {
+		height: 3.5em
+	}
+}
+@media only screen and (max-width: 416px) {
+	.announcement-bar {
+		height: 5.5em
+	}
+}
+
+/* MOBILE NAVBAR 
+---------------------------*/
+@media only screen and (min-width: 769px) {
+	.mobile-icon-menu {
+		display: none;
+	}
+	.mobile-tlnav-wrapper {
+	    display: none;
+	}
+}
+.logo {
+	position: absolute;
+}
+.mob-logo {
+	height:63px
+}
+img.tlnav-logo {
+    height: 63px;
+    margin-left: 1em;
+    margin-top: .5em;
+}
+
+.mobile-tl-nav {
+    background-color: #282828;
+    height: 78em;
+    width: 83%;
+    float: right;
+    position: absolute;
+    right: 0px;
+    z-index: 1000;
+    text-align: center;
+}
+.mob-nav-ul {
+	padding-left: 0px
+}
+.home-button-div {
+    border-bottom: 1px solid white;
+    &:hover {
+    	opacity:.7
+    }
+}
+.mobile-tl-nav li {
+    list-style-type: none;
+    padding-bottom: 25px;
+    padding-top: 25px;
+    font-size: 1.1em;
+    cursor: pointer;
+    color:white;
+    &:hover {
+    	opacity: .7;
+    }
+}
+img.mob-home-button {
+    height: 36px;
+}
+li#mob-nav-login-button {
+    border-bottom: 1px solid white;
+    color: #39eec5
+}
+li#mob-nav-doatl-button {
+    border-bottom: 1px solid white;
+    color: #39bdee
+}
+.folder-wrapper {
+    padding-left: 0px;
+}
+.big-margin-right {
+    margin-right: 84%;
+}
+img#icon-menu-img {
+    width: 30px;
+    float: right;
+    margin-right: 10px;
+    margin-top: 6px;
+}
+.mobile-icon-menu {
+	position:fixed;
+	right:0px;
+	z-index: 1000
+}
+.mob-login-button {
+	color: #39eec5 !important;
+}
+.mob-login-item {
+	&:hover {
+		color:#39eec5;
+	}
+}
+.mob-chapters-item {
+	&:hover {
+		color:#f06aa7;
+		} 
+}
+.mob-tl-now-item {
+	&:hover {
+		color:#f39b1f;
+		} 
+}
+.mob-be-involved-item {
+	&:hover {
+		color: #39eec5;
+	}
+}
+.mob-initiatives-item {
+	&:hover {
+		color: : #39bdee;
+	}
+}
+.mob-about-item {
+	&:hover {
+		color: : #f06aa7;
+	}
+}
+
+/* DESKTOP NAVBAR 
+--------------------*/
+@media only screen and (max-width: 768px) {
+	.tlnav {
+		display: none;
+	}
+}
+.grey {
+	color: black !important
+}
+.folder-child-login.folder-child {
+    top: 9.3em;
+    right: 6.7em;
+}
+.tlnav {
+	background-color: transparent;
+	.tl-login-button {
+		color: white;
+		&:hover {
+			color: #39bdee
+		}
+	}
+	.chapters-button {
+		color: white;
+		&:hover {
+			color: #f06aa7;
+		}
+	}
+	.tl-now-button {
+		color: white;
+		&:hover {
+			color: #f39b1f
+		}
+	}
+	.be-involved-button {
+		color: white;
+		&:hover {
+			color: #39eec5;
+		}
+	}
+	.initiatives-button {
+		color: white;
+		&:hover {
+			color: #39bdee
+		}
+	}
+	.about-button {
+		color: white;
+		&:hover {
+			color: #f06aa7
+		}
+	}
+	.folder-child {
+		background-color: rgba(0, 0, 0, 0.78);
+		text-align: center;
+		margin-left: 19px;
+		margin-right:10px;
+		position: absolute;
+		z-index: 1000;
+		li {
+			display: block !important;
+			border-bottom: 1px solid #515151;
+		    margin-left: 0px !important;
+		    padding-left: 10px;
+		    padding-right: 10px;
+		}
+	}
+	.folder-child-chapters {
+		right:30.9em
+	}
+	.folder-child-tl-now {
+		right:22em
+	}
+	.folder-child-be-involved {
+		right:13em
+	}
+	.folder-child-initiatives {
+		right:2em
+	}
+	.folder-child-about {
+		right:-3.2em
+	}
+	.tlnav-logo {
+		height: 63px;
+		margin-top:1em;
+		margin-bottom:1em;
+		margin-left:2em;
+	}
+	.nav-lower-text ul {
+		display: inline-block;
+		margin-left:0px;
+		padding-left:0px
+	}
+	.nav-lower-text ul {
+		vertical-align: top;
+		margin-top:10px
+	}
+	.nav-text, .nav-lower-text {
+		float: right;
+		display: inline;
+		list-style-type: none;
+		color: #ccc;
+		margin-top: 11px;
+		margin-right: 40px;
+		font-family: "proxima-nova";
+	    font-size: 15px;
+	    text-transform: uppercase;
+	    text-decoration: none;
+	    letter-spacing: .1em;
+	    font-weight: 400;
+	    font-style: normal;
+	    line-height: 2em;
+		li {
+			display: inline-block;
+			margin-left:30px;
+			font-family: "Montserrat";
+			cursor: pointer;
+			color: #ccc
+		}
+		#nav-doatl-button, #nav-login-button {
+			float: right;
+			color: #39bdee;
+		}
+		#nav-doatl-button {
+			border: 2px solid #39bdee;
+			border-radius: 3px;
+			border-radius: 3px;
+		    padding-top: 2px;
+		    padding-bottom: 2px;
+		    padding-left: 4px;
+		    padding-right: 4px;
+			&:hover {
+				background-color: #39bdee;
+				opacity: .7;
+				color: white;
+			}
+		}
+		#nav-login-button {
+			padding-top:7px;
+			&:hover {
+				color: black
+			}
+		}
+	}
+	.nav-lower-text {
+		position: absolute;
+		right: 0px;
+		height:0em
+	}
+}
+
+/* SIDEBAR
+------------------------ */
+
+@media only screen and (max-width: 768px) {
+	#left {
+		display:none
+	}
+}
+ul#vert_nav {
+    padding: 10px;
+    border-radius: 5px;
+    line-height: 2em;
+	    a {
+	    color: #39bdee;
+	    text-decoration: none;
+	    font-size: 1.2em;
+	    &:hover {
+	    	background-color: none;
+	    	opacity: .7
+	    }
+	}
+}
+
+#left {
+  float: left;
+  width: 15%;
+  overflow: hidden;
+  width: 13em;
+  margin-top:6em;
+}
+
+#right {
+  overflow: hidden;
+}
+
+#vert_nav {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 200px;
+    background-color: #f1f1f1;
+}
+
+#vert_nav_item {
+    display: block;
+    color: #000;
+    text-decoration: none;
 }
 
 
@@ -218,6 +580,14 @@ body#form_layout {
 
 /* ACCOUNT INFO PAGE 
 -----------------------------------*/
+.account-info {
+	margin-right: 9em
+}
+@media only screen and (max-width:768px) {
+	.account-info {
+		margin-right:0px
+	}
+}
 
 .account-info-form{
 	.upload-prof-pic {
