@@ -1,6 +1,20 @@
 <template name="permissions">
 	<div class="container">
-		<h1>My Permissions</h1>
+		<h1>My Permissions for {{primaryChapter}}</h1>
+		<div>
+			<h3>Change Chapter</h3>
+			<form class="change-chapter-form standard-form">
+				<select id="primary-chapter" name="primary-chapter">
+				  <option value="{{#if primaryChapter}}{{primaryChapter}}{{else}}Select Primary Chapter{{/if}}">{{#if primaryChapter}}{{primaryChapter}}{{else}}Select Primary Chapter{{/if}}</option>
+				  <option value="UC Berkeley">UC Berkeley</option>
+				  <option value="UCLA">UCLA</option>
+				  <option value="UCSB">UCSB</option>
+				  <option value="N/A">N/A</option>
+				  <option value="Other">Other</option>
+				</select>
+				<button class="change-chapter-btn btn btn-lg btn-primary btn-block" type="submit">Change Chapter</button>
+			</form>
+		</div>
 		{{#if roleIs 'superadmin'}}
 			{{> permissions_superadmin}}
 		{{else}}

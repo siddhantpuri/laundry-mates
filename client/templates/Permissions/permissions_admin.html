@@ -4,8 +4,16 @@
 		<p>Request to become a super admin</p>
 		<button>Request</button>
 	</div>
-	<div class="host_permission_list">
-		{{#each host_requests}}
+	<div class="pending_host_permission_list">
+		<h3>Pending Host Requests</h3>
+		{{#each pending_host_requests}}
+			{{> permissionItem}}
+		{{/each}}
+	</div>
+	<br>
+	<div class="approved_host_permission_list">
+		<h3>Approved Host Requests</h3>
+		{{#each approved_host_requests}}
 			{{> permissionItem}}
 		{{/each}}
 	</div>
