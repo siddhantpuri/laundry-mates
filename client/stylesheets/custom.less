@@ -1,15 +1,14 @@
 /* GENERAL STYLING
 ---------------------------------*/
-#wrapper {
-	margin-top: 6em
-}
 
 a:hover {
 	text-decoration: none
 }
 
 body#form_layout {
-	background-color: #fff
+	background-color: #fff;
+	margin-bottom: 0px;
+	padding-bottom: 0px;
 }
 
 .display-none {
@@ -53,7 +52,6 @@ body#form_layout {
 .announcement-bar {
 	background-color: #f39b1f;
 	height: 2.5em;
-	margin-top:4em;
 	text-align: center;
 	p {
 		padding-top:7px;
@@ -90,12 +88,142 @@ body#form_layout {
 	}
 }
 
+/* MOBILE NAVBAR 
+---------------------------*/
+@media only screen and (min-width: 769px) {
+	.mobile-icon-menu {
+		display: none;
+	}
+	.mobile-tlnav-wrapper {
+	    display: none;
+	}
+}
+.logo {
+	position: absolute;
+}
+.mob-logo {
+	height:63px
+}
+img.tlnav-logo {
+    height: 63px;
+    margin-left: 1em;
+    margin-top: .5em;
+}
 
+.mobile-tl-nav {
+    background-color: #282828;
+    height: 78em;
+    width: 83%;
+    float: right;
+    position: absolute;
+    right: 0px;
+    z-index: 1000;
+    text-align: center;
+}
+.mob-nav-ul {
+	padding-left: 0px
+}
+.home-button-div {
+    border-bottom: 1px solid white;
+    &:hover {
+    	opacity:.7
+    }
+}
+.mobile-tl-nav li {
+    list-style-type: none;
+    padding-bottom: 25px;
+    padding-top: 25px;
+    font-size: 1.1em;
+    cursor: pointer;
+    color:white;
+    &:hover {
+    	opacity: .7;
+    }
+}
+img.mob-home-button {
+    height: 36px;
+}
+li#mob-nav-login-button {
+    border-bottom: 1px solid white;
+    color: #39eec5
+}
+li#mob-nav-doatl-button {
+    border-bottom: 1px solid white;
+    color: #39bdee
+}
+.folder-wrapper {
+    padding-left: 0px;
+}
+.big-margin-right {
+    margin-right: 84%;
+}
+img#icon-menu-img {
+    width: 30px;
+    float: right;
+    margin-right: 10px;
+    margin-top: 6px;
+}
+.mobile-icon-menu {
+	position:fixed;
+	right:0px;
+	z-index: 1000
+}
+.mob-login-button {
+	color: #39eec5 !important;
+}
+.mob-login-item {
+	&:hover {
+		color:#39eec5;
+	}
+}
+.mob-chapters-item {
+	&:hover {
+		color:#f06aa7;
+		} 
+}
+.mob-tl-now-item {
+	&:hover {
+		color:#f39b1f;
+		} 
+}
+.mob-be-involved-item {
+	&:hover {
+		color: #39eec5;
+	}
+}
+.mob-initiatives-item {
+	&:hover {
+		color: : #39bdee;
+	}
+}
+.mob-about-item {
+	&:hover {
+		color: : #f06aa7;
+	}
+}
 
-/* NAVBAR 
+/* DESKTOP NAVBAR 
 --------------------*/
+@media only screen and (max-width: 768px) {
+	.tlnav {
+		display: none;
+	}
+}
+.grey {
+	color: black !important
+}
+.folder-child-login.folder-child {
+    top: 9.3em;
+    right: 6.7em;
+}
 .tlnav {
-	background-color: grey;
+	background-color: transparent;
+	.tl-login-button {
+		color: white;
+		&:hover {
+			color: #39bdee
+		}
+	}
 	.chapters-button {
 		color: white;
 		&:hover {
@@ -142,10 +270,10 @@ body#form_layout {
 		}
 	}
 	.folder-child-chapters {
-		right:31.5em
+		right:30.9em
 	}
 	.folder-child-tl-now {
-		right:23em
+		right:22em
 	}
 	.folder-child-be-involved {
 		right:13em
@@ -175,7 +303,7 @@ body#form_layout {
 		float: right;
 		display: inline;
 		list-style-type: none;
-		color: white;
+		color: #ccc;
 		margin-top: 11px;
 		margin-right: 40px;
 		font-family: "proxima-nova";
@@ -191,6 +319,7 @@ body#form_layout {
 			margin-left:30px;
 			font-family: "Montserrat";
 			cursor: pointer;
+			color: #ccc
 		}
 		#nav-doatl-button, #nav-login-button {
 			float: right;
@@ -213,7 +342,7 @@ body#form_layout {
 		#nav-login-button {
 			padding-top:7px;
 			&:hover {
-				color: #8A8A84
+				color: black
 			}
 		}
 	}
@@ -226,6 +355,12 @@ body#form_layout {
 
 /* SIDEBAR
 ------------------------ */
+
+@media only screen and (max-width: 768px) {
+	#left {
+		display:none
+	}
+}
 ul#vert_nav {
     padding: 10px;
     border-radius: 5px;
@@ -245,7 +380,8 @@ ul#vert_nav {
   float: left;
   width: 15%;
   overflow: hidden;
-
+  width: 13em;
+  margin-top:6em;
 }
 
 #right {
@@ -444,9 +580,13 @@ ul#vert_nav {
 
 /* ACCOUNT INFO PAGE 
 -----------------------------------*/
-
 .account-info {
-    margin-right: 119px;
+	margin-right: 9em
+}
+@media only screen and (max-width:768px) {
+	.account-info {
+		margin-right:0px
+	}
 }
 
 .account-info-form{
