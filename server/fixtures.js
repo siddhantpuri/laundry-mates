@@ -30,32 +30,35 @@ if (Lounges.find().count() === 0) {
 if (Requests.find().count() === 0) {
   Requests.insert({
     type: 'host',
-    chapter: 'UC_Berkeley',
-    first_name: 'Shaan',
-    last_name: 'Appel',
-    email: 'shaan.appel@me.com',
-    picture: 'somefile',
-    approved: false
+    request_userId: 'userId',
+    request_chapter: 'UC_Berkeley',
+    request_first_name: 'Shaan',
+    request_last_name: 'Appel',
+    request_email: 'shaan.appel@me.com',
+    request_picture: 'somefile',
+    request_approved: 'false'
   });
   
   Requests.insert({
     type: 'admin',
-    chapter: 'UC_Berkeley',
-    first_name: 'Shaan',
-    last_name: 'Appel',
-    email: 'shaan.appel@me.com',
-    picture: 'somefile',
-    approved: false
+    request_userId: 'userId',
+    request_chapter: 'UC_Berkeley',
+    request_first_name: 'Shaan',
+    request_last_name: 'Appel',
+    request_email: 'shaan.appel@me.com',
+    request_picture: 'somefile',
+    request_approved: 'false'
   });
   
   Requests.insert({
     type: 'host',
-    chapter: 'UC_Berkeley',
-    first_name: 'Other',
-    last_name: 'Appel',
-    email: 'shaan.appel@me.com',
-    picture: 'somefile',
-    approved: true
+    request_userId: 'userId',
+    request_chapter: 'UC_Berkeley',
+    request_first_name: 'Other',
+    request_last_name: 'Appel',
+    request_email: 'shaan.appel@me.com',
+    request_picture: 'somefile',
+    request_approved: 'true'
   });
 }
 
