@@ -19,7 +19,7 @@ Template.registerHelper('phone', function() {
 });
 
 Template.registerHelper('primaryChapter', function() {
-    return Meteor.user().profile.primary_chapter;
+    return Meteor.user().profile.primary_chapter.split('_').join(' ');
 });
 
 Template.registerHelper('bio', function() {
@@ -28,4 +28,9 @@ Template.registerHelper('bio', function() {
 
 Template.registerHelper('role', function() {
     return Meteor.user().profile.role;
+});
+
+Template.registerHelper('request_status', function() {
+    var chapter = Meteor.user().profile.primary_chapter.split('_').join(' ');
+    return Meteor.user().profile.request_status[chapter];
 });
