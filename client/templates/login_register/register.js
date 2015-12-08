@@ -32,7 +32,8 @@ Template.register.events({
 					    University_of_Colorado_at_Boulder: "lounger",
 					    UC_Los_Angeles: "lounger",
 					    Harvard_University: "lounger",
-					    Independent: "lounger"
+					    Independent: "lounger",
+					    IsSuperAdmin: ""
 					},
 					//Possible statuses: none_sent, processing, denied
 					request_status: {

@@ -34,3 +34,7 @@ Template.registerHelper('request_status', function() {
     var chapter = Meteor.user().profile.primary_chapter.split('_').join(' ');
     return Meteor.user().profile.request_status[chapter];
 });
+
+Template.registerHelper('IsSuperAdmin', function() {
+    return Meteor.user().profile.role.IsSuperAdmin;
+});
