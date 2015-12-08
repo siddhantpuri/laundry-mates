@@ -47,6 +47,209 @@ body#form_layout {
 	}	
 }
 
+/* LOUNGES
+-------------------*/
+.lounge-wrapper-inner {
+    margin: 0px auto;
+    margin-top: 1em;
+    background-color: hsla(44, 84%, 58%, 0.26);
+    border: 1px solid;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 565px;
+    font-family: Raleway, Sarala;
+}
+
+.lounge-date-host-loc {
+    margin-top: .5em;
+    padding-top: .5em;
+    margin-bottom: 1.5em;
+}
+
+.lounge-date {
+    margin-left: .6em;
+	float: left;
+    display: inline-block;
+    border: 1px solid black;
+    border-radius: 6px;
+    padding: 5px 8px 7px;
+    text-align: center;
+}
+
+.lounge-host {
+    float: right;
+    display: inline-block;
+    text-align: center;
+    .host-img {
+    	width:8em;
+    	margin-right:.6em;
+    	border-radius: 6px;
+    }
+}
+.lounge-loc {
+    margin-left: 18%;
+    text-align: center;
+    margin-right: 23.5%;
+    padding-top: 14px;
+}
+
+.lounge-spots-buttons {
+    margin-top: 0.5em;
+	text-align: center;
+	margin-bottom: .5em;
+}
+
+.lounge-spots {
+    margin-top: 0.6em;
+    margin-left: 1em;
+    float: left;
+    text-align: left;
+    p {
+    	margin-bottom:2px;
+    	margin-left:13px;
+    	color: #e08282;
+    	font-size: 15px;
+    }
+    img {
+    	width: 2.5em;
+    	display: inline-block;
+    }
+}  
+
+.lounge-buttons {
+    margin-left: 0em;
+    margin-right: 0em;
+    color: white;
+    display: inline-block;
+    margin-top: 1em;
+    div {
+	    border-radius: 4px;
+	    padding: 3px;
+	    margin: 0px auto;
+	    font-size: 1.2em;
+	    margin-bottom: 4px;
+	    display: inline-block;
+	    cursor: pointer;
+	}
+	.contact-host {
+		background-color: #39bdee;
+		width: 7em;
+		&:hover {
+			background-color: white;
+			color: #39bdee;
+		}
+	}
+	.this-lounge-info {
+		background-color: #39bdee;
+		width: 7em;
+		&:hover {
+			background-color: white;
+			color: #39bdee;
+		}
+	}
+	.log-your-lounge {
+		background-color: #f39b1f;
+		width: 9em;
+		&:hover {
+			background-color: white;
+			color: #f39b1f;
+		}
+	}
+	.view-lounge-log {
+		background-color: #39eec5;
+		width: 9em;
+		color: white;
+		&:hover {
+			background-color: white;
+			color: #39eec5;
+		}
+	}
+	.cant-make-it {
+		background-color: #da7a7a;
+		width: 6em;
+		&:hover {
+			background-color: black;
+			color: #da7a7a;
+		}
+	}
+} 
+
+.contact-host-div {
+	text-align: center;
+}
+
+.lounge-insert-log-url {
+    text-align: center;
+    margin-bottom: 1em;
+    h2 {
+    	margin-bottom:0px;
+    }
+    p { 
+    	margin-top: 0px
+    }
+}
+
+.lounge-log-url-form {
+	margin-top:1em
+}
+#lounge-log-url {
+    border-radius: 2px;
+    width: 50%;
+    margin: 0px auto;
+    margin-bottom: 1em;
+}
+.submit-lounge-log-btn {
+    background-color: #39eec5 !important;
+    border-color: transparent !important;
+    width: 86%;
+    margin: 0px auto;
+}
+
+.lounge-info {
+    margin-top: 0.5em;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 1em;
+}
+
+.update-lounge-button {
+    width: 50%;
+    display: inline-block;
+    background-color: #39eec5;
+    border: none;
+}
+
+.cancel-lounge-button {
+	background-color: #F25B5B;
+    border-radius: 5px;
+    border: 2px solid #F25B5B;
+    color: white;
+    display: inline-block;
+    text-align: center;
+    padding: 10px;
+    cursor: pointer;
+    margin: 0px auto;
+    margin-left: 1em;
+}
+
+@media only screen and (max-width: 521px) {
+	.lounge-host .host-img {
+		width: 6em
+	}
+}
+@media only screen and (max-width: 450px) {
+	.lounge-loc {
+		margin-left: 29%;
+		margin-right: 29.5%;
+	}
+}
+@media only screen and (max-width: 580px) {
+	.lounge-spots {
+		margin-top: -1.4em;
+	}
+}
+
+
 /* ANNOUNCEMENT BAR
 --------------------------*/
 .announcement-bar {
@@ -420,6 +623,14 @@ ul#vert_nav {
 	}
 }
 
+.url-desc {
+	margin-bottom: 0px !important;
+}
+p.sub-desc-input {
+    margin-top: 0px;
+    font-size: 11px;
+}
+
 .create-form-date {
 	display: inline-block;
 	width: 12em;
@@ -478,7 +689,7 @@ ul#vert_nav {
 	border-radius:5px;
 	border:2px solid #39eec5;
 	color: white;
-	width: 7em;
+	width: 11em;
 	display: inline-block;
 	text-align: center;
 	padding:4px;
