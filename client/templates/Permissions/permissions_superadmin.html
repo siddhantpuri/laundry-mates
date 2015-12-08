@@ -1,6 +1,49 @@
 <template name="permissions_superadmin">
 	<div class="description">
-		<p>Request to become a Host at a Chapter</p>
-		<button>Request</button>
+		<h3>You are a Super Admin</h3>
+		<p> Feel special, don't ya?</p>
+	</div>
+	<div class="pending_admin_permission_list">
+		<h3>Pending Admin Requests</h3>
+		{{#if are_pending_admin_requests}}
+			{{#each pending_admin_requests}}
+				{{> permissionItem}}
+			{{/each}}
+		{{else}}
+			<p>There are no pending Admin requests for this chapter</p>
+		{{/if}}
+	</div>
+	<br>
+	<div class="approved_admin_permission_list">
+		<h3>Approved Admin Requests</h3>
+		{{#if are_approved_admin_requests}}
+			{{#each approved_admin_requests}}
+				{{> permissionItem}}
+			{{/each}}
+		{{else}}
+			<p>There are no approved Admin requests for this chapter</p>
+		{{/if}}
+	</div>
+	<br>
+	<div class="pending_superadmin_permission_list">
+		<h3>Pending SuperAdmin Requests</h3>
+		{{#if are_pending_superadmin_requests}}
+			{{#each pending_superadmin_requests}}
+				{{> permissionItem}}
+			{{/each}}
+		{{else}}
+			<p>There are no pending SuperAdmin requests for this chapter</p>
+		{{/if}}
+	</div>
+	<br>
+	<div class="approved_superadmin_permission_list">
+		<h3>Approved SuperAdmin Requests</h3>
+		{{#if are_approved_superadmin_requests}}
+			{{#each approved_superadmin_requests}}
+				{{> permissionItem}}
+			{{/each}}
+		{{else}}
+			<p>There are no approved SuperAdmin requests for this chapter</p>
+		{{/if}}
 	</div>
 </template>

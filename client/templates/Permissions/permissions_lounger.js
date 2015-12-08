@@ -1,3 +1,5 @@
+userId = Meteor.userId();
+
 Template.permissions_lounger.events({
 	"click .request-btn": function(event) {
 		$('.update-info').toggleClass('display-none');
@@ -8,6 +10,6 @@ Template.permissions_lounger.events({
 Template.permissions_lounger.helpers({  
   statusIs: function(status) {
   	var chapter = Meteor.user().profile.primary_chapter
-    return Meteor.users.findOne(userId).profile.status[chapter] === status;
+    return Meteor.users.findOne(userId).profile.request_status[chapter] === status;
   }
 });

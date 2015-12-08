@@ -1,10 +1,23 @@
 <template name="permissions_host">
 	<div class="description">
 		<h2>You are a Host</h2>
-		<p>Request to become an Admin of {{primaryChapter}}</p>
-		<button class= "request-btn">Request</button>
 	</div>
-	<div class='sent display-none'>
-		<h3>Your request has been sent!</h3>
+	<div>
+		{{#if statusIs 'unapproved'}}
+			<p class="unapproved"> Your Admin Privileges have been revoked. Please contact your chapter leaders for clarification</p>
+		{{else}}
+			{{#if statusIs 'processing'}}
+				<p class="processing"> Your request to become an admin is processing. Check back soon! You can contact your chapter leaders if you have any questions. </p>
+			{{else}}
+				{{#if statusIs 'denied'}}
+					<p class="denied">Your Request To Become An Admin Has Been Denied. Please contact your chapter leaders for clarification</p>
+				{{else}}
+					<p>Request to become an Admin of {{primaryChapter}}</p>
+				{{/if}}
+				<div>
+					<button class= "request-btn">Request</button>
+				</div>
+			{{/if}}
+		{{/if}}
 	</div>
 </template>

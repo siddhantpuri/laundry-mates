@@ -18,7 +18,7 @@
 				<button class="change-chapter-btn btn btn-lg btn-primary btn-block" type="submit">Change Chapter</button>
 			</form>
 		</div>
-		{{#if roleIs 'superadmin'}}
+		{{#if IsSuperAdmin}}
 			{{> permissions_superadmin}}
 		{{else}}
 			{{#if roleIs 'admin'}}

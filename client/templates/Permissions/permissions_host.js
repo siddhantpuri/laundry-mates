@@ -1,19 +1,35 @@
+userId = Meteor.userId();
+
 Template.permissions_host.events({
 	"click .request-btn": function(event) {
-		var prof = Meteor.user().profile
+		var prof = Meteor.user().profile;
+
+		var chapter = prof.primary_chapter;
+		var updated_request_status = Meteor.users.findOne(userId).profile.request_status;
+		updated_request_status[chapter] = "processing";
+		Meteor.users.update( { _id: userId }, { $set: { 'profile.request_status': updated_request_status}});
+
+
 		Requests.insert({
 		type: 'admin',
-    	chapter: prof.primary_chapter,
-    	first_name: prof.primary_chapter,
-    	last_name: prof.primary_chapter,
-    	email: Meteor.user().email,
-    	picture: 'somefile',
-    	phone: prof.phone,
-    	bio: prof.bio,
-    	approved: false
+		request_userId: userId,
+    	request_chapter: chapter,
+    	request_first_name: prof.first_name,
+    	request_last_name: prof.last_name,
+    	request_email: Meteor.user().emails[0].address,
+    	request_picture: 'somefile',
+    	request_phone: prof.phone,
+    	request_bio: prof.bio,
+    	request_approved: "false"
 		});
 
-		$('.sent').toggleClass('display-none');
-		$('.request-btn').toggleClass('display-none');
+		location.reload();
 	}
+});
+
+Template.permissions_host.helpers({  
+  statusIs: function(status) {
+  	var chapter = Meteor.user().profile.primary_chapter
+    return Meteor.users.findOne(userId).profile.request_status[chapter] === status;
+  }
 });

@@ -34,7 +34,9 @@ Template.updateInfo.events({
     	request_bio: $('#bio').val(),
     	request_approved: "false"
 		});
-
+		
+		location.reload();
+		
 		return false;
 	}
 });
