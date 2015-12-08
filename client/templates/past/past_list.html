@@ -1,0 +1,9 @@
+<template name="pastList">
+	<div class="upcomingList">
+		{{> pastLounge}}
+		{{> pastLoungeH}}
+		{{#each lounges}}
+			{{> upcomingItem}}
+		{{/each}}
+	</div>
+</template>
