@@ -34,7 +34,7 @@ Template.register.events({
 					    Harvard_University: "lounger",
 					    Independent: "lounger"
 					},
-					//Possible statuses: none_sent, processing, denied, approved
+					//Possible statuses: none_sent, processing, denied
 					request_status: {
 					    UC_Berkeley: "none_sent",
 					    UC_Santa_Barbara: "none_sent",
