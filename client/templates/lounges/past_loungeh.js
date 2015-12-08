@@ -1,4 +1,4 @@
-Template.pastLounge.events({
+Template.pastLoungeH.events({
 	"click .this-lounge-info": function(event) {
 		$('.lounge-info').toggleClass('display-none');
 		console.log('its working');
