@@ -1,12 +1,23 @@
 <template name="permissions_lounger">
 	<div class="description">
 		<h3>You are a Lounger</h3>
-		<p>Request to become a Host at a Chapter:</p>
 	</div>
 	<div>
-		<button class= "request-btn">Request</button>
+		{{#if statusIs 'processing'}}
+			<p>You're request to become a host is still processing. We hope to have you on board soon!</p>
+		{{else}}
+			{{#if statusIs 'denied'}}
+				<p>You have been denied host privliges.</p>
+			{{else}}
+				<p>Request to become a Host at a Chapter:</p>
+			{{/if}}
+			<div>
+				<button class= "request-btn">Request</button>
+			</div>
+			<div class="update-info display-none">
+				{{> updateInfo}}
+			</div>
+		{{/if}}
 	</div>
-	<div class="update-info display-none">
-		{{> updateInfo}}
-	</div>
+	
 </template>
