@@ -28,11 +28,21 @@ Template.register.events({
 					role: {
 					    UC_Berkeley: "lounger",
 					    UC_Santa_Barbara: "lounger",
-					    UC_Sanat_Cruz: "lounger",
+					    UC_Santa_Cruz: "lounger",
 					    University_of_Colorado_at_Boulder: "lounger",
 					    UC_Los_Angeles: "lounger",
 					    Harvard_University: "lounger",
 					    Independent: "lounger"
+					},
+					//Possible statuses: none_sent, processing, denied, approved
+					request_status: {
+					    UC_Berkeley: "none_sent",
+					    UC_Santa_Barbara: "none_sent",
+					    UC_Santa_Cruz: "none_sent",
+					    University_of_Colorado_at_Boulder: "none_sent",
+					    UC_Los_Angeles: "none_sent",
+					    Harvard_University: "none_sent",
+					    Independent: "none_sent"
 					}
 				}
 			}, function(err){

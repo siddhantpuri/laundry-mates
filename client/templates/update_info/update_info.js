@@ -16,22 +16,24 @@ Template.updateInfo.events({
 		Meteor.users.update( { _id: userId }, { $set: { 'profile.phone': $('#phone').val() }} );
 		Meteor.users.update( { _id: userId }, { $set: { 'profile.primary_chapter': $('#primary-chapter').val() }} );
 		Meteor.users.update( { _id: userId }, { $set: { 'profile.bio': $('#bio').val() }} );
+		
+		var chapter = $('#primary-chapter').val().split(' ').join('_');
+		var updated_request_status = Meteor.users.findOne(userId).profile.request_status;
+		updated_request_status[chapter] = "processing";
+		Meteor.users.update( { _id: userId }, { $set: { 'profile.request_status': updated_request_status}} );
 
 		Requests.insert({
 		type: 'host',
 		request_userId: userId,
-    	chapter: $('#primary-chapter').val(),
-    	first_name: $('#first_name').val(),
-    	last_name: $('#last_name').val(),
-    	email: $('#email').val(),
-    	picture: 'somefile',
-    	phone: $('#phone').val(),
-    	bio: $('#bio').val(),
-    	approved: false
+    	request_chapter: chapter,
+    	request_first_name: $('#first_name').val(),
+    	request_last_name: $('#last_name').val(),
+    	request_email: $('#email').val(),
+    	request_picture: 'somefile',
+    	request_phone: $('#phone').val(),
+    	request_bio: $('#bio').val(),
+    	request_approved: "false"
 		});
-
-		$('.sent').toggleClass('display-none');
-		$('.account-info').toggleClass('display-none');
 
 		return false;
 	}
