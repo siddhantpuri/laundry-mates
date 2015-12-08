@@ -27,7 +27,7 @@ Template.permissionItem.events({
 		
 		
 		var updated_request_status = Meteor.users.findOne(request_userId).profile.request_status;
-		updated_request_status[chapter] = "processing";
+		updated_request_status[chapter] = "unapproved";
 		Meteor.users.update(request_userId, { $set: { 'profile.request_status': updated_request_status}} );
 	},
 

@@ -9,6 +9,6 @@ Template.permissions.helpers({
 
 Template.permissions.events({
 	"submit .change-chapter-form": function(event){
-		Meteor.users.update( { _id: userId }, { $set: { 'profile.primary_chapter': $('#primary-chapter').val() }} );
+		Meteor.users.update( { _id: userId }, { $set: { 'profile.primary_chapter': $('#primary-chapter').val().split(' ').join('_') }} );
 	}
 });

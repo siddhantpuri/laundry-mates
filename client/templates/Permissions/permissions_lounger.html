@@ -3,21 +3,24 @@
 		<h3>You are a Lounger</h3>
 	</div>
 	<div>
-		{{#if statusIs 'processing'}}
-			<p>You're request to become a host is still processing. We hope to have you on board soon!</p>
+		{{#if statusIs 'unapproved'}}
+			<p class="unapproved"> Your Host Privleges have been revoked. Please contact your chapter leaders for clarification</p>
 		{{else}}
-			{{#if statusIs 'denied'}}
-				<p>You have been denied host privliges.</p>
+			{{#if statusIs 'processing'}}
+				<p class="processing"> Your request to become a host is processing. Check back soon! You can contact your chapter leaders if you have any questions. </p>
 			{{else}}
-				<p>Request to become a Host at a Chapter:</p>
+				{{#if statusIs 'denied'}}
+					<p class="denied">Your Request To Become A Host Has Been Denied. Please contact your chapter leaders for clarification</p>
+				{{else}}
+					<p>Request to become a Host at a Chapter:</p>
+				{{/if}}
+				<div>
+					<button class= "request-btn">Request</button>
+				</div>
+				<div class="update-info display-none">
+					{{> updateInfo}}
+				</div>
 			{{/if}}
-			<div>
-				<button class= "request-btn">Request</button>
-			</div>
-			<div class="update-info display-none">
-				{{> updateInfo}}
-			</div>
 		{{/if}}
 	</div>
-	
 </template>
