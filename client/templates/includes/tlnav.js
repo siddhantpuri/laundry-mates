@@ -22,6 +22,10 @@ Template.tlnav.events({
 		$('.mobile-tl-nav').toggleClass('display-none');
 		$('.mobile-icon-menu').toggleClass('big-margin-right')
 	},
+	"click .close-mob-nav": function(event){
+		$('.mobile-tl-nav').toggleClass('display-none');
+		$('.mobile-icon-menu').toggleClass('big-margin-right')
+	},
 	"click .mob-folder-wrapper-login": function(event){
 		$('.folder-child-login').toggleClass('display-none');
 		$('.folder-child-tl-now, .folder-child-about, .folder-child-be-involved, .folder-child-initiatives, .folder-child-chapters').addClass('display-none');
@@ -45,7 +49,7 @@ Template.tlnav.events({
 	"click .mob-folder-wrapper-about": function(event){
 		$('.folder-child-about').toggleClass('display-none');
 		$('.folder-child-tl-now, .folder-child-login, .folder-child-be-involved, .folder-child-initiatives, .folder-child-chapters').addClass('display-none');
-	},
+	}
 });
 
 /* DESKTOP NAV EVENTS

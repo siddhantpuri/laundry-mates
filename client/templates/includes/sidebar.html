@@ -1,11 +1,22 @@
 <template name="sidebar">
 <div id="left">
-  	<ul id="vert_nav">
-    <li id="vert_nav_item"><a href="/my-upcoming-lounges" id="vert_nav_item">UPCOMING TLS</a></li>
-    <li id="vert_nav_item"><a href="/my-past-lounges" id="vert_nav_item">PAST TLS</a></li>
-    <li id="vert_nav_item"><a href="/my-permissions" id="vert_nav_item">PERMISSIONS</a></li>
-    <li id="vert_nav_item"><a href="/my-profile" id="vert_nav_item">PROFILE</a></li>
-    <li id="vert_nav_item"><a href="/my-settings" id="vert_nav_item"><li id="vert_nav_item"><a href="/account-info" id="vert_nav_item">SETTINGS</a></li></a></li>
-  </ul>
+  	<ul class="vert_nav">
+	    <a href="/my-upcoming-lounges">
+	    	<li class="vert_nav_item">UPCOMING TLS</li>
+	    </a>
+	    <a href="/my-past-lounges">
+	    	<li class="vert_nav_item">PAST TLS</li>
+	    </a>
+	    <a href="/my-permissions">
+	    	<li class="vert_nav_item">PERMISSIONS</li>
+	    </a>
+	    <a href="/my-profile">
+	    	<li class="vert_nav_item">PROFILE</li>
+	    </a>
+	    <a href="/my-settings">
+	    	<li class="vert_nav_item">SETTINGS</li>
+	    </a>
+  	</ul>
+  	{{> createBtn}}
 </div> 
 </template>
