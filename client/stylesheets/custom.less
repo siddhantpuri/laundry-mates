@@ -18,7 +18,8 @@ body#form_layout {
 .main-title {
 	text-align: center;
 	font-family: 'Sarala';
-	font-size: 3.5em
+	font-size: 3.5em;
+	margin-bottom: .5em;
 }
 
 #home-logo {
@@ -45,6 +46,38 @@ body#form_layout {
 		margin-bottom:3px;
 		margin-top: 1em
 	}	
+}
+
+.doatl-button {
+	background-color:#39bdee;
+	border-radius:5px;
+	border:2px solid #39bdee;
+	color: white;
+	width:7em;
+	display: inline-block;
+	text-align: center;
+	padding: 4px;
+	cursor: pointer;
+	&:hover {
+		background-color:white;
+		color:#39bdee
+	}
+}
+
+.create-button {
+	background-color:#39eec5;
+	border-radius:5px;
+	border:2px solid #39eec5;
+	color: white;
+	width: 11em;
+	display: inline-block;
+	text-align: center;
+	padding:4px;
+	cursor: pointer;
+	&:hover {
+		background-color:white;
+		color:#39eec5
+	}
 }
 
 /* LOUNGES
@@ -86,6 +119,14 @@ body#form_layout {
     	border-radius: 6px;
     }
 }
+
+.doatl-lounge-host {
+	cursor: pointer;
+	&:hover {
+		opacity: .5;
+	}
+}
+
 .lounge-loc {
     margin-left: 18%;
     text-align: center;
@@ -171,7 +212,18 @@ body#form_layout {
 			color: #da7a7a;
 		}
 	}
+	.do-this-tl-btn {
+	    width: 87%;
+	    font-size: 2em;
+	    background-color: #39eec5;
+	    border-radius: 8px;
+	    &:hover {
+	    	background-color:white;
+	    	color: #39eec5;
+	    }
+	}
 } 
+
 
 .contact-host-div {
 	text-align: center;
@@ -376,11 +428,13 @@ img.mob-home-button {
 }
 li#mob-nav-login-button {
     border-bottom: 1px solid white;
-    color: #39eec5
+    color: #39bdee;
+    font-size: 2em;
 }
 li#mob-nav-doatl-button {
     border-bottom: 1px solid white;
-    color: #39bdee
+    color: #39eec5;
+    font-size: 2em;
 }
 .folder-wrapper {
     padding-left: 0px;
@@ -400,7 +454,8 @@ img#icon-menu-img {
 	z-index: 1000
 }
 .mob-login-button {
-	color: #39eec5 !important;
+	color: #39bdee !important;
+	font-size: 2em !important;
 }
 .mob-login-item {
 	&:hover {
@@ -441,11 +496,11 @@ img#icon-menu-img {
 	}
 }
 .grey {
-	color: black !important
+	color: #3c3c3c !important
 }
 .folder-child-login.folder-child {
     top: 5.3em;
-    right: 6.6em;
+    right: 10.3em;
 }
 .tlnav {
 	background-color: transparent;
@@ -552,10 +607,10 @@ img#icon-menu-img {
 		}
 		#nav-doatl-button, #nav-login-button {
 			float: right;
-			color: #39bdee;
 		}
 		#nav-doatl-button {
-			border: 2px solid #39bdee;
+			border: 2px solid #39eec5;
+			color: #39eec5;
 			border-radius: 3px;
 			border-radius: 3px;
 		    padding-top: 2px;
@@ -563,15 +618,16 @@ img#icon-menu-img {
 		    padding-left: 4px;
 		    padding-right: 4px;
 			&:hover {
-				background-color: #39bdee;
+				background-color: #39eec5;
 				opacity: .7;
 				color: white;
 			}
 		}
 		#nav-login-button {
 			padding-top:7px;
+			color: #39bdee;
 			&:hover {
-				color: black
+				color: #3c3c3c;
 			}
 		}
 	}
@@ -590,65 +646,70 @@ img#icon-menu-img {
 		display:none
 	}
 }
-ul#vert_nav {
-    padding: 10px;
-    border-radius: 5px;
-    line-height: 2em;
-	    a {
-	    color: #39bdee;
-	    text-decoration: none;
-	    font-size: 1.2em;
-	    &:hover {
-	    	background-color: none;
-	    	opacity: .7
-	    }
-	}
+ul.vert_nav {
+    background-color: #f1f1f1;
+    border-radius: 10px;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    text-align: center;
+    padding-left: 0px;
+    font-size: 1.1em;
+    li {
+    	line-height: 1.5em;
+    	color:#39bdee;
+    	&:hover {
+    		opacity: .5;
+    	}
+    }
 }
 
 #left {
   float: left;
-  width: 15%;
   overflow: hidden;
-  width: 13em;
-  margin-top:6em;
+  width: 12em;
+  margin-top:7em;
+  a {
+  	text-decoration: none !important;
+  }
 }
 
 #right {
   overflow: hidden;
+  margin-right: 9em;
+}
+@media only screen and (max-width: 768px) {
+	#right {
+		margin-right: auto;
+	}
 }
 
-#vert_nav {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    width: 200px;
-    background-color: #f1f1f1;
-}
-
-#vert_nav_item {
-    display: block;
-    color: #000;
-    text-decoration: none;
+.create-sb-btn {
+    background-color: #39eec5;
+    border-radius: 5px;
+    border: 2px solid #39eec5;
+    color: white;
+    text-align: center;
+    padding: 4px;
+    cursor: pointer;
+    font-size: 1.1em;
+    &:hover {
+    	color: #39eec5;
+    	background-color: white;
+    }
 }
 
 
 /* UPCOMING LOUNGES PAGE
 ---------------------------------------*/
-.doatl-button {
-	background-color:#39bdee;
-	border-radius:5px;
-	border:2px solid #39bdee;
-	color: white;
-	width:7em;
-	display: inline-block;
-	text-align: center;
-	padding: 4px;
-	cursor: pointer;
-	&:hover {
-		background-color:white;
-		color:#39bdee
-	}
-}
+
+
+/* DO A TL PAGE 
+-----------------------------*/
+
+
+
+/* CREATE LOUNGE PAGE 
+-------------------------------*/
 
 .url-desc {
 	margin-bottom: 0px !important;
@@ -733,21 +794,6 @@ p.sub-desc-input {
 	}
 }
 
-.create-button {
-	background-color:#39eec5;
-	border-radius:5px;
-	border:2px solid #39eec5;
-	color: white;
-	width: 11em;
-	display: inline-block;
-	text-align: center;
-	padding:4px;
-	cursor: pointer;
-	&:hover {
-		background-color:white;
-		color:#39eec5
-	}
-}
 .cancel-create-button {
 	background-color:#F25B5B;
 	border-radius:5px;
@@ -769,7 +815,7 @@ p.sub-desc-input {
 	background: #39eec5;
     border: #39eec5;
     color: white;
-    width: 73%
+    width: 100%;
 }
 
 .doatl-create-buttons-wrapper {
