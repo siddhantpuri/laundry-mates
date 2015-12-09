@@ -38,3 +38,7 @@ Template.registerHelper('request_status', function() {
 Template.registerHelper('IsSuperAdmin', function() {
     return Meteor.user().profile.role.IsSuperAdmin;
 });
+
+Template.registerHelper('allChapters', function() {
+    return Chapters.find();
+});

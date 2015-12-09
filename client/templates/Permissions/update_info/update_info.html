@@ -17,13 +17,11 @@
         <p>Phone (note: this is so that your Host can find you if you get lost on the way to the TL. Noone else can see it)</p>
         <input type="text" id="phone" name="phone" class="form-control" value="{{#if phone}}{{phone}}{{/if}}" placeholder="e.g. (619)123-4566" autofocus>
         <p>Where do you want to be a Host?</p>
-	   <select id="primary-chapter" name="primary-chapter">
-		  <option value="{{#if primaryChapter}}{{primaryChapter}}{{else}}Select Primary Chapter{{/if}}">{{#if primaryChapter}}{{primaryChapter}}{{else}}Select Primary Chapter{{/if}}</option>
-		  <option value="UC Berkeley">UC Berkeley</option>
-		  <option value="UCLA">UCLA</option>
-		  <option value="UCSB">UCSB</option>
-		  <option value="N/A">N/A</option>
-		  <option value="Other">Other</option>
+		<select id="primary-chapter" name="primary-chapter" placeholder="Select a Different Chapter">
+		 	<option value="{{#if primaryChapter}}{{primaryChapter}}{{else}}Select Primary Chapter{{/if}}">{{#if primaryChapter}}{{primaryChapter}}{{else}}Select Primary Chapter{{/if}}</option> 
+			{{#each allChapters}}
+    			<option value= {{name}}>{{spaced_name}}</option> 
+			{{/each}}
 		</select>
         <p>Your Bio</p>
         <textarea id="bio" rows="5" cols="56">{{#if bio}}{{bio}}{{else}}Introduce yourself! What's your story? What might you talk about?{{/if}}</textarea>

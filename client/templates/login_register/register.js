@@ -8,7 +8,6 @@ Template.register.events({
 		var phone = trimInput(event.target.phone.value);
 		var primary_chapter = event.target.primary_chapter.value;
 		
-		
 
 		if(isNotEmpty(email) && 
 			isNotEmpty(password) && 
@@ -26,25 +25,10 @@ Template.register.events({
 					phone: phone,
 					primary_chapter: primary_chapter,
 					role: {
-					    UC_Berkeley: "lounger",
-					    UC_Santa_Barbara: "lounger",
-					    UC_Santa_Cruz: "lounger",
-					    University_of_Colorado_at_Boulder: "lounger",
-					    UC_Los_Angeles: "lounger",
-					    Harvard_University: "lounger",
-					    Independent: "lounger",
 					    IsSuperAdmin: ""
 					},
 					//Possible statuses: none_sent, processing, denied
-					request_status: {
-					    UC_Berkeley: "none_sent",
-					    UC_Santa_Barbara: "none_sent",
-					    UC_Santa_Cruz: "none_sent",
-					    University_of_Colorado_at_Boulder: "none_sent",
-					    UC_Los_Angeles: "none_sent",
-					    Harvard_University: "none_sent",
-					    Independent: "none_sent"
-					}
+					request_status: {}
 				}
 			}, function(err){
 				if(err){

@@ -42,12 +42,12 @@
 				<div class="lounge-info display-none">
 					<form class="create-form standard-form">
 					   <p>Chapter</p>
-					   <select name="select-a-chapter">
-						  <option value="indy-host">Host Independently of a Chapter</option>
-						  <option value="uc-berkeley">UC Berkeley</option>
-						  <option value="ucla">UCLA</option>
-						  <option value="ucsb">UCSB</option>
-						</select>
+						<select id="primary-chapter" name="select-a-chapter" placeholder="Select a Different Chapter">
+				 		<option value="{{#if primaryChapter}}{{primaryChapter}}{{else}}Select Primary Chapter{{/if}}">{{#if primaryChapter}}{{primaryChapter}}{{else}}Select Primary Chapter{{/if}}</option> 
+        				{{#each allChapters}}
+            				<option value= {{name}}>{{spaced_name}}</option> 
+        				{{/each}}
+        				</select>
 						<p>Type of Lounge</p>
 					    <div class="sel-div">
 						    <select name="type-of-lounge" class="type-of-lounge">

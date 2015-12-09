@@ -1,0 +1,7 @@
+<template name= "chapters_drop_down">
+	<select id="primary_chapter" name="primary_chapter" class="form-control" placeholder="Select a Primary Chapter"> 
+        {{#each all_chapters}}
+        	<option value= {{name}}>{{name}}.split('_').join(' ')</option> 
+        {{/each}}
+	</select>
+</template>

@@ -16,15 +16,10 @@
         <br>
         <p class='text-left'>Optional:</p>
         <input type="text" id="phone" name="phone" class="form-control" placeholder="Phone (in case you get lost)" >
-        <select id="primary_chapter" name="primary_chapter" class="form-control" placeholder="Select a Primary Chapter">
-            <option value="Error">Select a Primary Chapter</option>
-            <option value="UC Berkeley">UC Berkeley</option>
-            <option value="UC Santa Barbara">UC Santa Barbara</option>
-            <option value="UC Santa Cruz">UC Santa Cruz</option>
-            <option value="University of Colorado at Boulder">University of Colorado at Boulder</option>
-            <option value="UC Los Angeles">UC Los Angeles</option>
-            <option value="Harvard University">Harvard University</option>
-            <option value="General">N/A</option>
+        <select id="primary_chapter" name="primary_chapter" class="form-control" placeholder="Select a Primary Chapter"> 
+        {{#each allChapters}}
+            <option value= {{name}}>{{spaced_name}}</option> 
+        {{/each}}
         </select>
         <br>
         <input type="checkbox" name="remember_me" value="True">  Remember Me
