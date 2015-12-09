@@ -1,7 +1,8 @@
 <template name= "chapters_drop_down">
-	<select id="primary_chapter" name="primary_chapter" class="form-control" placeholder="Select a Primary Chapter"> 
-        {{#each all_chapters}}
-        	<option value= {{name}}>{{name}}.split('_').join(' ')</option> 
-        {{/each}}
-	</select>
+	<select id="primary-chapter" name="select-a-chapter" placeholder="Select a Different Chapter">
+		 	<option value="{{#if primaryChapter}}{{primaryChapter}}{{else}}Select Primary Chapter{{/if}}">{{#if primaryChapter}}{{primaryChapter}}{{else}}Select Primary Chapter{{/if}}</option> 
+			{{#each allChapters}}
+    			<option value= {{name}}>{{spaced_name}}</option> 
+			{{/each}}
+		</select>
 </template>
