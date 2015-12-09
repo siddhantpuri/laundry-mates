@@ -1,0 +1,17 @@
+<template name="settingsItem">
+	<div class="settings-item">
+	<h2 class="chapter-settings">Chapter Specific Settings</h2>
+	<div class="select-ch-specific-settings">
+		<!-- the select template should replace everything INSIDE this div -->
+		<select name="select-a-chapter">
+		  <option value="uc-berkeley">UC Berkeley</option>
+		  <option value="ucla">UCLA</option>
+		  <option value="ucsb">UCSB</option>
+		</select>
+	</div>
+	<input type="checkbox" name="chapter-weekly-lounges" value="Weekly Email?" checked> 
+	<p class="settings-option">I would like to receive an email once a week-ish informing me of the upcoming Thought Lounges at [SELECTED CHAPTER NAME] for the next week (again, ish).</p><br><br>
+	<input type="checkbox" name="chapter-updates" value="Newsletter?" checked> <p class="settings-option">I would like to receive a monthly-ish email about [SELECTED CHAPTER NAME]'s upcoming events such as parties and volunteer opportunities (like hosting TL Sessions at Senior Homes, Primary Schools, and Juvenile Detention Facilities).</p> <br>
+	</div>
+</template>
+

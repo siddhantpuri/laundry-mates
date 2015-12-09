@@ -1,8 +1,8 @@
 <template name="permissions">
-	<div class="container">
-		<h1>My Permissions for {{primaryChapter}}</h1>
+	<div class="container axel-container">
+		<h1 class="permission-header">My Permissions for {{primaryChapter}}</h1>
 		<div>
-			<h3>Change Chapter</h3>
+			<h3>View Permissions For A Different Chapter</h3>
 			<form class="change-chapter-form standard-form">
 				<select id="primary-chapter" name="primary-chapter">
 				  <option value="{{#if primaryChapter}}{{primaryChapter}}{{else}}Select Primary Chapter{{/if}}">{{#if primaryChapter}}{{primaryChapter}}{{else}}Select Primary Chapter{{/if}}</option>
