@@ -100,8 +100,7 @@ body#form_layout {
 .lounge-wrapper-inner {
     margin: 0px auto;
     margin-bottom: 1em;
-    background-color: hsla(44, 84%, 58%, 0.26);
-    border: 1px solid;
+    border: 3px solid #39bdee;
     border-radius: 10px;
     width: 90%;
     max-width: 565px;
@@ -109,7 +108,6 @@ body#form_layout {
 }
 
 .lounge-date-host-loc {
-    margin-top: .5em;
     padding-top: .5em;
     margin-bottom: 1.5em;
 }
@@ -118,10 +116,11 @@ body#form_layout {
     margin-left: .6em;
 	float: left;
     display: inline-block;
-    border: 1px solid black;
+    border: 2px solid #39bdee;
     border-radius: 6px;
     padding: 5px 8px 7px;
     text-align: center;
+    color: #39bdee;
 }
 
 .lounge-host {
@@ -147,23 +146,24 @@ body#form_layout {
     text-align: center;
     margin-right: 23.5%;
     padding-top: 14px;
+    color: black;
 }
 
 .lounge-spots-buttons {
-    margin-top: 0.5em;
+    margin-top: 2.5em;
 	text-align: center;
 	margin-bottom: .5em;
 }
 
 .lounge-spots {
-    margin-top: 0.6em;
+    margin-top: -.4em;
     margin-left: 1em;
     float: left;
     text-align: left;
     p {
     	margin-bottom:2px;
     	margin-left:13px;
-    	color: #e08282;
+    	color: #545454;
     	font-size: 15px;
     }
     img {
@@ -171,6 +171,17 @@ body#form_layout {
     	display: inline-block;
     }
 }  
+
+@media only screen and (max-width: 992px) {
+	.lounge-spots {
+		margin-top: -1.4em;
+	}
+}
+@media only screen and (max-width: 768px) {
+	.lounge-spots {
+		margin-top: -.4em;
+	}
+}
 
 .lounge-buttons {
     width:100%;
@@ -309,11 +320,6 @@ body#form_layout {
 	.lounge-loc {
 		margin-left: 29%;
 		margin-right: 29.5%;
-	}
-}
-@media only screen and (max-width: 580px) {
-	.lounge-spots {
-		margin-top: -1.4em;
 	}
 }
 
@@ -642,7 +648,7 @@ img#icon-menu-img {
 		#nav-login-button {
 			padding-top:5px;
 			color: #39bdee;
-			font-size: 15px;
+			font-size: 14px;
 			&:hover {
 				color: #3c3c3c;
 			}
@@ -726,7 +732,23 @@ ul.vert_nav {
 
 /* DO A TL PAGE 
 -----------------------------*/
+.doatl-select-wrapper {
+	font-size: 2em;
+	margin-bottom: .5em;
+    margin-top: 0px;
+    text-align: center;
+}
+.select-where {
+	margin-bottom: 0px;
+	text-align: center;
+}
 
+.select-when {
+	text-align: center;
+}
+.doatl-main-title {
+	margin-bottom: 0px
+}
 
 
 /* CREATE LOUNGE PAGE 
@@ -939,6 +961,11 @@ select#primary-chapter {
 }
 .description, .pending_admin_permission_list {
 	margin-top: 20px
+}
+
+.approved_admin_permission_list h3, .pending_superadmin_permission_list h3, 
+.approved_superadmin_permission_list h3 {
+	margin-top:0px;
 }
 
 /* PROFILE PAGE 
