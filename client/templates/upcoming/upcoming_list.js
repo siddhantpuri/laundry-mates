@@ -1,15 +1,15 @@
 Template.upcomingList.helpers({
   upcoming_lounges: function() {
   	var currentdate = new Date();
-    return Lounges.find({lounge_participants: Meteor.userId(), 
-    					           lounge_date: {$gt: currentdate}});
+    return Lounges.find({lounge_participants: Meteor.userId()/*, 
+    					           lounge_date: {$gt: currentdate}*/});
     
   },
 
   are_upcoming_lounges: function() {
     var currentdate = new Date();
-    return Lounges.find({lounge_participants: Meteor.userId(), 
-                         lounge_date: {$gt: currentdate}}).fetch();
+    return Lounges.find({lounge_participants: Meteor.userId()/*, 
+                         lounge_date: {$gt: currentdate}*/}).fetch();
     
   },
 

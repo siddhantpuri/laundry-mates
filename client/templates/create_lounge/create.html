@@ -2,15 +2,15 @@
 	<div class="create">
 		<form class="create-form og-create-form standard-form">
 		   <p>Select a Chapter</p>
-		   <select name="select-a-chapter">
-			  <option value="indy-host">Host Independently of a Chapter</option>
-			  <option value="uc-berkeley">UC Berkeley</option>
-			  <option value="ucla">UCLA</option>
-			  <option value="ucsb">UCSB</option>
+		   <select id="select-a-chapter" name="select-a-chapter" placeholder="Select a Different Chapter">
+		 		<option value="{{#if primaryChapter}}{{primaryChapter}}{{else}}Select Primary Chapter{{/if}}">{{#if primaryChapter}}{{primaryChapter}}{{else}}Select Primary Chapter{{/if}}</option> 
+				{{#each allChapters}}
+	    			<option value= {{name}}>{{spaced_name}}</option> 
+				{{/each}}
 			</select>
 			<p>Select Type of Lounge</p>
 		    <div class="sel-div">
-			    <select name="type-of-lounge" class="type-of-lounge">
+			    <select id="type-of-lounge" name="type-of-lounge" class="type-of-lounge">
 				  <option value="tl-session" class="not-other">TL Session</option>
 				  <option value="music-lounge" class="not-other">Music Lounge</option>
 				  <option value="other" class="other">Other</option>
@@ -23,7 +23,7 @@
 				<p class="sub-desc-input">(hint: create a <i>public</i> Google Doc and get the "share" link from that)</p>
 				<input type="url" id="url" class="form-control middle-input" name="url" placeholder="http://..." autofocus>
 				<p class="number-of-loungers">Total Number of Loungers (only if 'Type of Lounge' is 'Other')</p>
-				<input type="number" name="number-of-longers" value="6" min="1" max="100">
+				<input type="number" id="number-of-loungers" name="number-of-loungers" value="6" min="1" max="100">
 			</div>
 		    <div class="create-form-date">
 		    <p>Date of Lounge</p>
