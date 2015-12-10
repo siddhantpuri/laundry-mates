@@ -1,6 +1,16 @@
 <template name="pastList">
 	<div class="upcomingList">
-		{{> pastLounge}}
-		{{> pastLoungeH}}
+		{{#if are_past_lounges}}
+			{{#each past_lounges}}
+				{{#if isHost}}
+					{{> pastLoungeH}}
+				{{else}}
+					{{> pastLounge}}
+				{{/if}}
+			{{/each}}
+		{{else}}
+			<h3>You have not hosted or attended any Thought Lounges yet!</h3>
+			{{> doatlBtn}}
+		{{/if}}
 	</div>
 </template>

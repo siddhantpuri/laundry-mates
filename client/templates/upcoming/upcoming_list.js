@@ -1,6 +1,20 @@
 Template.upcomingList.helpers({
-  lounges: function() {
-    return Lounges.find();
+  upcoming_lounges: function() {
+  	var currentdate = new Date();
+    return Lounges.find({lounge_participants: Meteor.userId(), 
+    					           lounge_date: {$gt: currentdate}});
+    
+  },
+
+  are_upcoming_lounges: function() {
+    var currentdate = new Date();
+    return Lounges.find({lounge_participants: Meteor.userId(), 
+                         lounge_date: {$gt: currentdate}}).fetch();
+    
+  },
+
+  isHost: function() {
+  	return Meteor.userId() == Lounges.findOne(this._id).lounge_host;
   }
 });
 

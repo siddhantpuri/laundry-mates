@@ -26,15 +26,15 @@ Meteor.methods({
 
 Requests.allow({
   insert: function (userId, doc) {
-    // the user must be logged in, and the document must be owned by the user
+    // the user must be logged in
     return (userId);
   },
   update: function (userId, doc, fields, modifier) {
-    // can only change your own documents
+    // the user must be logged in
     return (userId);
   },
   remove: function (userId, doc) {
-    // can only remove your own documents
+    // the user must be logged in
     return (userId);
   },
   fetch: ['owner']
@@ -42,11 +42,26 @@ Requests.allow({
 
 Meteor.users.allow({
  insert: function (userId, doc) {
-    // the user must be logged in, and the document must be owned by the user
+    // the user must be logged in
     return (userId);
   },
   update: function (userId, doc, fields, modifier) {
-    // can only change your own documents
+    // the user must be logged in
+    return (userId);
+  }
+});
+
+Lounges.allow({
+  insert: function (userId, doc) {
+    // the user must be logged in
+    return (userId);
+  },
+  update: function (userId, doc, fields, modifier) {
+    // the user must be logged in
+    return (userId);
+  },
+  remove: function (userId, doc) {
+    // the user must be logged in
     return (userId);
   }
 });

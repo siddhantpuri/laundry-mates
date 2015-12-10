@@ -1,9 +1,16 @@
 <template name="upcomingList">
 	<div class="upcomingList">
-		{{> upcomingLounge}}
-		{{> upcomingLoungeH}}
-		{{#each lounges}}
-			{{> upcomingItem}}
-		{{/each}}
+		{{#if are_upcoming_lounges}}
+			{{#each upcoming_lounges}}
+				{{#if isHost}}
+					{{> upcomingLoungeH}}
+				{{else}}
+					{{> upcomingLounge}}
+				{{/if}}
+			{{/each}}
+		{{else}}
+			<h3>You have not signed up for any Thought Lounges yet!</h3>
+			{{> doatlBtn}}
+		{{/if}}
 	</div>
 </template>
