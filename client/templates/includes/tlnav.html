@@ -16,8 +16,9 @@
           <li id="mob-nav-doatl-button" class="close-mob-nav">DO.A.TL
           </li>
         </a>
+        {{#if currentUser}}
         <ul class="mob-folder-wrapper-login folder-wrapper">
-          <li class="mob-login-button">&nbsp; &nbsp; + Vivian &nbsp; &nbsp; &nbsp;</li>
+          <li class="mob-login-button">&nbsp; &nbsp; + {{firstName}} &nbsp; &nbsp; &nbsp;</li>
           <div class="folder-child-login folder-child display-none">
             <a href="/my-upcoming-lounges"><li class="chapters-button mob-login-item close-mob-nav">UPCOMING TLS</li></a>
             <a href="/my-past-lounges"><li class="login-button mob-login-item close-mob-nav">PAST TLS</li></a>
@@ -27,8 +28,13 @@
             <a href="#"><li class="login-button mob-login-item logout-btn close-mob-nav" role="presentation">LOGOUT</li></a>
           </div>
         </ul>
+        {{else}}
+        <ul class="mob-wrapper-logged-out folder-wrapper">
+          <a href="/"><li class="mob-login-button">&nbsp; &nbsp; Login &nbsp; &nbsp; &nbsp;</li></a>
+        </ul>
+        {{/if}}
         <ul class="mob-folder-wrapper-chapters folder-wrapper">
-          <li id="chapters-button" class="chapters-button">&nbsp; &nbsp; + CHAPTERS &nbsp; &nbsp; &nbsp;</li>
+          <li id="chapters-button" class="chapters-button">+ &nbsp; &nbsp; CHAPTERS &nbsp; &nbsp; &nbsp;</li>
           <div class="folder-child-chapters folder-child display-none">
             <a href="http://m1tlwebdev.squarespace.com/404-error"><li class="chapters-button mob-chapters-item">UC Berkeley</li></a>
             <a><li class="chapters-button mob-chapters-item">UCLA</li></a>
@@ -86,8 +92,9 @@
     <ul class="nav-text">
       <a href="/doatl"><li id="nav-doatl-button">DO.A.TL</li></a>
       <span class="folder-wrapper-login">
-      <li id="nav-login-button">Vivian</li>
-      <div class="folder-child-login folder-child display-none">
+        {{#if currentUser}}
+        <li id="nav-login-button">{{firstName}}</li>
+        <div class="folder-child-login folder-child display-none">
           <a href="/my-upcoming-lounges"><li class="tl-login-button">UPCOMING TLS</li></a>
           <a href="/my-past-lounges"><li class="tl-login-button">PAST TLS</li></a>
           <a href="/my-permissions"><li class="tl-login-button">PERMISSIONS</li></a>
@@ -95,6 +102,9 @@
           <a href="/my-settings"><li class="tl-login-button">SETTINGS</li></a>
           <a href="#"><li class="tl-login-button logout-btn">LOGOUT</li></a>
         </div>
+        {{else}}
+        <a href="/"><li id="nav-logged-out-button">LOGIN</li></a>
+        {{/if}}
       </span>
     </ul>
     <ul class="nav-lower-text">
