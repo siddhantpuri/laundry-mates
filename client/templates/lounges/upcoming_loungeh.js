@@ -1,6 +1,6 @@
 Template.upcomingLoungeH.events({
 	"click .this-lounge-info": function(event) {
-    var id = this._id
+    var id = this._id;
 		$('#' + id).toggleClass('display-none');
     //$('#' + id).hide();
 		console.log('its working');

@@ -1,6 +1,18 @@
 <template name="doatlList">
 	<div class="upcomingList">
 		<h2 class="select-when">Select When...</h2>
-		{{> doatlLounge}}
+		{{#if are_doatl_lounges}}
+			{{#each doatl_lounges}}
+				{{#if isHost}}
+					<br>
+					<p> You are hosting this lounge </p>
+					{{> doatlLounge}}
+				{{else}}
+					{{> doatlLounge}}
+				{{/if}}
+			{{/each}}
+		{{else}}
+			<p>There are no upcoming lounges for this chapter! You should create one! If you are not yet a host, you can request host status in the Permissions page.</p>
+		{{/if}}
 	</div>
 </template>
