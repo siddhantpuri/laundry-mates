@@ -1,9 +1,4 @@
-Template.create.events({
-	"click .cancel-create-button": function(event) {
-		$('.create-template').addClass('display-none');
-		console.log('cancel is working')
-	},
-
+Template.lounge_info_btn.events({
 	"submit .create-form": function(event){
 
 		function participantArray() {
@@ -101,3 +96,19 @@ Template.create.events({
 		return false;
 	}
 });
+
+
+
+Template.lounge_info_btn.helpers({
+	participant1n: function() {
+  	var participantId = Lounges.findOne(this._id).lounge_host
+  	return Meteor.users.findOne({_id:participantId}).profile.first_name;
+  }
+
+});
+
+
+
+
+
+

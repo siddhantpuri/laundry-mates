@@ -2,7 +2,7 @@ Template.pastList.helpers({
   past_lounges: function() {
   	var currentdate = new Date();
     return Lounges.find({lounge_participants: Meteor.userId(), 
-    					 lounge_date: {$lt: currentdate}});
+    					 lounge_date: {$lt: currentdate}}, {sort: { lounge_date: -1 }});
     
   },
 

@@ -4,3 +4,10 @@ Template.upcomingLounge.events({
 		console.log('its working');
 	}
 });
+
+Template.upcomingLounge.helpers({
+  host_name: function() {
+  	var hostId = Lounges.findOne(this._id).lounge_host
+  	return Meteor.users.findOne({_id:hostId}).profile.first_name;
+  }
+});

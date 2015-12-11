@@ -6,8 +6,15 @@ Meteor.startup(function() {
 
         return Requests.remove({});
 
+      },
+      
+      removeAllLounges: function() {
+
+        return Lounges.remove({});
+
       }
 
     });
 
   });
+  

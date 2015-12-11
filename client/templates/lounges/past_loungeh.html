@@ -6,34 +6,30 @@
 					<div class="lounge-date-host-loc-inner">
 						<div class="lounge-date">
 							<div class="lounge-day">
-						    Saturday,
+						    {{lounge_day}},
 						  </div>
 						  <div class="lounge-time">
-						    12:25 PM
+						    {{lounge_time}}
 						  </div>
 						  <div class="lounge-date-numbers">
-						    12/12/1993
+						    {{lounge_date_numbers}}
 						  </div>
 						</div>
 					</div>
 					<div class="lounge-host">
 						 <img class="host-img" src="https://static1.squarespace.com/static/56395a91e4b0e877f7abcb75/t/56634898e4b02fb599039420/1449347225210/VivianLiu.jpg?format=300w" alt="">
-  					<p>Host: Vivian</p>
+  					<p>Host: {{host_name}}</p>
 					</div>
 					<div class="lounge-loc">
-						HOST PAST LOUNGES(El Gallito 4582, Ñuñoa, Región Metropolitana, Chile)
+						{{lounge_location}}
+						{{#if lounge_address}}
+							{{lounge_address}}, {{lounge_city}}, {{lounge_state}}, {{lounge_zipcode}}
+						{{else}}
+						{{/if}}
 					</div>
 				</div>
 				<div class="lounge-spots-buttons">
-					<div class="lounge-spots">
-						<p>6 people went to this Lounge</p>
-						<img src="http://i65.tinypic.com/2rqhkp3.jpg" alt="">
-						<img src="http://i65.tinypic.com/2rqhkp3.jpg" alt="">
-						<img src="http://i63.tinypic.com/f1kuv7.jpg" alt="">
-						<img src="http://i63.tinypic.com/f1kuv7.jpg" alt="">
-						<img src="http://i63.tinypic.com/f1kuv7.jpg" alt="">
-						<img src="http://i63.tinypic.com/f1kuv7.jpg" alt="">
-					</div>
+					{{> bubbles}}
 					<div class="lounge-buttons">
 						<div class="this-lounge-info">Lounge Info
 						</div>
