@@ -1,5 +1,5 @@
 <template name="lounge_info_form">	
-	<form class="create-form standard-form">
+	<form class="create-form standard-form update-lounge">
 	   <p>Chapter</p>
 		<select id="primary-chapter" name="select-a-chapter" placeholder="Select a Different Chapter">
  		<option value="{{#if primaryChapter}}{{primaryChapter}}{{else}}Select Primary Chapter{{/if}}">{{#if primaryChapter}}{{primaryChapter}}{{else}}Select Primary Chapter{{/if}}</option> 
@@ -9,7 +9,7 @@
 		</select>
 		<p>Type of Lounge</p>
 	    <div class="sel-div">
-		    <select name="type-of-lounge" class="type-of-lounge">
+		    <select id="type-of-lounge" name="type-of-lounge" class="type-of-lounge">
 			  <option value="tl-session" class="not-other">TL Session</option>
 			  <option value="music-lounge" class="not-other">Music Lounge</option>
 			  <option value="other" class="other">Other</option>
@@ -22,7 +22,7 @@
 			<p class="sub-desc-input">(hint: create a <i>public</i> Google Doc and get the "share" link from that)</p>
 			<input type="url" id="url" class="form-control middle-input" name="url" placeholder="http://..." autofocus>
 			<p class="number-of-loungers">Total Number of Loungers (only if 'Type of Lounge' is 'Other')</p>
-			<input type="number" name="number-of-longers" value="6" min="1" max="100">
+			<input id="number-of-loungers" type="number" name="number-of-loungers" value="6" min="1" max="100">
 		</div>
 	    <div class="create-form-date">
 	    <p>Date of Lounge</p>

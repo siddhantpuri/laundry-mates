@@ -1,5 +1,5 @@
-Template.lounge_info_btn.events({
-	"submit .create-form": function(event){
+Template.lounge_info_form.events({
+	"submit .update-lounge": function(event){
 
 		function participantArray() {
 
@@ -24,24 +24,7 @@ Template.lounge_info_btn.events({
 			}
 			return added_participants;
     	};
-/*
-    	function combineDateAndTime(date, time) {
-		    timeString = time.getHours() + ':' + time.getMinutes() + ':00';
 
-		    var year = date.getFullYear();
-		    var month = date.getMonth() + 1; // Jan is 0, dec is 11
-		    var day = date.getDate();
-		    var dateString = '' + year + '-' + month + '-' + day;
-		    var combined = new Date(dateString + ' ' + timeString);
-
-		    return combined;
-		};
-
-		var myDate = $('#date').val()
-		var myTime = $('#time').val()
-
-		console.log(combineDateAndTime(myDate, myTime))
-*/
 		var time = $('#time').val();
 		var date = $('#date').val();
 	    var full_date = new Date(date + ' ' + time);
@@ -52,11 +35,12 @@ Template.lounge_info_btn.events({
 			var time = time.split(':');
 			var hours = time[0];
 			var minutes = time[1];
-			var timeValue = "" + ((hours >12) ? hours -12 :hours);
-			    timeValue += (minutes < 10) ? ":0" : ":" + minutes;
+			console.log(minutes)
+			var timeValue = "" + ((hours < 10) ? hours.split("")[1] : ((hours >12) ? hours -12 :hours));
+			    timeValue += ":" + minutes;
 			    timeValue += (hours >= 12) ? " P.M." : " A.M.";
-			return timeValue
-			}
+			return timeValue;
+		}
 		
 		var weekday = new Array(7);
 		weekday[0] =  "Sunday";
@@ -69,29 +53,32 @@ Template.lounge_info_btn.events({
 
 		var date_numbers = (full_date.getMonth() + 1) + "/" + full_date.getDate() + "/" + full_date.getFullYear()
 
-		Lounges.insert({
+		Lounges.update({_id: this._id}, { $set: {
 
-		lounge_host: Meteor.userId(),
-		lounge_chapter: $('#select-a-chapter').val(),
-		lounge_type: $('#type-of-lounge').val(),
-		lounge_title: $('#title-of-lounge').val(),
-		lounge_url: $('#url').val(),
-		lounge_total_num_participants: parseInt($('#number-of-loungers').val()),
-		lounge_date: full_date,
-		lounge_day: weekday[full_date.getDay()],
-		lounge_time: convertTimeAMPM(time),
-		lounge_date_numbers: date_numbers,
-		lounge_location: $('#location').val(),
-		lounge_address: $('#address').val(),
-		lounge_city: $('#city').val(),
-		lounge_state: $('#state').val(),
-		lounge_zipcode: $('#zipcode').val(),
-		lounge_participants: participantArray(),
-		lounge_num_participants: participantArray().length
-		});
-
+		'lounge_chapter': $('#select-a-chapter').val(),
+		'lounge_type': $('#type-of-lounge').val(),
+		'lounge_title': $('#title-of-lounge').val(),
+		'lounge_url': $('#url').val(),
+		'lounge_total_num_participants': parseInt($('#number-of-loungers').val()),
+		'lounge_date': full_date,
+		'lounge_day': weekday[full_date.getDay()],
+		'lounge_time': convertTimeAMPM(time),
+		'lounge_date_numbers': date_numbers,
+		'lounge_location': $('#location').val(),
+		'lounge_address': $('#address').val(),
+		'lounge_city': $('#city').val(),
+		'lounge_state': $('#state').val(),
+		'lounge_zipcode': $('#zipcode').val(),
+		'lounge_participants': participantArray(),
+		'lounge_num_participants': participantArray().length
+		}} );
+		console.log(participantArray())
+		console.log(participantArray().length)
+		console.log(parseInt($('#number-of-loungers').val()))
+		console.log($('#location').val())
+		console.log(convertTimeAMPM(time))
+		console.log(date_numbers)
 		
-		Router.go('/my-upcoming-lounges');
 
 		return false;
 	}
@@ -99,7 +86,7 @@ Template.lounge_info_btn.events({
 
 
 
-Template.lounge_info_btn.helpers({
+Template.lounge_info_form.helpers({
 	participant1n: function() {
   	var participantId = Lounges.findOne(this._id).lounge_host
   	return Meteor.users.findOne({_id:participantId}).profile.first_name;

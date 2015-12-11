@@ -52,16 +52,17 @@ Template.create.events({
 	    var full_date = new Date(date + ' ' + time);
 
 
-	    function convertTimeAMPM(time){
+		function convertTimeAMPM(time){
 			//var time = "12:23";
 			var time = time.split(':');
 			var hours = time[0];
 			var minutes = time[1];
-			var timeValue = "" + ((hours >12) ? hours -12 :hours);
-			    timeValue += (minutes < 10) ? ":0" : ":" + minutes;
+			console.log(minutes)
+			var timeValue = "" + ((hours < 10) ? hours.split("")[1] : ((hours >12) ? hours -12 :hours));
+			    timeValue += ":" + minutes;
 			    timeValue += (hours >= 12) ? " P.M." : " A.M.";
-			return timeValue
-			}
+			return timeValue;
+		}
 		
 		var weekday = new Array(7);
 		weekday[0] =  "Sunday";
