@@ -48,22 +48,6 @@ body#form_layout {
 	}	
 }
 
-.doatl-button {
-	background-color:#39bdee;
-	border-radius:5px;
-	border:2px solid #39bdee;
-	color: white;
-	width:7em;
-	display: inline-block;
-	text-align: center;
-	padding: 4px;
-	cursor: pointer;
-	&:hover {
-		background-color:white;
-		color:#39bdee
-	}
-}
-
 .create-button {
 	background-color:#39eec5;
 	border-radius:5px;
@@ -429,7 +413,6 @@ img.tlnav-logo {
 	padding-left: 0px
 }
 .home-button-div {
-    border-bottom: 1px solid white;
     &:hover {
     	opacity:.7
     }
@@ -453,13 +436,12 @@ li#mob-nav-login-button {
     color: #39bdee;
     font-size: 2em;
 }
-.mob-folder-wrapper-login, .mob-wrapper-logged-out {
-	border-bottom: 1px solid white;
-}
+
 li#mob-nav-doatl-button {
     border-bottom: 1px solid white;
     color: #39eec5;
     font-size: 2em;
+    border-top: 1px solid white;
 }
 .folder-wrapper {
     padding-left: 0px;
@@ -731,6 +713,24 @@ ul.vert_nav {
 
 /* UPCOMING LOUNGES PAGE
 ---------------------------------------*/
+.doatl-btn-past, .doatl-btn-upcoming {
+	background-color: #39eec5;
+    border-radius: 5px;
+    border: 2px solid #39eec5;
+    color: white;
+    text-align: center;
+    padding: 4px;
+    cursor: pointer;
+    font-size: 1.1em;
+    margin: 0px auto;
+    width: 40%;
+    padding: 1em 0px;
+    margin-top: 2em;
+    &:hover {
+    	background-color: white;
+    	color: #39eec5;
+    }
+}
 
 
 /* DO A TL PAGE 
@@ -1022,6 +1022,9 @@ p.settings-option {
 	margin-bottom: 1em;
 }
 
+.settings {
+	margin: 0px 4%;
+}
 
 /* FOOTER
 -------------------------*/
