@@ -1,8 +1,15 @@
 Template.doatlLounge.events({
-	"click .doatl-lounge-host": function(event) {
-		$('.contact-host-div').toggleClass('display-none');
-		console.log('its working');
-	}
+	"click .do-this-tl-btn": function(event) {
+    var id = this._id;
+    var ary = Lounges.findOne(this._id).lounge_participants;
+    ary[ary.length] = Meteor.userId();
+    Lounges.update({_id: this._id}, { $set: {
+    'lounge_participants': ary,
+    'lounge_num_participants': ary.length
+    }});
+    console.log('its working');
+  }
+
 });
 
 Template.doatlLounge.helpers({

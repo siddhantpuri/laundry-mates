@@ -1,36 +1,40 @@
 Template.pastLoungeH.events({
 	"click .this-lounge-info": function(event) {
-		var id = this._id;
-		$('#' + id).toggleClass('display-none');
+    	var id = this._id;
+		$('#lounge-info' + id).toggleClass('display-none');
+    	//$('#' + id).hide();
 		console.log('its working');
-		$('.lounge-insert-log-url, .contact-host-div').addClass('display-none')
+		$('.lounge-insert-log-url, .contact-host-div').addClass('display-none');
 	},
 	"click .log-your-lounge": function(event) {
-		$('.lounge-insert-log-url').toggleClass('display-none');
+		var id = this._id;
+		$('#lounge-insert-log-url' + id).toggleClass('display-none');
 		console.log('its working');
-		$('.lounge-info, .contact-host-div').addClass('display-none')
+		$('.lounge-info, .contact-host-div').addClass('display-none');
 	},
-	"click .contact-host": function(event) {
-		$('.contact-host-div').toggleClass('display-none');
-		console.log('its working');
-		$('.lounge-insert-log-url, .lounge-info').addClass('display-none')
+	"submit .lounge-log-url-form": function(event) {
+		Lounges.update({_id: this._id}, { $set: {
+		'lounge_log_link': $('#lounge-log-url').val()
+		}});
+		console.log($('#lounge-log-url').val())
+		return false;
 	}
 });
 
-empty_bubble = "http://i63.tinypic.com/f1kuv7.jpg"
-full_bubble = "http://i65.tinypic.com/2rqhkp3.jpg"
+empty_bubble = "http://i63.tinypic.com/f1kuv7.jpg";
+full_bubble = "http://i65.tinypic.com/2rqhkp3.jpg";
 
 Template.pastLoungeH.helpers({
   host_name: function() {
-  	var hostId = Lounges.findOne(this._id).lounge_host
+  	var hostId = Lounges.findOne(this._id).lounge_host;
   	return Meteor.users.findOne({_id:hostId}).profile.first_name;
   },
   host_phone: function() {
-  	var hostId = Lounges.findOne(this._id).lounge_host
+  	var hostId = Lounges.findOne(this._id).lounge_host;
   	return Meteor.users.findOne({_id:hostId}).profile.phone;
   },
   host_email: function() {
-  	var hostId = Lounges.findOne(this._id).lounge_host
+  	var hostId = Lounges.findOne(this._id).lounge_host;
   	return Meteor.users.findOne({_id:hostId}).emails[0].address;
   }
 });
