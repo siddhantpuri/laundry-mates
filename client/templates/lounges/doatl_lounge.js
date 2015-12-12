@@ -31,6 +31,6 @@ Template.doatlLounge.helpers({
   },
 
   userIsParticipant: function() {
-    return Lounges.find({_id : this._id, lounge_participants: Meteor.userId()});
+    return Lounges.find({_id : this._id, lounge_participants: Meteor.userId()}).fetch();
   }
 });
