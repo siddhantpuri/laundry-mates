@@ -38,5 +38,17 @@ Template.permissions_superadmin.events({
   Router.go('/my-permissions');
 
   return false;
+  },
+
+  "submit .delete-chapter-form": function(event){
+    var chapter_id = Chapters.findOne({name: $('#delete-chapter-select').val()})._id;
+
+    Chapters.remove({_id: chapter_id});
+
+  console.log(Chapters.find())
+
+  Router.go('/my-permissions');
+
+  return false;
   }
 });

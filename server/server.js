@@ -65,3 +65,18 @@ Lounges.allow({
     return (userId);
   }
 });
+
+Chapters.allow({
+  insert: function (userId, doc) {
+    // the user must be superadmin
+    return Meteor.user().profile.role.IsSuperAdmin;
+  },
+  update: function (userId, doc, fields, modifier) {
+    // the user must be superadmin
+    return Meteor.user().profile.role.IsSuperAdmin;
+  },
+  remove: function (userId, doc) {
+    // the user must be superadmin
+    return Meteor.user().profile.role.IsSuperAdmin;
+  }
+});
