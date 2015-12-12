@@ -8,6 +8,13 @@ Template.doatlLounge.events({
     'lounge_num_participants': ary.length
     }});
 
+  Email.send({
+  from: "noreply@thoughtlounge.org",
+  to: "Meteor.user().emails[0].address",
+  subject: "This is the confirmation email",
+  text: "This is the confirmation body msg"
+  })
+
     //add mail thing here to send confirmartion email to this users email about Lounge by this._id
     //Meteor.user().profile.first_name
     //Meteor.user().emails[0].address

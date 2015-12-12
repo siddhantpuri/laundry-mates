@@ -39,7 +39,6 @@ Template.register.events({
 				}
 			});
 		}
-
 		// Prevent Submit
 		return false;
 	}

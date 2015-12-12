@@ -43,6 +43,7 @@ Template.registerHelper('allChapters', function() {
     return Chapters.find({}, {sort: { name: 1 }});
 });
 
+
 Template.registerHelper('notLounger', function() {
     var obj = Meteor.user().profile.role;
     var host_admin_list = "";
@@ -57,15 +58,29 @@ Template.registerHelper('notLounger', function() {
 
 
 
+function setCookie(cname, cvalue) { 
+  document.cookie = cname + "=" + cvalue + "; domain=thoughtlounge.org";
+};
 
+function getCookie(cname) {
+  var ca = document.cookie.split("; ");
+  for (var i = 0; i < ca.length; i++) {
+    var c = cname + "=";
+    if  (ca[i].indexOf(c) === 0) {
+      return ca[i].substring(c.length)
+    }
+  }
+};
 
-
-
-
-
-
-
-
-
+// create a username cookie
+Deps.autorun(function () {
+    if (Meteor.user()) {
+      console.log(Meteor.user().profile.first_name);
+      setCookie("firstname", Meteor.user().profile.first_name)
+    } else {
+      console.log("I'm logged out");
+      setCookie("firstname", "")
+    }
+});
 
 

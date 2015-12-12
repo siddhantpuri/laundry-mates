@@ -39,7 +39,7 @@ body#form_layout {
 		display: block;
 		font-size: 2em	
 	};
-	width:30em;
+	width:90%;
 	margin: 0px auto;
 	margin-top: 2em;
 	p {
@@ -297,6 +297,9 @@ body#form_layout {
     cursor: pointer;
     margin: 0px auto;
     margin-left: 1em;
+    &:hover {
+    	opacity: .7
+    }
 }
 
 @media only screen and (max-width: 521px) {
@@ -333,6 +336,21 @@ button.update-lounge-button.past-update-lounge-button.btn.btn-lg.btn-primary.btn
 	    &:hover {
 	    	opacity: .7;
 	    }
+	}
+}
+
+.lounge-participant {
+	margin-bottom: .5em;
+	.participant-nep, .delete-btn {
+		display: inline-block;
+	}
+	.delete-btn {
+		color: red;
+		cursor: pointer;
+		margin-left: 2em;
+	}
+	participant-nep {
+		color: grey
 	}
 }
 
@@ -696,16 +714,16 @@ ul.vert_nav {
 }
 
 .create-sb-btn {
-    background-color: #39bdee;
+    background-color: #FBBC05;
     border-radius: 5px;
-    border: 2px solid #39bdee;
+    border: 2px solid #FBBC05;
     color: white;
     text-align: center;
     padding: 4px;
     cursor: pointer;
     font-size: 1.1em;
     &:hover {
-    	color: #39bdee;
+    	color: #FBBC05;
     	background-color: white;
     }
 }
@@ -816,6 +834,7 @@ p.sub-desc-input {
 #participant4e,#participant5e {
 	display: inline;
     width: 15em;	
+    margin-bottom: .5em
 }
 
 #participant1n, #participant2n, #participant3n,
