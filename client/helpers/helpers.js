@@ -40,8 +40,22 @@ Template.registerHelper('IsSuperAdmin', function() {
 });
 
 Template.registerHelper('allChapters', function() {
-    return Chapters.find();
+    return Chapters.find({}, {sort: { name: 1 }});
 });
+
+
+Template.registerHelper('notLounger', function() {
+    var obj = Meteor.user().profile.role;
+    var host_admin_list = "";
+    for ( var chapter in obj ) {
+        if (obj[chapter] == "host" || obj[chapter] == "admin") {
+            host_admin_list = obj[chapter];
+        }
+    }
+
+    return (Meteor.user().profile.role.IsSuperAdmin || host_admin_list)
+});
+
 
 
 function setCookie(cname, cvalue) { 

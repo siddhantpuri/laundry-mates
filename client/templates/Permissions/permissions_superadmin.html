@@ -28,7 +28,7 @@
 				{{> permissionItem}}
 			{{/each}}
 		{{else}}
-			<p>There are no pending Admin requests for this chapter</p>
+			<p>There are no pending Admin requests</p>
 		{{/if}}
 	</div>
 	<br>
@@ -39,7 +39,7 @@
 				{{> permissionItem}}
 			{{/each}}
 		{{else}}
-			<p>There are no approved Admin requests for this chapter</p>
+			<p>There are no approved Admin requests</p>
 		{{/if}}
 	</div>
 	<br>
@@ -50,7 +50,7 @@
 				{{> permissionItem}}
 			{{/each}}
 		{{else}}
-			<p>There are no pending SuperAdmin requests for this chapter</p>
+			<p>There are no pending SuperAdmin requests</p>
 		{{/if}}
 	</div>
 	<br>
@@ -61,10 +61,33 @@
 				{{> permissionItem}}
 			{{/each}}
 		{{else}}
-			<p>There are no approved SuperAdmin requests for this chapter</p>
+			<p>There are no approved SuperAdmin requests</p>
 		{{/if}}
 	</div>
-	{{> host_request_superadmin}}
+	<div class = "Host Requests">
+		<h2>Host Requests</h2>
+		<div class="pending_host_permission_list">
+			<h3>Pending Host Requests for {{primaryChapter}}</h3>
+			{{#if are_pending_host_requests}}
+				{{#each pending_host_requests}}
+					{{> permissionItem}}
+				{{/each}}
+			{{else}}
+				<p>There are no pending Host requests for this chapter</p>
+			{{/if}}
+		</div>
+		<br>
+		<div class="approved_host_permission_list">
+			<h3>Approved Host Requests for {{primaryChapter}}</h3>
+			{{#if are_approved_host_requests}}
+				{{#each approved_host_requests}}
+					{{> permissionItem}}
+				{{/each}}
+			{{else}}
+				<p>There are no approved Host requests for this chapter</p>
+			{{/if}}
+		</div>
+	</div>
 </template>
 
 

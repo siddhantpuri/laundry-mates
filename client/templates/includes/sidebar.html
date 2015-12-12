@@ -20,8 +20,11 @@
   	<div class="sb-doatl-btn">
   		{{> doatlBtn}}
   	</div>
- 	<div class="sb-create-btn">
-  		{{> createBtn}}
- 	</div>
+  	{{#if notLounger}}
+	 	<div class="sb-create-btn">
+	  		{{> createBtn}}
+	 	</div>
+	{{else}}
+	{{/if}}
 </div> 
 </template>
