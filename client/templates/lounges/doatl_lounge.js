@@ -7,6 +7,12 @@ Template.doatlLounge.events({
     'lounge_participants': ary,
     'lounge_num_participants': ary.length
     }});
+
+    //add mail thing here to send confirmartion email to this users email about Lounge by this._id
+    //Meteor.user().profile.first_name
+    //Meteor.user().emails[0].address
+    //Lounges.findOne(this._id).something
+
     console.log('its working');
   }
 
