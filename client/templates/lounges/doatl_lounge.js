@@ -1,8 +1,21 @@
 Template.doatlLounge.events({
-	"click .doatl-lounge-host": function(event) {
-		$('.contact-host-div').toggleClass('display-none');
-		console.log('its working');
-	}
+	"click .do-this-tl-btn": function(event) {
+    var id = this._id;
+    var ary = Lounges.findOne(this._id).lounge_participants;
+    ary[ary.length] = Meteor.userId();
+    Lounges.update({_id: this._id}, { $set: {
+    'lounge_participants': ary,
+    'lounge_num_participants': ary.length
+    }});
+
+    //add mail thing here to send confirmartion email to this users email about Lounge by this._id
+    //Meteor.user().profile.first_name
+    //Meteor.user().emails[0].address
+    //Lounges.findOne(this._id).something
+
+    console.log('its working');
+  }
+
 });
 
 Template.doatlLounge.helpers({
@@ -21,5 +34,9 @@ Template.doatlLounge.helpers({
   takenGt: function(num) {
   	var taken = Lounges.findOne(this._id).lounge_num_participants;
   	return taken > num
+  },
+
+  userIsParticipant: function() {
+    return Lounges.find({_id : this._id, lounge_participants: Meteor.userId()}).fetch();
   }
 });

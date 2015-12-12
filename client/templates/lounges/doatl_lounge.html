@@ -31,7 +31,19 @@
 				<div class="lounge-spots-buttons">
 					{{> bubbles}}
 					<div class="lounge-buttons">
-						<div class="do-this-tl-btn">DO THIS TL</div>
+						{{#if takenGt 5}}
+							<div class="lounge-buttons-text">
+								<p>This lounge is full!!</p>
+							</div>
+						{{else}}
+							{{#if userIsParticipant}}
+								<div class="lounge-buttons-text">
+									<p>You are already signed up for this lounge! Make sure to mark it in your calendar!</p>
+								</div>
+							{{else}}
+								<div class="do-this-tl-btn">DO THIS TL</div>
+							{{/if}}
+						{{/if}}
 					</div>
 				</div>
 			</div>

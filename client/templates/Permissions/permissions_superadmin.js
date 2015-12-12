@@ -24,3 +24,31 @@ Template.permissions_superadmin.helpers({
     return Requests.find({"type": 'superadmin', "request_approved": "true"}).fetch();
   }
 });
+
+Template.permissions_superadmin.events({
+  "submit .new-chapter-form": function(event){
+    
+    Chapters.insert({
+    name: $('#chapter_name').val().split(' ').join('_'),
+    spaced_name: $('#chapter_name').val()
+  });
+
+  console.log(Chapters.find())
+
+  Router.go('/my-permissions');
+
+  return false;
+  },
+
+  "submit .delete-chapter-form": function(event){
+    var chapter_id = Chapters.findOne({name: $('#delete-chapter-select').val()})._id;
+
+    Chapters.remove({_id: chapter_id});
+
+  console.log(Chapters.find())
+
+  Router.go('/my-permissions');
+
+  return false;
+  }
+});

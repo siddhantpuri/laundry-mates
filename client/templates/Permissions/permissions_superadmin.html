@@ -3,6 +3,24 @@
 		<h3>You are a Super Admin</h3>
 		<p> Feel special, don't ya?</p>
 	</div>
+	<div class="add-new-chapter">
+		<form class="new-chapter-form standard-form">
+			<h3>Add A New Chapter Here</h3>
+			<input type="text" id="chapter_name" name="chapter_name" class="form-control" placeholder="New Chapter Name" required autofocus>
+			<button class="add-chapter-btn btn btn-lg btn-primary btn-block" type="submit">Add This Chapter</button>
+		</form>
+	</div>
+	<div class="delete-chapter">
+		<form class="delete-chapter-form standard-form">
+			<h3>Select a Chapter to Remove</h3>
+			<select id="delete-chapter-select" name="delete-chapter-select" placeholder="Select a Different Chapter">
+    			{{#each allChapters}}
+        			<option value= {{name}}>{{spaced_name}}</option> 
+    			{{/each}}
+        	</select>
+			<button class="delete-chapter-btn btn btn-lg btn-primary btn-block" type="submit">Remove This Chapter</button>
+		</form>
+	</div>
 	<div class="pending_admin_permission_list">
 		<h3>Pending Admin Requests</h3>
 		{{#if are_pending_admin_requests}}
@@ -46,4 +64,14 @@
 			<p>There are no approved SuperAdmin requests for this chapter</p>
 		{{/if}}
 	</div>
+	{{> host_request_superadmin}}
 </template>
+
+
+
+
+
+
+
+
+

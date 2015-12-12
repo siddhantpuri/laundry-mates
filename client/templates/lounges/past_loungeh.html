@@ -35,14 +35,14 @@
 						</div>
 						<div class="log-your-lounge">Log Your Lounge
 						</div>
-						<a href="http://thoughtlounge.org/the-lounge-log" target="blank"><div class="view-lounge-log">View Lounge Log
+						<a href={{lounge_log_link}} target="blank"><div class="view-lounge-log">View Lounge Log
 						</div></a>
 					</div>
 				</div>
-				<div class="lounge-info display-none" id = {{_id}} >
+				<div class="lounge-info display-none" id = "lounge-info{{_id}}" >
 					{{> lounge_info_form}}
 				</div>
-				<div class="lounge-insert-log-url display-none">
+				<div class="lounge-insert-log-url display-none" id = "lounge-insert-log-url{{_id}}">
 					<form class="lounge-log-url-form standard-form">
 						<h2>Log Your Lounge</h2>
 						<a href="http://thoughtlounge.org/log-your-lounge" target="_blank">Remind me how.</a>
