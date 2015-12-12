@@ -28,5 +28,9 @@ Template.doatlLounge.helpers({
   takenGt: function(num) {
   	var taken = Lounges.findOne(this._id).lounge_num_participants;
   	return taken > num
+  },
+
+  userIsParticipant: function() {
+    return Lounges.find({_id : this._id, lounge_participants: Meteor.userId()});
   }
 });
