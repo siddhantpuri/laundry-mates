@@ -16,6 +16,10 @@ Meteor.publish('chapters', function() {
   return Chapters.find();
 });
 
+Meteor.publish('emails', function() {
+  return Emails.find();
+});
+
 Meteor.publish("userData", function () {
     return Meteor.users.find({_id: this.userId},
         {fields: {role:1}});
