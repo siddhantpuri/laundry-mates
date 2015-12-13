@@ -40,6 +40,10 @@ Template.register.events({
 			});
 		}
 
+		if((document.getElementById('tlmonthlynews').checked)) {
+			Emails.insert({Email: email, FirstName: first_name, LastName: last_name});
+		}
+
 		// Prevent Submit
 		return false;
 	}

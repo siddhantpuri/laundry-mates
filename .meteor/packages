@@ -27,3 +27,9 @@ less
 mrt:flash-messages
 alanning:roles
 email
+ongoworks:google-spreadsheets
+aldeed:collection2
+cfs:standard-packages
+cfs:gridfs
+cfs:filesystem
+cfs:s3

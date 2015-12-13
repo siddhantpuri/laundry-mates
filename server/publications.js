@@ -15,6 +15,11 @@ Meteor.publish('requests', function() {
 Meteor.publish('chapters', function() {
   return Chapters.find();
 });
+/*
+Meteor.publish('emails', function() {
+  return Emails.find();
+});
+*/
 
 Meteor.publish("userData", function () {
     return Meteor.users.find({_id: this.userId},
@@ -24,4 +29,8 @@ Meteor.publish("userData", function () {
 
 Meteor.publish("allUsers", function(){
     return Meteor.users.find();
+});
+
+Meteor.publish("images", function(){
+    return Images.find(); 
 });

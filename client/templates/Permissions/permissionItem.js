@@ -1,3 +1,10 @@
+Template.permissionItem.helpers({
+	isApproved: function() {
+		return Requests.findOne(this._id).request_approved == "true"
+	}
+});
+
+
 Template.permissionItem.events({
 
 	"click .approve-btn": function(event) {
@@ -61,4 +68,9 @@ Template.permissionItem.events({
 	}
 
 });
+
+
+
+
+
 

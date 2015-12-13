@@ -11,11 +11,25 @@ userId = Meteor.userId();
 
 Template.updateInfo.events({
 	"submit .account-info-form": function(event){
-		Meteor.users.update( { _id: userId }, { $set: { 'profile.first_name': $('#first_name').val() }} );
-		Meteor.users.update( { _id: userId }, { $set: { 'profile.last_name': $('#last_name').val() }} );
-		Meteor.users.update( { _id: userId }, { $set: { 'profile.phone': $('#phone').val() }} );
-		Meteor.users.update( { _id: userId }, { $set: { 'profile.primary_chapter': $('#primary-chapter').val() }} );
-		Meteor.users.update( { _id: userId }, { $set: { 'profile.bio': $('#bio').val() }} );
+
+		var email = trimInput($('#email').val());
+		var first_name = trimInput($('#first_name').val());
+		var last_name = trimInput($('#last_name').val());
+		var phone = trimInput($('#phone').val());
+
+
+		if(isNotEmpty(email) &&  
+			isNotEmpty(first_name) && 
+			isNotEmpty(last_name) && 
+			isEmail(email)){
+
+				Meteor.users.update( { _id: userId }, { $set: { 'profile.first_name': first_name }} );
+				Meteor.users.update( { _id: userId }, { $set: { 'profile.last_name': last_name }} );
+				Meteor.users.update( { _id: userId }, { $set: { 'profile.phone': phone }} );
+				Meteor.users.update( { _id: userId }, { $set: { 'profile.primary_chapter': $('#primary-chapter').val() }} );
+				Meteor.users.update( { _id: userId }, { $set: { 'profile.bio': $('#bio').val() }} );
+				Meteor.users.update( { _id: userId }, { $set: { 'emails.0.address': email }} );
+		}
 		
 		var chapter = $('#primary-chapter').val().split(' ').join('_');
 		var updated_request_status = Meteor.users.findOne(userId).profile.request_status;
@@ -38,5 +52,50 @@ Template.updateInfo.events({
 		location.reload();
 		
 		return false;
-	}
+	},
+
+	"change .myFileInput": function(event, template) {
+      FS.Utility.eachFile(event, function(file) {
+        Images.insert(file, function (err, fileObj) {
+          if (err){
+             // handle error
+          } else {
+             // handle success depending what you need to do
+            var userId = Meteor.userId();
+            var imagesURL = {
+              "profile.image": "/cfs/files/images/" + fileObj._id
+            };
+            Meteor.users.update(userId, {$set: imagesURL});
+          }
+        });
+     });
+   	}
 });
+
+
+
+// Validation Rules
+
+// Trim Helper
+var trimInput = function(val){
+	return val.replace(/^\s*|\s*$/g, "");
+}
+
+// Check For Empty Fields
+isNotEmpty = function(value) {
+    if (value && value !== ''){
+        return true;
+    }
+    FlashMessages.sendError("Please fill in all fields");
+    return false;
+};
+
+// Validate Email
+isEmail = function(value) {
+    var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+    if (filter.test(value)) {
+        return true;
+    }
+    FlashMessages.sendError("Please use a valid email address");
+    return false;
+};

@@ -30,6 +30,10 @@ Template.registerHelper('role', function() {
     return Meteor.user().profile.role;
 });
 
+Template.registerHelper('image', function() {
+    return Meteor.user().profile.image;
+});
+
 Template.registerHelper('request_status', function() {
     var chapter = Meteor.user().profile.primary_chapter.split('_').join(' ');
     return Meteor.user().profile.request_status[chapter];
@@ -40,8 +44,22 @@ Template.registerHelper('IsSuperAdmin', function() {
 });
 
 Template.registerHelper('allChapters', function() {
-    return Chapters.find();
+    return Chapters.find({}, {sort: { name: 1 }});
 });
+
+
+Template.registerHelper('notLounger', function() {
+    var obj = Meteor.user().profile.role;
+    var host_admin_list = "";
+    for ( var chapter in obj ) {
+        if (obj[chapter] == "host" || obj[chapter] == "admin") {
+            host_admin_list = obj[chapter];
+        }
+    }
+
+    return (Meteor.user().profile.role.IsSuperAdmin || host_admin_list)
+});
+
 
 
 function setCookie(cname, cvalue) { 

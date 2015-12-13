@@ -4,8 +4,12 @@
 		<p>You must include a picure and phone number</p>
 		<form class="account-info-form standard-form">
 			<div class="upload-prof-pic">
-				<img src="https://static1.squarespace.com/static/56395a91e4b0e877f7abcb75/t/56634898e4b02fb599039420/1449347225210/VivianLiu.jpg?format=300w" alt="" />
-			    <input type="file" name="pic" class="upload-file" accept="image/*">
+				{{#if image}}
+					{{image}}
+				{{else}}
+					<img src="https://static1.squarespace.com/static/56395a91e4b0e877f7abcb75/t/56634898e4b02fb599039420/1449347225210/VivianLiu.jpg?format=300w" alt="" />
+				{{/if}}
+			    <input type="file" name="pic" class="myFileInput">
 			</div>
 		    <label for="first_name" class="sr-only">First Name</label>
         <p>First Name</p>
@@ -14,8 +18,8 @@
         <input type="text" id="last_name" name="last_name" class="form-control" value="{{lastName}}" required autofocus>
         <p>Email Address</p>
         <input type="email" id="email" name="email" class="form-control" value="{{email}}" required autofocus>
-        <p>Phone (note: this is so that your Host can find you if you get lost on the way to the TL. Noone else can see it)</p>
-        <input type="text" id="phone" name="phone" class="form-control" value="{{#if phone}}{{phone}}{{/if}}" placeholder="e.g. (619)123-4566" autofocus>
+        <p>Phone</p>
+        <input type="text" id="phone" name="phone" class="form-control" value="{{#if phone}}{{phone}}{{/if}}" placeholder="e.g. (619)123-4566" required autofocus>
         <p>Where do you want to be a Host?</p>
 		<select id="primary-chapter" name="primary-chapter" placeholder="Select a Different Chapter">
 		 	<option value="{{#if primaryChapter}}{{primaryChapter}}{{else}}Select Primary Chapter{{/if}}">{{#if primaryChapter}}{{primaryChapter}}{{else}}Select Primary Chapter{{/if}}</option> 

@@ -80,3 +80,38 @@ Chapters.allow({
     return Meteor.user().profile.role.IsSuperAdmin;
   }
 });
+
+
+Images.deny({
+ insert: function(){
+ return false;
+ },
+ update: function(){
+ return false;
+ },
+ remove: function(){
+ return false;
+ },
+ download: function(){
+ return false;
+ }
+ });
+
+Images.allow({
+ insert: function(){
+ // the user must be logged in
+    return true;
+ },
+ update: function(){
+ // the user must be logged in
+    return true;
+ },
+ remove: function(){
+ // the user must be logged in
+    return true;
+ },
+ download: function(){
+ // the user must be logged in
+    return true;
+ }
+});
