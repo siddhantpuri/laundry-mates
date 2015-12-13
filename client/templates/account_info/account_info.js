@@ -48,7 +48,29 @@ Template.accountInfo.events({
 		location.reload();
 		// Prevent Submit
 		return false;
-	}
+	},
+
+	"change .myFileInput": function(event, template) {
+     var files = event.target.files;
+     for (var i = 0, ln = files.length; i < ln; i++) {
+        Images.insert(files[i], function (err, fileObj) {
+          if (err){
+             // handle error
+             console.log('there was an error')
+          } else {
+             // handle success depending what you need to do
+            var userId = Meteor.userId();
+            var imagesURL = {
+              "profile.image": "/cfs/files/images/" + fileObj._id
+            };
+            console.log(imagesURL)
+            Meteor.users.update(userId, {$set: imagesURL});
+            console.log('is there error here?')
+          }
+        });
+        console.log('here?')
+     }
+   	}
 });
 
 

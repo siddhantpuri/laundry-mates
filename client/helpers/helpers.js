@@ -30,6 +30,10 @@ Template.registerHelper('role', function() {
     return Meteor.user().profile.role;
 });
 
+Template.registerHelper('image', function() {
+    return Meteor.user().profile.image;
+});
+
 Template.registerHelper('request_status', function() {
     var chapter = Meteor.user().profile.primary_chapter.split('_').join(' ');
     return Meteor.user().profile.request_status[chapter];
