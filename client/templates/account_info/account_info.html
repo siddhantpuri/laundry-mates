@@ -1,6 +1,6 @@
 <template name="accountInfo">
 	<div class="account-info">
-		<h1 class="main-title">Vivian's Profile</h1>
+		<h1 class="main-title">{{firstName}}'s Profile</h1>
 		<form class="account-info-form standard-form">
 			<div class="upload-prof-pic">
 				<img src="https://static1.squarespace.com/static/56395a91e4b0e877f7abcb75/t/56634898e4b02fb599039420/1449347225210/VivianLiu.jpg?format=300w" alt="" />
@@ -13,7 +13,7 @@
         <input type="text" id="last_name" name="last_name" class="form-control" value="{{lastName}}" required autofocus>
         <p>Email Address</p>
         <input type="email" id="email" name="email" class="form-control" value="{{email}}" required autofocus>
-        <p>Phone (note: this is so that your Host can find you if you get lost on the way to the TL. Noone else can see it)</p>
+        <p>Phone (note: this is so that your Host can find you if you get lost on the way to the TL. No one else can see it)</p>
         <input type="text" id="phone" name="phone" class="form-control" value="{{#if phone}}{{phone}}{{/if}}" placeholder="e.g. (619)123-4566" autofocus>
         <p>Primary Chapter</p>
 	   <select id="primary-chapter" name="primary-chapter" placeholder="Select a Different Chapter">
@@ -22,7 +22,8 @@
     			<option value= {{name}}>{{spaced_name}}</option> 
 			{{/each}}
 		</select>
-		<p>Change Password</p>
+		<p>Change Password (This will log you out)</p>
+		<input type="password" id="old-password" name="old-password" class="form-control" placeholder="Old password">
         <input type="password" id="new-password" name="new-password" class="form-control" placeholder="New password">
         <input type="password" id="confirm-new-password" name="confirm-new-password" class="form-control" placeholder="Confirm new password" >
         <p>Your Bio</p>

@@ -9,7 +9,7 @@ Template.lounge_info_form.events({
 									e4:$('#participant4e').val(),
 									e5:$('#participant5e').val() };
 		
-			var added_participants = [Meteor.userId()];
+			var added_participants = this.lounge_participants;
 			var x;
 
 			for (x in participant_inputs) {
@@ -81,16 +81,79 @@ Template.lounge_info_form.events({
 		
 
 		return false;
+	},
+
+	"click .delete-btn-1": function(event){
+		var new_participant_array = this.lounge_participants;
+		new_participant_array = _.without(new_participant_array, this.lounge_participants[1]);
+		Lounges.update({_id: this._id}, { $set: {
+		'lounge_participants': new_participant_array,
+		'lounge_num_participants': new_participant_array.length
+		}} );
+	},
+
+	"click .delete-btn-2": function(event){
+		var new_participant_array = this.lounge_participants;
+		new_participant_array = _.without(new_participant_array, this.lounge_participants[2]);
+		Lounges.update({_id: this._id}, { $set: {
+		'lounge_participants': new_participant_array,
+		'lounge_num_participants': new_participant_array.length
+		}} );
+	},
+
+	"click .delete-btn-3": function(event){
+		var new_participant_array = this.lounge_participants;
+		new_participant_array = _.without(new_participant_array, this.lounge_participants[3]);
+		Lounges.update({_id: this._id}, { $set: {
+		'lounge_participants': new_participant_array,
+		'lounge_num_participants': new_participant_array.length
+		}} );
+	},
+
+	"click .delete-btn-4": function(event){
+		var new_participant_array = this.lounge_participants;
+		new_participant_array = _.without(new_participant_array, this.lounge_participants[4]);
+		Lounges.update({_id: this._id}, { $set: {
+		'lounge_participants': new_participant_array,
+		'lounge_num_participants': new_participant_array.length
+		}} );
+	},
+
+	"click .delete-btn-5": function(event){
+		var new_participant_array = this.lounge_participants;
+		new_participant_array = _.without(new_participant_array, this.lounge_participants[5]);
+		Lounges.update({_id: this._id}, { $set: {
+		'lounge_participants': new_participant_array,
+		'lounge_num_participants': new_participant_array.length
+		}} );
+	},
+
+	"click .cancel-lounge-button": function(event){
+		Lounges.remove({_id: this._id});
 	}
 });
 
 
 
 Template.lounge_info_form.helpers({
-	participant1n: function() {
-  	var participantId = Lounges.findOne(this._id).lounge_host
-  	return Meteor.users.findOne({_id:participantId}).profile.first_name;
-  }
+	participant_info: function(num) {
+
+		var participantId = this.lounge_participants[num];
+
+		if (Meteor.users.findOne({_id:participantId})) {
+		  	var first_name = Meteor.users.findOne({_id:participantId}).profile.first_name;
+		  	var last_name = Meteor.users.findOne({_id:participantId}).profile.last_name;
+		  	var email = Meteor.users.findOne({_id:participantId}).emails[0].address;
+		  	var phone = Meteor.users.findOne({_id:participantId}).profile.phone;
+		  	return "" + first_name + " " + last_name + "________" + email + "  " + phone;
+		} else {
+			return participantId
+		}
+  	},
+
+  	isParticipant: function(num) {
+  		return this.lounge_participants[num];
+  	}
 
 });
 
