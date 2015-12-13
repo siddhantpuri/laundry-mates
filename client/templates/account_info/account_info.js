@@ -23,12 +23,12 @@ Template.accountInfo.events({
 			isNotEmpty(last_name) && 
 			isEmail(email)){
 
-				Meteor.users.update( { _id: userId }, { $set: { 'profile.first_name': $('#first_name').val() }} );
-				Meteor.users.update( { _id: userId }, { $set: { 'profile.last_name': $('#last_name').val() }} );
+				Meteor.users.update( { _id: userId }, { $set: { 'profile.first_name': first_name }} );
+				Meteor.users.update( { _id: userId }, { $set: { 'profile.last_name': last_name }} );
 				Meteor.users.update( { _id: userId }, { $set: { 'profile.phone': $('#phone').val() }} );
 				Meteor.users.update( { _id: userId }, { $set: { 'profile.primary_chapter': $('#primary-chapter').val() }} );
 				Meteor.users.update( { _id: userId }, { $set: { 'profile.bio': $('#bio').val() }} );
-				Meteor.users.update( { _id: userId }, { $set: { 'emails.0.address': $('#email').val() }} );
+				Meteor.users.update( { _id: userId }, { $set: { 'emails.0.address': email }} );
 		}
 
 		if($('#new-password').val() &&

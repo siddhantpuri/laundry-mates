@@ -14,8 +14,8 @@
         <input type="text" id="last_name" name="last_name" class="form-control" value="{{lastName}}" required autofocus>
         <p>Email Address</p>
         <input type="email" id="email" name="email" class="form-control" value="{{email}}" required autofocus>
-        <p>Phone (note: this is so that your Host can find you if you get lost on the way to the TL. Noone else can see it)</p>
-        <input type="text" id="phone" name="phone" class="form-control" value="{{#if phone}}{{phone}}{{/if}}" placeholder="e.g. (619)123-4566" autofocus>
+        <p>Phone</p>
+        <input type="text" id="phone" name="phone" class="form-control" value="{{#if phone}}{{phone}}{{/if}}" placeholder="e.g. (619)123-4566" required autofocus>
         <p>Where do you want to be a Host?</p>
 		<select id="primary-chapter" name="primary-chapter" placeholder="Select a Different Chapter">
 		 	<option value="{{#if primaryChapter}}{{primaryChapter}}{{else}}Select Primary Chapter{{/if}}">{{#if primaryChapter}}{{primaryChapter}}{{else}}Select Primary Chapter{{/if}}</option> 
