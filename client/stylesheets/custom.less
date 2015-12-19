@@ -89,6 +89,7 @@ body#form_layout {
     width: 90%;
     max-width: 565px;
     font-family: Raleway, Sarala;
+    box-shadow: 6px 4px 12px;
 }
 
 .lounge-date-host-loc {
@@ -400,6 +401,10 @@ button.update-lounge-button.past-update-lounge-button.btn.btn-lg.btn-primary.btn
 
 /* MOBILE NAVBAR 
 ---------------------------*/
+.mob-folder-child-login {
+	margin-top: 0px !important;
+}
+
 @media only screen and (min-width: 769px) {
 	.mobile-icon-menu {
 		display: none;
@@ -781,6 +786,19 @@ li.vert_nav_item {
 	margin-bottom: 0px
 }
 
+.type-lounge {
+	color: #39bdee;
+	font-size: 1.7em;
+	margin-left: 16%;
+	.type-link {
+		color:#39bdee;
+		text-decoration: underline;
+		&:hover {
+			opacity: .7
+		}
+	}
+}
+
 /* CREATE LOUNGE PAGE 
 -------------------------------*/
 
@@ -808,6 +826,11 @@ textarea#bio {
 @media only screen and (max-width: 474px) {
 	.og-create-form {
 		width: 90%;
+	}
+}
+@media only screen and (min-width: 1100px) {
+	.og-create-form {
+		width: 30em
 	}
 }
 

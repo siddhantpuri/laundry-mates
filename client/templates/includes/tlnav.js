@@ -13,6 +13,20 @@ Template.tlnav.events({
 	}
 });
 
+$(document).mouseup(function (e)
+{
+    var container = $(".dt-folder-child-login");
+    var loginbut = $("#nav-login-button");
+
+    if (!container.is(e.target) // if the target of the click isn't the container...
+        && container.has(e.target).length === 0
+        && !loginbut.is(e.target)) // ... nor a descendant of the container
+    {
+        container.addClass('display-none');
+        loginbut.removeClass('grey');
+    }
+});
+
 
 
 /* MOBILE NAV EVENTS
@@ -26,8 +40,8 @@ Template.tlnav.events({
 		$('.mobile-tl-nav').toggleClass('display-none');
 		$('.mobile-icon-menu').toggleClass('big-margin-right')
 	},
-	"click .mob-folder-wrapper-login": function(event){
-		$('.folder-child-login').toggleClass('display-none');
+	"click .mob-login-button": function(event){
+		$('.mob-folder-child-login').toggleClass('display-none');
 		$('.folder-child-tl-now, .folder-child-about, .folder-child-be-involved, .folder-child-initiatives, .folder-child-chapters').addClass('display-none');
 	},
 	"click .mob-folder-wrapper-chapters": function(event){
