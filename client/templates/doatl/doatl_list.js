@@ -2,9 +2,9 @@ Template.doatlList.helpers({
   doatl_lounges: function() {
     var currentdate = new Date();
     if (Meteor.user()) {
-      var chapter = Meteor.user().profile.primary_chapter.split('_').join(' ');
+      var chapter = Meteor.user().profile.primary_chapter.split(' ').join('_');
     } else {
-      var chapter = viewing.split('_').join(' ');
+      var chapter = viewing.split(' ').join('_');
       console.log(viewing)
     }
     
@@ -15,9 +15,9 @@ Template.doatlList.helpers({
   are_doatl_lounges: function() {
     var currentdate = new Date();
     if (Meteor.user()) {
-      var chapter = Meteor.user().profile.primary_chapter.split('_').join(' ');
+      var chapter = Meteor.user().profile.primary_chapter.split(' ').join('_');
     } else {
-      var chapter = viewing.split('_').join(' ');
+      var chapter = viewing.split(' ').join('_');
       console.log(viewing)
     }
     return Lounges.find({lounge_chapter: chapter, lounge_date: {$gt: currentdate}}, {sort: { lounge_date: 1 }}).fetch();
