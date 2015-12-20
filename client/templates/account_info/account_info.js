@@ -29,6 +29,7 @@ Template.accountInfo.events({
 				Meteor.users.update( { _id: userId }, { $set: { 'profile.primary_chapter': $('#primary-chapter').val() }} );
 				Meteor.users.update( { _id: userId }, { $set: { 'profile.bio': $('#bio').val() }} );
 				Meteor.users.update( { _id: userId }, { $set: { 'emails.0.address': email }} );
+				console.log(Meteor.user())
 		}
 
 		if($('#new-password').val() &&
