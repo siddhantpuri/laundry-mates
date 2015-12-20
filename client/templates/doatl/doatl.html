@@ -1,15 +1,30 @@
 <template name="doatl">
-	<div class="upcoming">
-		<h1 class="main-title doatl-main-title">DO A THOUGHT LOUNGE.</h1>
-		<h2 class="select-where">Select Where...</h2>
-		<div class="doatl-select-wrapper">
-			<select id="primary-chapter" class="doatl-select" name="primary-chapter" placeholder="Select a Different Chapter">
-			 	<option value="{{#if primaryChapter}}{{primaryChapter}}{{else}}Select a Chapter{{/if}}">{{#if primaryChapter}}{{primaryChapter}}{{else}}Select Primary Chapter{{/if}}</option> 
-				{{#each allChapters}}
-	    			<option value= {{name}}>{{spaced_name}}</option> 
-				{{/each}}
-			</select>
+	{{#if loggedIn}}
+		<div class="upcoming">
+			<h1 class="main-title doatl-main-title">DO A THOUGHT LOUNGE.</h1>
+			<h2 class="select-where">Select Where...</h2>
+			<div class="doatl-select-wrapper">
+				<select id="primary-chapter" class="doatl-select" name="primary-chapter" placeholder="Select a Different Chapter">
+				 	<option value="{{#if primaryChapter}}{{primaryChapter}}{{else}}Select a Chapter{{/if}}">{{#if primaryChapter}}{{primaryChapter}}{{else}}Select Primary Chapter{{/if}}</option> 
+					{{#each allChapters}}
+		    			<option value= {{name}}>{{spaced_name}}</option> 
+					{{/each}}
+				</select>
+			</div>
+			{{> doatlList}}
 		</div>
-		{{> doatlList}}
-	</div>
+	{{else}}
+		<div class="upcoming">
+			<h1 class="main-title doatl-main-title">DO A THOUGHT LOUNGE.</h1>
+			<h2 class="select-where">Select Where...</h2>
+			<div class="doatl-select-wrapper">
+				<select id="primary-chapter" class="doatl-select-logged-out" name="primary-chapter" placeholder="Select a Different Chapter"> 
+					{{#each allChapters}}
+		    			<option value= {{name}}>{{spaced_name}}</option> 
+					{{/each}}
+				</select>
+			</div>
+			{{> doatlList}}
+		</div>
+	{{/if}}
 </template>
