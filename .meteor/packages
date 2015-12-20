@@ -35,3 +35,5 @@ cfs:filesystem
 cfs:s3
 edgee:slingshot
 fortawesome:fontawesome
+fourseven:scss
+themeteorchef:bert
