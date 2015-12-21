@@ -3,7 +3,7 @@ let template;
 let _getFileFromInput = ( event ) => event.target.files[0];
 
 let _setPlaceholderText = ( string = "Click or Drag a File Here to Upload" ) => {
-  template.find( ".alert span" ).innerText = string;
+  template.find( ".upload_space span" ).innerText = string;
 };
 
 let _addUrlToDatabase = ( url ) => {

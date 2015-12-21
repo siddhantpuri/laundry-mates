@@ -34,3 +34,13 @@ Meteor.publish("allUsers", function(){
 Meteor.publish("images", function(){
     return Images.find(); 
 });
+
+Meteor.publish( 'files', function(){
+  var data = Files.find();
+
+  if ( data ) {
+    return data;
+  }
+
+  return this.ready();
+});
