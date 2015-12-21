@@ -4,12 +4,7 @@
 		<p>You must include a picure and phone number</p>
 		<form class="account-info-form standard-form">
 			<div class="upload-prof-pic">
-				{{#if image}}
-					{{image}}
-				{{else}}
-					<img src="https://static1.squarespace.com/static/56395a91e4b0e877f7abcb75/t/56634898e4b02fb599039420/1449347225210/VivianLiu.jpg?format=300w" alt="" />
-				{{/if}}
-			    <input type="file" name="pic" class="myFileInput">
+				{{> upload}}
 			</div>
 		    <label for="first_name" class="sr-only">First Name</label>
         <p>First Name</p>
