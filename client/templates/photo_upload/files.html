@@ -1,0 +1,18 @@
+<template name="files">
+  <div class="files">
+    {{#if files}}
+      <div class="file">
+	    <div class="preview">
+	      <a href="{{url}}" target="_blank"></a>
+	      {{#if isImage url}}
+	        <img src="{{url}}" alt="{{url}}" height="200" width="200">
+	      {{else}}
+	        <i class="fa fa-file-o"></i>
+	      {{/if}}
+	    </div>
+	  </div>
+    {{else}}
+      <p class="alert alert-warning">No profile photo uploaded yet!</p>
+    {{/if}}
+  </div>
+</template>

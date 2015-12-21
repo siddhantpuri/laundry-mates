@@ -1,0 +1,12 @@
+<template name="file">
+  <div class="file">
+    <div class="preview">
+      <a href="{{url}}" target="_blank"></a>
+      {{#if isImage url}}
+        <img src="{{url}}" alt="{{url}}" height="42" width="42">
+      {{else}}
+        <i class="fa fa-file-o"></i>
+      {{/if}}
+    </div>
+  </div>
+</template>
