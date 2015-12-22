@@ -7,6 +7,7 @@ Template.register.events({
 		var last_name = trimInput(event.target.last_name.value);
 		var phone = trimInput(event.target.phone.value);
 		var primary_chapter = event.target.primary_chapter.value;
+		var newsletter_checked = event.target.tlmonthlynews.checked;
 		
 
 		if(isNotEmpty(email) && 
@@ -24,6 +25,11 @@ Template.register.events({
 					last_name: last_name,
 					phone: phone,
 					primary_chapter: primary_chapter,
+					notifications: {
+						tl_monthly_letter: newsletter_checked,
+						chapter_monthly_letters: {},
+						chapter_weekly_letters: {}
+					},
 					role: {
 					    IsSuperAdmin: ""
 					},
@@ -38,11 +44,16 @@ Template.register.events({
 					Router.go('/dashboard');
 				}
 			});
+
+			if(newsletter_checked) {
+				handleSubscriber({
+			      email: email,
+			      action: 'subscribe'
+			    });
+			}
+
 		}
 
-		if((document.getElementById('tlmonthlynews').checked)) {
-			Emails.insert({Email: email, FirstName: first_name, LastName: last_name});
-		}
 
 		// Prevent Submit
 		return false;

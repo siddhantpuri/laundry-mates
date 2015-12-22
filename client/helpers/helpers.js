@@ -10,7 +10,7 @@ Template.registerHelper('lastName', function() {
     return Meteor.user().profile.last_name;
 });
 
-Template.registerHelper('email', function() {
+Template.registerHelper('userEmail', function() {
     return Meteor.user().emails[0].address;
 });
 
@@ -45,6 +45,10 @@ Template.registerHelper('IsSuperAdmin', function() {
 
 Template.registerHelper('allChapters', function() {
     return Chapters.find({}, {sort: { name: 1 }});
+});
+
+Template.registerHelper( 'count', function( array ) {
+  return array ? array.length : 0;
 });
 
 
