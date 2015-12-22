@@ -1,6 +1,6 @@
 Template.files.helpers({
   files() {
-    var files = Files.findOne( {}, { sort: { "added": -1 } } );
+    var files = Files.findOne( {userId: Meteor.userId()}, { sort: { "added": -1 } } );
     if ( files ) {
       return files;
     }

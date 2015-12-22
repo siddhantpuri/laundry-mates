@@ -40,3 +40,9 @@ themeteorchef:bert
 miro:mailchimp
 reactive-var
 themeteorchef:jquery-validation
+meteorhacks:npm
+
+
+npm-container
+harrison:papa-parse
+pfafman:filesaver
