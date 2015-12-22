@@ -48,6 +48,14 @@ Template.updateInfo.events({
     	request_bio: $('#bio').val(),
     	request_approved: "false"
 		});
+
+		var text = "This email has been sent to notify you that "+ $('#first_name').val() + " "+ $('#last_name').val() + 
+					"has requested to become a host for "+ chapter+".";                              
+		var to = Meteor.users.findOne({'profile.role.IsSuperAdmin': "true"}).emails[0].address;
+		var subject = "Thought Lounge Host Request";
+
+		Meteor.call('sendEmail', to, subject, text);
+  		console.log('sent');
 		
 		location.reload();
 		

@@ -1,5 +1,6 @@
 Template.doatlLounge.events({
 	"click .do-this-tl-btn": function(event) {
+    var host_id = this.lounge_host;
     var id = this._id;
     var ary = Lounges.findOne(this._id).lounge_participants;
     ary[ary.length] = Meteor.userId();
@@ -8,18 +9,22 @@ Template.doatlLounge.events({
     'lounge_num_participants': ary.length
     }});
 
-  var text_body = "This email has been sent to notify you that you have signed up for a thought lounge for "  + 
-                  this.lounge_chapter + ", on " + this.lounge_date_numbers + " at " + this.lounge_time + ".";
+  var text = "This email has been sent to notify you that you have signed up for a thought lounge for "  + 
+                  this.lounge_chapter + ", on " + this.lounge_date_numbers + " at " + this.lounge_time + ".";                              
+  var to = Meteor.user().emails[0].address;
+  var subject = "Thought Lounge Confirmation";
 
-  var email = {
-            to: Meteor.user().emails[0].address,
-            from: "noreply@thoughtlounge.org",
-            replyTo: "noreply@thoughtlounge.org",
-            subject: "Thought Lounge Confirmation",
-            text: text_body
-        };
-  Meteor.call('sendEmail', Meteor.userId(), email);
+  Meteor.call('sendEmail', to, subject, text);
   console.log('sent');
+
+      var h_text = "This email has been sent to notify you that"+ Meteor.user().profile.first_name + " "+ Meteor.user().profile.last_name
+                   +" has signed up for your thought lounge for "  + 
+                  this.lounge_chapter + ", on " + this.lounge_date_numbers + " at " + this.lounge_time + ". Please welcome them to the lounge!";                              
+      var h_to = Meteor.users.findOne({_id: host_id}).emails[0].address;
+      var h_subject = "New Lounger for your TL";
+
+      Meteor.call('sendEmail', h_to, h_subject, h_text);
+      console.log('sent');
 
     //add mail thing here to send confirmartion email to this users email about Lounge by this._id
     //Meteor.user().profile.first_name

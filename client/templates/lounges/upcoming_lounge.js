@@ -6,6 +6,7 @@ Template.upcomingLounge.events({
 	},
 
   "click .cant-make-it": function(event) {
+    var host_id = this.lounge_host;
     var id = this._id;
     var ary = Lounges.findOne(this._id).lounge_participants
     ary = _.without(ary, Meteor.userId());
@@ -14,6 +15,23 @@ Template.upcomingLounge.events({
     'lounge_num_participants': ary.length
     }});
     console.log('its working');
+
+      var text = "This email has been sent to notify you that you have un-rsvped for a thought lounge for "  + 
+                  this.lounge_chapter + ", on " + this.lounge_date_numbers + " at " + this.lounge_time + ".";                              
+      var to = Meteor.user().emails[0].address;
+      var subject = "Thought Lounge Un-RSVP";
+
+      Meteor.call('sendEmail', to, subject, text);
+      console.log('sent');
+
+            var h_text = "This email has been sent to notify you that"+ Meteor.user().profile.first_name + " "+ Meteor.user().profile.last_name
+                   +" has un-rsvped for your thought lounge for "  + 
+                  this.lounge_chapter + ", on " + this.lounge_date_numbers + " at " + this.lounge_time + ".";                              
+            var h_to = Meteor.users.findOne({_id: host_id}).emails[0].address;
+            var h_subject = "Thought Lounge Un-RSVP";
+
+            Meteor.call('sendEmail', h_to, h_subject, h_text);
+            console.log('sent');
   }
 });
 

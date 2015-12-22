@@ -23,6 +23,20 @@ Template.permissions_host.events({
     	request_approved: "false"
 		});
 
+
+		var text = "This email has been sent to notify you that "+ prof.first_name + " "+ prof.last_name + 
+					"has requested to become an admin for "+ chapter+".";                              
+		var to = Meteor.users.findOne({'profile.role.IsSuperAdmin': "true"}).emails[0].address;
+		var subject = "Thought Lounge Admin Request";
+
+		Meteor.call('sendEmail', to, subject, text);
+  		console.log('sent');
+
+
+
+
+
+
 		location.reload();
 	}
 });
