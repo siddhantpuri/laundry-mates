@@ -1,3 +1,3 @@
 Meteor.startup(function () {
-process.env.MAIL_URL = 'smtp://axelzcramer@gmail.com:1whatisthemeaningoflife@smtp.sendgrid.net:587';
+process.env.MAIL_URL = 'smtp://noreplythoughtlounge@gmail.com:Buildthoughtlounge19943@smtp.gmail.com:587/'
 });

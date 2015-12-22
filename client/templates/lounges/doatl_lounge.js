@@ -8,12 +8,18 @@ Template.doatlLounge.events({
     'lounge_num_participants': ary.length
     }});
 
-  Email.send({
-  from: "noreply@thoughtlounge.org",
-  to: "Meteor.user().emails[0].address",
-  subject: "This is the confirmation email",
-  text: "This is the confirmation body msg"
-  })
+  var text_body = "This email has been sent to notify you that you have signed up for a thought lounge for "  + 
+                  this.lounge_chapter + ", on " + this.lounge_date_numbers + " at " + this.lounge_time + ".";
+
+  var email = {
+            to: Meteor.user().emails[0].address,
+            from: "noreply@thoughtlounge.org",
+            replyTo: "noreply@thoughtlounge.org",
+            subject: "Thought Lounge Confirmation",
+            text: text_body
+        };
+  Meteor.call('sendEmail', Meteor.userId(), email);
+  console.log('sent');
 
     //add mail thing here to send confirmartion email to this users email about Lounge by this._id
     //Meteor.user().profile.first_name
