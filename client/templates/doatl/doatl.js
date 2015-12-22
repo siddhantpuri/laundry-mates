@@ -9,7 +9,9 @@ Template.doatl.events({
 	},
 
 	"change .doatl-select-logged-out": function(event){
-		viewing = $('#primary-chapter').val()
+		Session.set('selectedChapter', $('#primary-chapter').val());
+		var chapter = Session.get('selectedChapter');
+		console.log(chapter)
 
 	return false;
 	}

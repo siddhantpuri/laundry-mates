@@ -4,8 +4,7 @@ Template.doatlList.helpers({
     if (Meteor.user()) {
       var chapter = Meteor.user().profile.primary_chapter.split(' ').join('_');
     } else {
-      var chapter = viewing.split(' ').join('_');
-      console.log(viewing)
+      var chapter = Session.get('selectedChapter');
     }
     
     return Lounges.find({lounge_chapter: chapter, lounge_date: {$gt: currentdate}}, {sort: { lounge_date: 1 }});
@@ -17,8 +16,7 @@ Template.doatlList.helpers({
     if (Meteor.user()) {
       var chapter = Meteor.user().profile.primary_chapter.split(' ').join('_');
     } else {
-      var chapter = viewing.split(' ').join('_');
-      console.log(viewing)
+      var chapter = Session.get('selectedChapter');
     }
     return Lounges.find({lounge_chapter: chapter, lounge_date: {$gt: currentdate}}, {sort: { lounge_date: 1 }}).fetch();
     

@@ -16,6 +16,7 @@ Template.updateInfo.events({
 		var first_name = trimInput($('#first_name').val());
 		var last_name = trimInput($('#last_name').val());
 		var phone = trimInput($('#phone').val());
+		var slack_handle = trimInput($('#slack_handle').val());
 
 
 		if(isNotEmpty(email) &&  

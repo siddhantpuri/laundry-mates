@@ -14,6 +14,10 @@ Template.registerHelper('userEmail', function() {
     return Meteor.user().emails[0].address;
 });
 
+Template.registerHelper('slackHandle', function() {
+    return Meteor.user().profile.slack_handle;
+});
+
 Template.registerHelper('phone', function() {
     return Meteor.user().profile.phone;
 });

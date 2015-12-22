@@ -15,6 +15,8 @@ Template.accountInfo.events({
 		var email = trimInput($('#email').val());
 		var first_name = trimInput($('#first_name').val());
 		var last_name = trimInput($('#last_name').val());
+    var phone = trimInput($('#phone').val());
+    var slack_handle = trimInput($('#slack_handle').val());
 
 
 
@@ -25,7 +27,8 @@ Template.accountInfo.events({
 
 				Meteor.users.update( { _id: userId }, { $set: { 'profile.first_name': first_name }} );
 				Meteor.users.update( { _id: userId }, { $set: { 'profile.last_name': last_name }} );
-				Meteor.users.update( { _id: userId }, { $set: { 'profile.phone': $('#phone').val() }} );
+        Meteor.users.update( { _id: userId }, { $set: { 'profile.slack_handle': slack_handle }} );
+				Meteor.users.update( { _id: userId }, { $set: { 'profile.phone': phone }} );
 				Meteor.users.update( { _id: userId }, { $set: { 'profile.primary_chapter': $('#primary-chapter').val() }} );
 				Meteor.users.update( { _id: userId }, { $set: { 'profile.bio': $('#bio').val() }} );
 				Meteor.users.update( { _id: userId }, { $set: { 'emails.0.address': email }} );

@@ -41,7 +41,11 @@
 									<p>You are already signed up for this lounge! Make sure to mark it in your calendar!</p>
 								</div>
 							{{else}}
-								<div class="do-this-tl-btn">DO THIS TL</div>
+								{{#if loggedIn}}
+									<div class="do-this-tl-btn">DO THIS TL</div>
+								{{else}}
+									<div class="do-this-tl-btn">SIGN IN TO DO THIS TL</div>
+								{{/if}}
 							{{/if}}
 						{{/if}}
 					</div>

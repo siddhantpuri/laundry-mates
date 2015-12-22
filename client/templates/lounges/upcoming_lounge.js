@@ -47,6 +47,9 @@ Template.upcomingLounge.helpers({
   host_email: function() {
   	var hostId = Lounges.findOne(this._id).lounge_host
   	return Meteor.users.findOne({_id:hostId}).emails[0].address;
+  },
+  is_special_type: function() {
+    return this.lounge_type == "other";
   }
 });
 

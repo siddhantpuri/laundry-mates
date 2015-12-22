@@ -40,8 +40,13 @@ Template.register.events({
 				if(err){
 					FlashMessages.sendError('There was an error with registration');
 				} else {
-					FlashMessages.sendSuccess('Account Created! You are now logged in');
-					Router.go('/dashboard');
+					if (Session.get('Route') == '/doatl') {
+						Meteor.users.update( { _id: Meteor.userId() }, { $set: { 'profile.primary_chapter': Session.get('selectedChapter') }} );
+						Session.set('Route', '/dashboard');
+						Router.go('/doatl');
+					} else {
+						Router.go('/dashboard');
+					}
 				}
 			});
 
