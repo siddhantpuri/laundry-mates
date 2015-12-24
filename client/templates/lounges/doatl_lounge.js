@@ -10,21 +10,40 @@ Template.doatlLounge.events({
       'lounge_num_participants': ary.length
       }});
 
-        var text = "This email has been sent to notify you that you have signed up for a thought lounge for "  + 
-                        this.lounge_chapter + ", on " + this.lounge_date_numbers + " at " + this.lounge_time + ".";                              
-        var to = Meteor.user().emails[0].address;
-        var subject = "Thought Lounge Confirmation";
 
-        Meteor.call('sendEmail', to, subject, text);
-        console.log('sent');
+      var data = {
+        first_name : Meteor.user().profile.first_name,
+        day: this.lounge_day,
+        date: this.lounge_date_numbers,
+        time: this.lounge_time,
+        location: this.lounge_location,
+        address: this.lounge_address
+      }
+      var to = Meteor.user().emails[0].address;
+      var subject = "Thought Lounge Confirmation";
+      var temp_name = 'signUPEmail';
+      var file_name = 'tl_signed_up.html';
 
-        var h_text = "This email has been sent to notify you that"+ Meteor.user().profile.first_name + " "+ Meteor.user().profile.last_name
-                     +" has signed up for your thought lounge for "  + 
-                    this.lounge_chapter + ", on " + this.lounge_date_numbers + " at " + this.lounge_time + ". Please welcome them to the lounge!";                              
+      Meteor.call('sendEmail', to, subject, data, temp_name, file_name);
+      console.log('sent')
+
+      
+        var h_data = {
+        lounger_first_name : Meteor.user().profile.first_name,
+        lounger_last_name : Meteor.user().profile.last_name,
+        lounger_email: Meteor.user().emails[0].address,
+        lounger_phone: Meteor.user().profile.phone,
+        day: this.lounge_day,
+        date: this.lounge_date_numbers,
+        time: this.lounge_time,
+        location: this.lounge_location
+      }            
         var h_to = Meteor.users.findOne({_id: host_id}).emails[0].address;
         var h_subject = "New Lounger for your TL";
+        var temp_name = 'newLoungerEmail';
+        var file_name = 'new_lounger.html';
 
-        Meteor.call('sendEmail', h_to, h_subject, h_text);
+        Meteor.call('sendEmail', h_to, h_subject, h_data,  temp_name, file_name);
         console.log('sent');
 
     Router.go('/my-upcoming-lounges');

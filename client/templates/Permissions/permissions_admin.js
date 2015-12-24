@@ -95,7 +95,7 @@ Template.permissions_admin.events({
     if (data.fetch()){
       data.forEach(function(user) {
         console.log(user.profile.first_name)
-        var role = user.profile.role[chapter]
+        var role = user.profile.role[chapter];
         if (role) {
           role = role;
         } else {

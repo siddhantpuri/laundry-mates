@@ -94,7 +94,8 @@ Template.create.events({
 		lounge_zipcode: $('#zipcode').val(),
 		lounge_participants: participantArray(),
 		lounge_num_participants: participantArray().length,
-		lounge_log_link: "http://www.thoughtlounge.org/the-lounge-log"
+		lounge_log_link: "http://www.thoughtlounge.org/the-lounge-log",
+		lounge_host_sent: "none"
 		});
 
 		
