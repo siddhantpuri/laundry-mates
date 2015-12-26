@@ -24,16 +24,22 @@ Template.permissions_host.events({
 		});
 
 
-		var text = "This email has been sent to notify you that "+ prof.first_name + " "+ prof.last_name + 
-					"has requested to become an admin for "+ chapter+".";                              
-		var to = Meteor.users.findOne({'profile.role.IsSuperAdmin': "true"}).emails[0].address;
-		var subject = "Thought Lounge Admin Request";
 
-		Meteor.call('sendEmail', to, subject, text);
-  		console.log('sent');
+  		var superadmin = Meteor.users.findOne({'profile.role.IsSuperAdmin': "true"});
 
+  		var data = {
+  			superadmin_first_name: superadmin.profile.first_name
+	        host_first_name : prof.first_name,
+	        host_last_name: prof.last_name,
+	        chapter: chapter
+	      }
+	      var to = superadmin.emails[0].address;
+	      var subject = "" + prof.first_name + " " + prof.last_name + " requested to become an Admin at "+ chapter + ". Accept/Reject him/her!!";
+	      var temp_name = 'adminRequestEmail';
+	      var file_name = 'admin_request.html';
 
-
+	      Meteor.call('sendEmail', to, subject, data, temp_name, file_name);
+	      console.log('sent')
 
 
 

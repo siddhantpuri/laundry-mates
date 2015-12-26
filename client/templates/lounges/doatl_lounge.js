@@ -20,7 +20,7 @@ Template.doatlLounge.events({
         address: this.lounge_address
       }
       var to = Meteor.user().emails[0].address;
-      var subject = "Thought Lounge Confirmation";
+      var subject = "Confirmation - You have been signed up for a Thought Lounge Session.";
       var temp_name = 'signUPEmail';
       var file_name = 'tl_signed_up.html';
 
@@ -39,7 +39,7 @@ Template.doatlLounge.events({
         location: this.lounge_location
       }            
         var h_to = Meteor.users.findOne({_id: host_id}).emails[0].address;
-        var h_subject = "New Lounger for your TL";
+        var h_subject = "A New Lounger has joined Your Lounge. Here’s their info, welcome them!";
         var temp_name = 'newLoungerEmail';
         var file_name = 'new_lounger.html';
 
