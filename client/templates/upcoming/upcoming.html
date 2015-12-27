@@ -1,6 +1,12 @@
 <template name="upcoming">
 	<div class="upcoming">
-		<h1 class="main-title">My Upcoming Lounges</h1>
+		<h1 class="main-title upcoming-h1">My Upcoming Lounges</h1>
+		{{#if notLounger}}
+		 	<div class="sb-create-btn upcoming-create-btn">
+		  		{{> createBtn}}
+		 	</div>
+		{{else}}
+		{{/if}}
 		{{> upcomingList}}
 	</div>
 </template>
