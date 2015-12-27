@@ -1,7 +1,7 @@
 Template.lounge_info_form.events({
 	"submit .update-lounge": function(event){
 
-		function participantArray() {
+		function participantArray(lounge) {
 
 			var participant_inputs = {e1:$('#participant1e').val(),
 									e2:$('#participant2e').val(),
@@ -9,7 +9,9 @@ Template.lounge_info_form.events({
 									e4:$('#participant4e').val(),
 									e5:$('#participant5e').val() };
 		
-			var added_participants = this.lounge_participants;
+			var added_participants = lounge.lounge_participants;
+			console.log(lounge)
+			console.log(added_participants)
 			var x;
 
 			for (x in participant_inputs) {
@@ -69,17 +71,19 @@ Template.lounge_info_form.events({
 		'lounge_city': $('#city').val(),
 		'lounge_state': $('#state').val(),
 		'lounge_zipcode': $('#zipcode').val(),
-		'lounge_participants': participantArray(),
-		'lounge_num_participants': participantArray().length
+		'lounge_participants': participantArray(this),
+		'lounge_num_participants': participantArray(this).length,
+		'lounge_log_link': "http://www.thoughtlounge.org/the-lounge-log",
+		'lounge_host_sent': "none"
 		}} );
-		console.log(participantArray())
-		console.log(participantArray().length)
+		console.log(participantArray(this))
+		console.log(participantArray(this).length)
 		console.log(parseInt($('#number-of-loungers').val()))
 		console.log($('#location').val())
 		console.log(convertTimeAMPM(time))
 		console.log(date_numbers)
-		
 
+		location.reload();
 		return false;
 	},
 

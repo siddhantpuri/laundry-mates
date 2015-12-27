@@ -57,6 +57,7 @@ Template.permissionItem.events({
 	},
 
 	"click .delete-btn": function(event) {
+		console.log(this)
 	    var request_userId = Requests.findOne(this._id).request_userId;
 	    var chapter = Requests.findOne(this._id).request_chapter;
 	    var updated_request_status = Meteor.users.findOne(request_userId).profile.request_status;

@@ -78,7 +78,7 @@ Template.create.events({
 		Lounges.insert({
 
 		lounge_host: Meteor.userId(),
-		lounge_chapter: $('#select-a-chapter').val(),
+		lounge_chapter: $('#select-a-chapter').val().split(' ').join('_'),
 		lounge_type: $('#type-of-lounge').val(),
 		lounge_title: $('#title-of-lounge').val(),
 		lounge_url: $('#url').val(),
@@ -94,7 +94,8 @@ Template.create.events({
 		lounge_zipcode: $('#zipcode').val(),
 		lounge_participants: participantArray(),
 		lounge_num_participants: participantArray().length,
-		lounge_log_link: "http://www.thoughtlounge.org/the-lounge-log"
+		lounge_log_link: "http://www.thoughtlounge.org/the-lounge-log",
+		lounge_host_sent: "none"
 		});
 
 		
@@ -103,3 +104,18 @@ Template.create.events({
 		return false;
 	}
 });
+
+
+
+Template.create.helpers({
+	isHostatChapter: function() {
+      var chapter = this.name
+      var role = Meteor.user().profile.role[chapter]
+      var sadmin_status = Meteor.user().profile.role.IsSuperAdmin
+    return  role == "host" || role == "admin" || sadmin_status
+    
+  }
+
+});
+
+

@@ -50,14 +50,31 @@ Template.updateInfo.events({
     	request_approved: "false"
 		});
 
-		var text = "This email has been sent to notify you that "+ $('#first_name').val() + " "+ $('#last_name').val() + 
-					"has requested to become a host for "+ chapter+".";                              
-		var to = Meteor.users.findOne({'profile.role.IsSuperAdmin': "true"}).emails[0].address;
-		var subject = "Thought Lounge Host Request";
 
-		Meteor.call('sendEmail', to, subject, text);
-  		console.log('sent');
-		
+		var search_str = 'profile.role.'+chapter  
+	    chapter_admins = Meteor.users.find({search_str: 'admin'});
+	    if (chapter_admins.fetch()){
+	      data.forEach(function(admin) {
+	        console.log(admin.profile.first_name)
+
+	        var data = {
+		        admin_first_name : admin.profile.first_name,
+		        lounger_first_name : Meteor.user().profile.first_name,
+		        lounger_last_name : Meteor.user().profile.last_name
+		      }
+		      var to = admin.emails[0].address;
+		      var subject = "" + Meteor.user().profile.first_name+ " " + Meteor.user().profile.last_name + 
+		      				" requested to become a Host at your Chapter. Accept/Reject him/her!!";
+		      var temp_name = 'hostreqEmail';
+		      var file_name = 'admin_notif_lounger_host_req.html';
+
+		      Meteor.call('sendEmail', to, subject, data, temp_name, file_name);
+		      console.log('sent')
+
+
+	        });
+	    }
+
 		location.reload();
 		
 		return false;

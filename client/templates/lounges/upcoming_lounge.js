@@ -16,22 +16,20 @@ Template.upcomingLounge.events({
     }});
     console.log('its working');
 
-      var text = "This email has been sent to notify you that you have un-rsvped for a thought lounge for "  + 
-                  this.lounge_chapter + ", on " + this.lounge_date_numbers + " at " + this.lounge_time + ".";                              
+      var data = {
+        day: this.lounge_day,
+        date: this.lounge_date_numbers,
+        time: this.lounge_time,
+        location: this.lounge_location,
+        address: this.lounge_address
+      }
       var to = Meteor.user().emails[0].address;
       var subject = "Thought Lounge Un-RSVP";
+      var temp_name = 'loungerUNRSVPEmail';
+      var file_name = 'lounger_unrsvp.html';
 
-      Meteor.call('sendEmail', to, subject, text);
-      console.log('sent');
-
-            var h_text = "This email has been sent to notify you that"+ Meteor.user().profile.first_name + " "+ Meteor.user().profile.last_name
-                   +" has un-rsvped for your thought lounge for "  + 
-                  this.lounge_chapter + ", on " + this.lounge_date_numbers + " at " + this.lounge_time + ".";                              
-            var h_to = Meteor.users.findOne({_id: host_id}).emails[0].address;
-            var h_subject = "Thought Lounge Un-RSVP";
-
-            Meteor.call('sendEmail', h_to, h_subject, h_text);
-            console.log('sent');
+      Meteor.call('sendEmail', to, subject, data, temp_name, file_name);
+      console.log('sent')
   }
 });
 
