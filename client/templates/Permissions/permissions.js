@@ -13,6 +13,9 @@ Template.permissions.events({
 		console.log($('#primary-chapter').val())
 		console.log(Meteor.user().profile.primary_chapter)
 
+
+		location.reload();
+		
 	return false;
 	}
 });

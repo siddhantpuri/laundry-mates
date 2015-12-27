@@ -42,10 +42,10 @@ Template.register.events({
 				} else {
 					if (Session.get('Route') == '/doatl') {
 						Meteor.users.update( { _id: Meteor.userId() }, { $set: { 'profile.primary_chapter': Session.get('selectedChapter') }} );
-						Session.set('Route', '/dashboard');
+						Session.set('Route', '/my-upcoming-lounges');
 						Router.go('/doatl');
 					} else {
-						Router.go('/dashboard');
+						Router.go('/my-upcoming-lounges');
 					}
 				}
 			});
@@ -107,7 +107,7 @@ areValidPasswords = function(password, confirm) {
         return false;
     }
     if (password !== confirm) {
-        FlashMessages.sendError("Passwors do not match");
+        FlashMessages.sendError("Passwords do not match");
         return false;
     }
     return true;

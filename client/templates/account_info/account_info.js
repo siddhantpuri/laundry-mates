@@ -119,7 +119,7 @@ areValidPasswords = function(password, confirm) {
         return false;
     }
     if (password !== confirm) {
-        FlashMessages.sendError("Passwors do not match");
+        FlashMessages.sendError("Passwords do not match");
         return false;
     }
     return true;

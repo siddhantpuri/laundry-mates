@@ -4,7 +4,6 @@ Template.navbar.events({
 			if(err){
 				FlashMessages.sendError(err.reason);
 			} else {
-				FlashMessages.sendSuccess('You are now logged out');
 				Router.go('/');
 			}
 		});
