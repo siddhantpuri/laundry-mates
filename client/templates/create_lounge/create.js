@@ -104,3 +104,18 @@ Template.create.events({
 		return false;
 	}
 });
+
+
+
+Template.create.helpers({
+	isHostatChapter: function() {
+      var chapter = this.name
+      var role = Meteor.user().profile.role[chapter]
+      var sadmin_status = Meteor.user().profile.role.IsSuperAdmin
+    return  role == "host" || role == "admin" || sadmin_status
+    
+  }
+
+});
+
+

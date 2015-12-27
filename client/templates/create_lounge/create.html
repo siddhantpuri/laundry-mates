@@ -5,7 +5,9 @@
 		   <select id="select-a-chapter" name="select-a-chapter" placeholder="Select a Different Chapter">
 		 		<option value="{{#if primaryChapter}}{{primaryChapter}}{{else}}Select Primary Chapter{{/if}}">{{#if primaryChapter}}{{primaryChapter}}{{else}}Select Primary Chapter{{/if}}</option> 
 				{{#each allChapters}}
-	    			<option value= {{name}}>{{spaced_name}}</option> 
+					{{#if isHostatChapter}}
+	    				<option value= {{name}}>{{spaced_name}}</option> 
+	    			{{/if}}
 				{{/each}}
 			</select>
 			<p>Select Type of Lounge</p>
