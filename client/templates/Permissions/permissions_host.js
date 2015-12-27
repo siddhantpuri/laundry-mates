@@ -23,12 +23,12 @@ Template.permissions_host.events({
     	request_approved: "false"
 		});
 
-
+		var prof = Meteor.user().profile;
 
   		var superadmin = Meteor.users.findOne({'profile.role.IsSuperAdmin': "true"});
 
   		var data = {
-  			superadmin_first_name: superadmin.profile.first_name
+  			superadmin_first_name: superadmin.profile.first_name,
 	        host_first_name : prof.first_name,
 	        host_last_name: prof.last_name,
 	        chapter: chapter

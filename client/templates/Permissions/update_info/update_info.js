@@ -51,8 +51,8 @@ Template.updateInfo.events({
 		});
 
 
-		    
-	    chapter_admins = Meteor.users.find({'profile.role'[chapter]: 'admin'});
+		var search_str = 'profile.role.'+chapter  
+	    chapter_admins = Meteor.users.find({search_str: 'admin'});
 	    if (chapter_admins.fetch()){
 	      data.forEach(function(admin) {
 	        console.log(admin.profile.first_name)
@@ -72,15 +72,8 @@ Template.updateInfo.events({
 		      console.log('sent')
 
 
-	        }
-
-		
-
-
-
-
-
-
+	        });
+	    }
 
 		location.reload();
 		

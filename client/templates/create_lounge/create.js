@@ -78,7 +78,7 @@ Template.create.events({
 		Lounges.insert({
 
 		lounge_host: Meteor.userId(),
-		lounge_chapter: $('#select-a-chapter').val(),
+		lounge_chapter: $('#select-a-chapter').val().split(' ').join('_'),
 		lounge_type: $('#type-of-lounge').val(),
 		lounge_title: $('#title-of-lounge').val(),
 		lounge_url: $('#url').val(),
