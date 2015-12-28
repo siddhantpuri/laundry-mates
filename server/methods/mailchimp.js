@@ -30,7 +30,8 @@ Meteor.methods({
         id: listId,
         email: {
           email: subscriber.email
-        }
+        },
+        "double_optin": false
       });
 
       return subscribe;

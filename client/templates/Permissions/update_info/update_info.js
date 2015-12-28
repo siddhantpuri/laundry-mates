@@ -17,6 +17,7 @@ Template.updateInfo.events({
 		var last_name = trimInput($('#last_name').val());
 		var phone = trimInput($('#phone').val());
 		var slack_handle = trimInput($('#slack_handle').val());
+		var chapter = $('#primary-chapter').val().split(' ').join('_');
 
 
 		if(isNotEmpty(email) &&  
@@ -27,12 +28,12 @@ Template.updateInfo.events({
 				Meteor.users.update( { _id: userId }, { $set: { 'profile.first_name': first_name }} );
 				Meteor.users.update( { _id: userId }, { $set: { 'profile.last_name': last_name }} );
 				Meteor.users.update( { _id: userId }, { $set: { 'profile.phone': phone }} );
-				Meteor.users.update( { _id: userId }, { $set: { 'profile.primary_chapter': $('#primary-chapter').val() }} );
+				Meteor.users.update( { _id: userId }, { $set: { 'profile.slack_handle': slack_handle }} );
+				Meteor.users.update( { _id: userId }, { $set: { 'profile.primary_chapter': chapter }} );
 				Meteor.users.update( { _id: userId }, { $set: { 'profile.bio': $('#bio').val() }} );
 				Meteor.users.update( { _id: userId }, { $set: { 'emails.0.address': email }} );
 		}
 		
-		var chapter = $('#primary-chapter').val().split(' ').join('_');
 		var updated_request_status = Meteor.users.findOne(userId).profile.request_status;
 		updated_request_status[chapter] = "processing";
 		Meteor.users.update( { _id: userId }, { $set: { 'profile.request_status': updated_request_status}} );
@@ -49,12 +50,12 @@ Template.updateInfo.events({
     	request_bio: $('#bio').val(),
     	request_approved: "false"
 		});
-
+		console.log('inserted')
 
 		var search_str = 'profile.role.'+chapter  
 	    chapter_admins = Meteor.users.find({search_str: 'admin'});
 	    if (chapter_admins.fetch()){
-	      data.forEach(function(admin) {
+	      chapter_admins.forEach(function(admin) {
 	        console.log(admin.profile.first_name)
 
 	        var data = {
@@ -70,10 +71,9 @@ Template.updateInfo.events({
 
 		      Meteor.call('sendEmail', to, subject, data, temp_name, file_name);
 		      console.log('sent')
-
-
 	        });
 	    }
+	    console.log('email section worked')
 
 		location.reload();
 		

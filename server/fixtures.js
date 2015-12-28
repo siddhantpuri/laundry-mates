@@ -27,40 +27,6 @@ if (Lounges.find().count() === 0) {
   });
 }
 
-if (Requests.find().count() === 0) {
-  Requests.insert({
-    type: 'host',
-    request_userId: 'userId',
-    request_chapter: 'UC_Berkeley',
-    request_first_name: 'Shaan',
-    request_last_name: 'Appel',
-    request_email: 'shaan.appel@me.com',
-    request_picture: 'somefile',
-    request_approved: 'false'
-  });
-  
-  Requests.insert({
-    type: 'admin',
-    request_userId: 'userId',
-    request_chapter: 'UC_Berkeley',
-    request_first_name: 'Shaan',
-    request_last_name: 'Appel',
-    request_email: 'shaan.appel@me.com',
-    request_picture: 'somefile',
-    request_approved: 'false'
-  });
-  
-  Requests.insert({
-    type: 'host',
-    request_userId: 'userId',
-    request_chapter: 'UC_Berkeley',
-    request_first_name: 'Other',
-    request_last_name: 'Appel',
-    request_email: 'shaan.appel@me.com',
-    request_picture: 'somefile',
-    request_approved: 'true'
-  });
-}
 
 if (Chapters.find().count() === 0) {
   Chapters.insert({
