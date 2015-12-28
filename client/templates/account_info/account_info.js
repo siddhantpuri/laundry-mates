@@ -29,7 +29,7 @@ Template.accountInfo.events({
 				Meteor.users.update( { _id: userId }, { $set: { 'profile.last_name': last_name }} );
         Meteor.users.update( { _id: userId }, { $set: { 'profile.slack_handle': slack_handle }} );
 				Meteor.users.update( { _id: userId }, { $set: { 'profile.phone': phone }} );
-				Meteor.users.update( { _id: userId }, { $set: { 'profile.primary_chapter': $('#primary-chapter').val() }} );
+				Meteor.users.update( { _id: userId }, { $set: { 'profile.primary_chapter': $('#primary-chapter').val().split(' ').join('_') }} );
 				Meteor.users.update( { _id: userId }, { $set: { 'profile.bio': $('#bio').val() }} );
 				Meteor.users.update( { _id: userId }, { $set: { 'emails.0.address': email }} );
 				console.log(Meteor.user())
@@ -119,7 +119,7 @@ areValidPasswords = function(password, confirm) {
         return false;
     }
     if (password !== confirm) {
-        FlashMessages.sendError("Passwors do not match");
+        FlashMessages.sendError("Passwords do not match");
         return false;
     }
     return true;
