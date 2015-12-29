@@ -3,15 +3,12 @@
 		<h1 class="permission-header">My Permissions for {{primaryChapter}}</h1>
 		<div>
 			<h3>View Permissions For A Different Chapter</h3>
-			<form class="change-chapter-form standard-form">
-				<select id="primary-chapter" name="primary-chapter" placeholder="Select a Different Chapter">
-				 	<option value="{{#if primaryChapter}}{{primaryChapter}}{{else}}Select Primary Chapter{{/if}}">{{#if primaryChapter}}{{primaryChapter}}{{else}}Select Primary Chapter{{/if}}</option> 
-        			{{#each allChapters}}
-            			<option value= {{name}}>{{spaced_name}}</option> 
-        			{{/each}}
-        		</select>
-				<button class="change-chapter-btn btn btn-lg btn-primary btn-block" type="submit">Change Chapter</button>
-			</form>
+			<select id="primary-chapter" name="primary-chapter" placeholder="Select a Different Chapter" class="primary-chapter">
+			 	<option value="{{#if primaryChapter}}{{primaryChapter}}{{else}}Select Primary Chapter{{/if}}">{{#if primaryChapter}}{{primaryChapter}}{{else}}Select Primary Chapter{{/if}}</option> 
+    			{{#each allChapters}}
+        			<option value= {{name}}>{{spaced_name}}</option> 
+    			{{/each}}
+    		</select>
 		</div>
 		{{#if IsSuperAdmin}}
 			{{> permissions_superadmin}}

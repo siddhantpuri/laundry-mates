@@ -7,6 +7,7 @@ Template.login.events({
 			if(err){
 				event.target.email.value = email;
 				event.target.password.value = password;
+				FlashMessages.sendError(err.reason);
 			} else {
 				if (Session.get('Route') == '/doatl') {
 					Meteor.users.update( { _id: Meteor.userId() }, { $set: { 'profile.primary_chapter': Session.get('selectedChapter') }} );

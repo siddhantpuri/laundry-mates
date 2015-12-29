@@ -1,4 +1,3 @@
-viewing = "wat"
 
 Template.doatl.events({
 	"change .doatl-select": function(event){

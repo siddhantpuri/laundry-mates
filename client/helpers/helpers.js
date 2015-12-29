@@ -51,22 +51,24 @@ Template.registerHelper('allChapters', function() {
     return Chapters.find({}, {sort: { name: 1 }});
 });
 
+
+Template.registerHelper('notLounger', function() {
+    var user = Meteor.user();
+    var role = user.profile.role;
+    var host_admin_list = "";
+    for ( var chapter in role ) {
+        if (role[chapter] == "host" || role[chapter] == "admin") {
+            host_admin_list = role[chapter];
+        }
+    }
+
+    return Meteor.user().profile.role.IsSuperAdmin || host_admin_list
+});
+
 Template.registerHelper( 'count', function( array ) {
   return array ? array.length : 0;
 });
 
-
-Template.registerHelper('notLounger', function() {
-    var obj = Meteor.user().profile.role;
-    var host_admin_list = "";
-    for ( var chapter in obj ) {
-        if (obj[chapter] == "host" || obj[chapter] == "admin") {
-            host_admin_list = obj[chapter];
-        }
-    }
-
-    return (Meteor.user().profile.role.IsSuperAdmin || host_admin_list)
-});
 
 
 
@@ -86,13 +88,15 @@ function getCookie(cname) {
 
 // create a username cookie
 Deps.autorun(function () {
-    if (Meteor.user()) {
-      console.log(Meteor.user().profile.first_name);
-      setCookie("firstname", Meteor.user().profile.first_name)
-    } else {
-      console.log("I'm logged out");
-      setCookie("firstname", "")
-    }
+    setTimeout(function(){
+      if (Meteor.user()) {
+        console.log(Meteor.user().profile.first_name);
+        setCookie("firstname", Meteor.user().profile.first_name);
+      } else {
+        console.log("I'm logged out");
+        setCookie("firstname", "");
+      }
+    }, 1000);
 });
 
 
