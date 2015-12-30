@@ -57,6 +57,17 @@ Template.register.events({
 			    });
 			}
 
+			var data = {
+				first_name: 'New Lounger'
+			}
+		    var to = email;
+		    var subject = "Welcome to Thought Lounge! You just created your profile.";
+		    var temp_name = 'welcomeEmail';
+		    var file_name = 'welcome.html';
+
+		    Meteor.call('sendEmail', to, subject, data, temp_name, file_name);
+		    console.log('sent')
+
 		}
 
 
