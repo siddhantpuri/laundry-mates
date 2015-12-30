@@ -73,9 +73,9 @@ Template.updateInfo.events({
 		      console.log('sent')
 	        });
 	    }
-	    console.log('email section worked')
+	    console.log('email section ran')
 
-		location.reload();
+	    Meteor.subscribe('myProfile');
 		
 		return false;
 	},

@@ -12,7 +12,7 @@ let _addUrlToDatabase = ( url ) => {
       Bert.alert( error.reason, "warning" );
       _setPlaceholderText();
     } else {
-      Bert.alert( "File uploaded to Amazon S3!", "success" );
+      Bert.alert( "Profile Picture Uploaded Succesfully!", "success" );
       _setPlaceholderText();
     }
   });

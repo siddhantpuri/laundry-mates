@@ -1,5 +1,11 @@
 Template.logout.helpers({
   log_you_out: function() {
-  	window.location.replace("http://www.thoughtlounge.org");
+  	Meteor.logout(function(err){
+			if(err){
+				FlashMessages.sendError(err.reason);
+			} else {
+				window.location.replace("http://www.thoughtlounge.org");
+			}
+		});
   },
 });

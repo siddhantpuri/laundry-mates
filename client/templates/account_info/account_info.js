@@ -18,6 +18,7 @@ Template.accountInfo.events({
     var phone = trimInput($('#phone').val());
     var slack_handle = trimInput($('#slack_handle').val());
 
+    Meteor.subscribe('myProfile');
 
 
 		if(isNotEmpty(email) &&  
@@ -49,7 +50,8 @@ Template.accountInfo.events({
 			}
 
 
-		location.reload();
+		Meteor.subscribe('myProfile');
+    $('html,body').scrollTop(0);
 		// Prevent Submit
 		return false;
 	},
@@ -77,6 +79,11 @@ Template.accountInfo.events({
    	}
 });
 
+Template.accountInfo.helpers({
+  subcribe_to_user: function() {
+    Meteor.subscribe('myProfile');
+  }
+});
 
 // Validation Rules
 
