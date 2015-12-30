@@ -27,8 +27,8 @@ Template.register.events({
 					primary_chapter: primary_chapter,
 					notifications: {
 						tl_monthly_letter: newsletter_checked,
-						chapter_monthly_letters: {},
-						chapter_weekly_letters: {}
+						chapter_monthly_letters: [],
+						chapter_weekly_letters: []
 					},
 					role: {
 					    IsSuperAdmin: ""
