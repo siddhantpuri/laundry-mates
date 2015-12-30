@@ -55,13 +55,20 @@ Template.permissions_superadmin.events({
   },
 
   "submit .delete-chapter-form": function(event){
-    var chapter_id = Chapters.findOne({name: $('#delete-chapter-select').val()})._id;
 
-    Chapters.remove({_id: chapter_id});
+    var x = window.confirm("Are you sure you want to delete this chapter?")
+    if (x) {
+      var chapter_id = Chapters.findOne({name: $('#delete-chapter-select').val()})._id;
 
-  console.log(Chapters.find())
+      Chapters.remove({_id: chapter_id});
 
-  Router.go('/my-permissions');
+      console.log(Chapters.find())
+
+      Router.go('/my-permissions');
+      window.alert("Chapter Deleted!")
+    }
+
+    
 
   return false;
   },

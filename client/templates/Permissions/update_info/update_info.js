@@ -31,12 +31,14 @@ Template.updateInfo.events({
 				Meteor.users.update( { _id: userId }, { $set: { 'profile.slack_handle': slack_handle }} );
 				Meteor.users.update( { _id: userId }, { $set: { 'profile.primary_chapter': chapter }} );
 				Meteor.users.update( { _id: userId }, { $set: { 'profile.bio': $('#bio').val() }} );
-				Meteor.users.update( { _id: userId }, { $set: { 'emails.0.address': email }} );
-		}
+	
+		
 		
 		var updated_request_status = Meteor.users.findOne(userId).profile.request_status;
 		updated_request_status[chapter] = "processing";
 		Meteor.users.update( { _id: userId }, { $set: { 'profile.request_status': updated_request_status}} );
+
+		Meteor.users.update( { _id: userId }, { $set: { 'emails.0.address': email }} );
 
 		Requests.insert({
 		type: 'host',
@@ -76,6 +78,7 @@ Template.updateInfo.events({
 	    console.log('email section ran')
 
 	    Meteor.subscribe('myProfile');
+	}
 		
 		return false;
 	},
