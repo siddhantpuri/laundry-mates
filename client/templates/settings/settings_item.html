@@ -2,16 +2,16 @@
 	<div class="settings-item">
 	<h2 class="chapter-settings">Chapter Specific Settings</h2>
 	<div class="select-ch-specific-settings">
-		<select name="select-a-chapter" placeholder="Select a Different Chapter">
+		<select name="select-a-chapter" id="select-a-chapter" class="select-a-chapter" placeholder="Select a Different Chapter">
 		 	<option value="{{#if primaryChapter}}{{primaryChapter}}{{else}}Select Primary Chapter{{/if}}">{{#if primaryChapter}}{{primaryChapter}}{{else}}Select Primary Chapter{{/if}}</option> 
 			{{#each allChapters}}
     			<option value= {{name}}>{{spaced_name}}</option> 
 			{{/each}}
 		</select>
 	</div>
-	<input type="checkbox" name="chapter-weekly-lounges" value="Weekly Email?" checked> 
+	<input type="checkbox" class="chapter-weekly-lounges" name="chapter-weekly-lounges" value="Weekly Email?" {{isMyCheckboxChecked1}}> 
 	<p class="settings-option">I would like to receive an email once a week-ish informing me of the upcoming Thought Lounges at {{primaryChapter}} for the next week (again, ish).</p><br><br>
-	<input type="checkbox" name="chapter-updates" value="Newsletter?" checked> <p class="settings-option">I would like to receive a monthly-ish email about {{primaryChapter}}'s upcoming events such as parties and volunteer opportunities (like hosting TL Sessions at Senior Homes, Primary Schools, and Juvenile Detention Facilities).</p> <br>
+	<input type="checkbox" class="chapter-updates" name="chapter-updates" value="Newsletter?" {{isMyCheckboxChecked2}}> <p class="settings-option">I would like to receive a monthly-ish email about {{primaryChapter}}'s upcoming events such as parties and volunteer opportunities (like hosting TL Sessions at Senior Homes, Primary Schools, and Juvenile Detention Facilities).</p> <br>
 	</div>
 </template>
 
