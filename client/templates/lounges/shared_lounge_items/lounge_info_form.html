@@ -1,7 +1,7 @@
 <template name="lounge_info_form">	
 	<form class="create-form standard-form update-lounge">
 	   <p>Chapter</p>
-		<select id="primary-chapter" name="select-a-chapter" placeholder="Select a Different Chapter">
+		<select id="primary-chapter{{_id}}" name="select-a-chapter" placeholder="Select a Different Chapter">
  		<option value={{lounge_chapter}} >{{lounge_chapter}}</option> 
 		{{#each allChapters}}
 			<option value= {{name}}>{{spaced_name}}</option> 
@@ -9,7 +9,7 @@
 		</select>
 		<p>Type of Lounge</p>
 	    <div class="sel-div">
-		    <select id="type-of-lounge" name="type-of-lounge" class="type-of-lounge">
+		    <select id="type-of-lounge{{_id}}" name="type-of-lounge" class="type-of-lounge">
 	    	  <option value={{lounge_type}} class="not-other">{{lounge_type}}</option>
 			  <option value="tl-session" class="not-other">TL Session</option>
 			  <option value="other" class="other">Other</option>
@@ -18,36 +18,36 @@
 		<div class="other-type">
 			<p>Title of Lounge (only if 'Type of Lounge' is 'Other')</p>
 			{{#if lounge_title}}
-				<input type="text" id="title-of-lounge" class="form-control middle-input" name="title-of-lounge" value={{lounge_title}} autofocus>
+				<input type="text" id="title-of-lounge{{_id}}" class="form-control middle-input" name="title-of-lounge" value={{lounge_title}} autofocus>
 			{{else}}
-				<input type="text" id="title-of-lounge" class="form-control middle-input" name="title-of-lounge" placeholder="e.g. TL Against Poverty" autofocus>
+				<input type="text" id="title-of-lounge{{_id}}" class="form-control middle-input" name="title-of-lounge" placeholder="e.g. TL Against Poverty" autofocus>
 			{{/if}}
 			<p class="url-desc">URL Link to Description of Format (only if 'Type of Lounge' is 'Other')</p>
 			<p class="sub-desc-input">(hint: create a <i>public</i> Google Doc and get the "share" link from that)</p>
 			{{#if lounge_url}}
-				<input type="url" id="url" class="form-control middle-input" name="url" value = {{lounge_url}} autofocus>
+				<input type="url" id="url{{_id}}" class="form-control middle-input" name="url" value = {{lounge_url}} autofocus>
 			{{else}}
-				<input type="url" id="url" class="form-control middle-input" name="url" placeholder="http://..." autofocus>
+				<input type="url" id="url{{_id}}" class="form-control middle-input" name="url" placeholder="http://..." autofocus>
 			{{/if}}
 			
 			<p class="number-of-loungers">Total Number of Loungers (only if 'Type of Lounge' is 'Other')</p>
-			<input id="number-of-loungers" type="number" name="number-of-loungers" value={{lounge_total_num_participants}} min="1" max="100">
+			<input id="number-of-loungers{{_id}}" type="number" name="number-of-loungers" value={{lounge_total_num_participants}} min="1" max="100">
 		</div>
 	    <div class="create-form-date">
 	    <p>Date of Lounge</p>
-	    	<input type="date" id="date" name="date" class="form-control middle-input" value= {{lounge_date_raw}}  required autofocus>
+	    	<input type="date" id="date{{_id}}" name="date" class="form-control middle-input" value= {{lounge_date_raw}}  required autofocus>
 	 	</div>
 	 	<div class="create-form-time">
 	    <p>Time (e.g. 07:00 PM)</p>
-	    <input type="time" id="time" name="time" class="form-control middle-input" value = {{lounge_time_raw}} required autofocus>
+	    <input type="time" id="time{{_id}}" name="time" class="form-control middle-input" value = {{lounge_time_raw}} required autofocus>
 	  	</div>
 	    <p>Location of Lounge (e.g. Main Stacks Library)</p>
-	    <input type="text" id="location" name="location" class="form-control middle-input" value = {{lounge_location}} placeholder="Location" required autofocus>
+	    <input type="text" id="location{{_id}}" name="location" class="form-control middle-input" value = {{lounge_location}} placeholder="Location" required autofocus>
 	    <p>Address of Lounge (optional)</p>
-	    <input type="text" id="address" name="address" class="form-control middle-input" value={{lounge_address}} autofocus>
-	    <input type="text" id="city" class="form-control middle-input" name="city" value={{lounge_city}} autofocus>
-	    <input type="text" id="state" class="form-control middle-input" name="state" value={{lounge_state}} autofocus>
-	  	<input type="text" id="zipcode" class="form-control middle-input" name="zipcode" value={{lounge_zipcode}} autofocus>
+	    <input type="text" id="address{{_id}}" name="address" class="form-control middle-input" value={{lounge_address}} autofocus>
+	    <input type="text" id="city{{_id}}" class="form-control middle-input" name="city" value={{lounge_city}} autofocus>
+	    <input type="text" id="state{{_id}}" class="form-control middle-input" name="state" value={{lounge_state}} autofocus>
+	  	<input type="text" id="zipcode{{_id}}" class="form-control middle-input" name="zipcode" value={{lounge_zipcode}} autofocus>
 	  	<p>Participant Info (optional)</p>
 	  	{{#if isParticipant 1}}
 		  	<div class="lounge-participant part1">
@@ -55,8 +55,8 @@
 		  		<div class="delete-btn delete-btn-1">delete</div>
 		  	</div>
 		{{else}}
-	  		<input type="text" id="participant1n" class="form-control middle-input" name="participant1n" placeholder="Participant 1 name" autofocus>
-	  		<input type="text" id="participant1e" class="form-control middle-input" name="participant1e" placeholder="Participant 1 email" autofocus>
+	  		<input type="text" id="participant1n{{_id}}" class="form-control middle-input" name="participant1n" placeholder="Participant 1 name" autofocus>
+	  		<input type="text" id="participant1e{{_id}}" class="form-control middle-input" name="participant1e" placeholder="Participant 1 email" autofocus>
 	  	{{/if}}
 	  	{{#if isParticipant 2}}
 		  	<div class="lounge-participant part2">
@@ -64,8 +64,8 @@
 		  		<div class="delete-btn delete-btn-2">delete</div>
 		  	</div>
 		{{else}}
-		  	<input type="text" id="participant2n" class="form-control middle-input" name="participant2n" placeholder="Participant 2 name" autofocus>
-		  	<input type="text" id="participant2e" class="form-control middle-input" name="participant2e" placeholder="Participant 2 email" autofocus>
+		  	<input type="text" id="participant2n{{_id}}" class="form-control middle-input" name="participant2n" placeholder="Participant 2 name" autofocus>
+		  	<input type="text" id="participant2e{{_id}}" class="form-control middle-input" name="participant2e" placeholder="Participant 2 email" autofocus>
 		{{/if}}
 		{{#if isParticipant 3}}
 		  	<div class="lounge-participant part3">
@@ -73,8 +73,8 @@
 		  		<div class="delete-btn delete-btn-3">delete</div>
 		  	</div>
 		{{else}}
-		  	<input type="text" id="participant3n" class="form-control middle-input" name="participant3n" placeholder="Participant 3 name" autofocus>
-		  	<input type="text" id="participant3e" class="form-control middle-input" name="participant3e" placeholder="Participant 3 email" autofocus>
+		  	<input type="text" id="participant3n{{_id}}" class="form-control middle-input" name="participant3n" placeholder="Participant 3 name" autofocus>
+		  	<input type="text" id="participant3e{{_id}}" class="form-control middle-input" name="participant3e" placeholder="Participant 3 email" autofocus>
 		{{/if}}
 		{{#if isParticipant 4}}
 		  	<div class="lounge-participant part4">
@@ -82,8 +82,8 @@
 		  		<div class="delete-btn delete-btn-4">delete</div>
 		  	</div>
 		{{else}}
-		  	<input type="text" id="participant4n" class="form-control middle-input" name="participant4n" placeholder="Participant 4 name" autofocus>
-		  	<input type="text" id="participant4e" class="form-control middle-input" name="participant4e" placeholder="Participant 4 email" autofocus>
+		  	<input type="text" id="participant4n{{_id}}" class="form-control middle-input" name="participant4n" placeholder="Participant 4 name" autofocus>
+		  	<input type="text" id="participant4e{{_id}}" class="form-control middle-input" name="participant4e" placeholder="Participant 4 email" autofocus>
 		{{/if}}
 		{{#if isParticipant 5}}
 		  	<div class="lounge-participant part5">
@@ -91,8 +91,8 @@
 		  		<div class="delete-btn delete-btn-5">delete</div>
 		  	</div>
 		{{else}}
-		  	<input type="text" id="participant5n" class="form-control middle-input" name="participant5n" placeholder="Participant 5 name" autofocus>
-		  	<input type="text" id="participant5e" class="form-control middle-input" name="participant5e" placeholder="Participant 5 email" autofocus>
+		  	<input type="text" id="participant5n{{_id}}" class="form-control middle-input" name="participant5n" placeholder="Participant 5 name" autofocus>
+		  	<input type="text" id="participant5e{{_id}}" class="form-control middle-input" name="participant5e" placeholder="Participant 5 email" autofocus>
 		{{/if}}
 	    <button class="update-lounge-button btn btn-lg btn-primary btn-block" type="submit">Save Changes</button>
 	    <div class="cancel-lounge-button">Cancel This Lounge</div>
