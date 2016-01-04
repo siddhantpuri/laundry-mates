@@ -35,6 +35,12 @@ Template.doatl.helpers({
 
 	spacedChapter: function () {
 		var chapter = Session.get('selectedChapter');
-		return chapter.split('_').join(' ');
+
+		if (chapter) {
+			return chapter.split('_').join(' ');
+		} else {
+			var str = "Select a Chapter";
+			return str;
+		}
 	}
 });
