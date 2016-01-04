@@ -34,7 +34,7 @@ Template.updateInfo.events({
 	
 		
 		
-		var updated_request_status = Meteor.users.findOne(userId).profile.request_status;
+		var updated_request_status = Meteor.user().profile.request_status;
 		updated_request_status[chapter] = "processing";
 		Meteor.users.update( { _id: userId }, { $set: { 'profile.request_status': updated_request_status}} );
 

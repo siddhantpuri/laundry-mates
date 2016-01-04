@@ -23,6 +23,8 @@ Template.ForgotPassword.events({
         }
       });
 
+      console.log('sent')
+
     }
     return false;
   },

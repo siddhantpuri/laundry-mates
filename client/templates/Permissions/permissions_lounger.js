@@ -10,6 +10,6 @@ Template.permissions_lounger.events({
 Template.permissions_lounger.helpers({  
   statusIs: function(status) {
   	var chapter = Meteor.user().profile.primary_chapter
-    return Meteor.users.findOne(userId).profile.request_status[chapter] === status;
+    return Meteor.user().profile.request_status[chapter] === status;
   }
 });

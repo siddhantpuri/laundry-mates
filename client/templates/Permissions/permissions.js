@@ -3,7 +3,7 @@ userId = Meteor.userId();
 Template.permissions.helpers({  
   roleIs: function(role) {
   	var chapter = Meteor.user().profile.primary_chapter
-    return Meteor.users.findOne(userId).profile.role[chapter] === role;
+    return Meteor.user().profile.role[chapter] === role;
   }
 });
 
