@@ -11,7 +11,7 @@ userId = Meteor.userId();
 
 Template.updateInfo.events({
 	"submit .account-info-form": function(event){
-
+		var userId = Meteor.userId();
 		var email = trimInput($('#email').val());
 		var first_name = trimInput($('#first_name').val());
 		var last_name = trimInput($('#last_name').val());

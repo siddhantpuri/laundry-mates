@@ -7,11 +7,12 @@ Template.accountInfo.events({
 });
 */
 
-userId = Meteor.userId(); 
+ 
 
 Template.accountInfo.events({
 	"submit .account-info-form": function(event){
 
+    var userId = Meteor.userId();
 		var email = trimInput($('#email').val());
 		var first_name = trimInput($('#first_name').val());
 		var last_name = trimInput($('#last_name').val());
@@ -69,6 +70,7 @@ Template.accountInfo.events({
             var imagesURL = {
               "profile.image": "/cfs/files/images/" + fileObj._id
             };
+            var userId = Meteor.userId();
             console.log(imagesURL)
             Meteor.users.update(userId, {$set: imagesURL});
             console.log('is there error here?')

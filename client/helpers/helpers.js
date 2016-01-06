@@ -88,7 +88,6 @@ function getCookie(cname) {
 
 // create a username cookie
 Deps.autorun(function () {
-    setTimeout(function(){
       if (Meteor.user()) {
         console.log(Meteor.user().profile.first_name);
         setCookie("firstname", Meteor.user().profile.first_name);
@@ -96,7 +95,48 @@ Deps.autorun(function () {
         console.log("I'm logged out");
         setCookie("firstname", "");
       }
-    }, 1000);
 });
+
+/*
+
+function setCookie(cname, cvalue) { 
+  document.cookie = cname + "=" + cvalue + "; domain=thoughtlounge.org";
+  document.cookie = cname + "0=" + cvalue;
+};
+​
+function getCookie(cname) {
+  var ca = document.cookie.split("; ");
+  for (var i = 0; i < ca.length; i++) {
+    var c = cname + "=";
+    if  (ca[i].indexOf(c) === 0) {
+      return ca[i].substring(c.length)
+    }
+  }
+};
+​
+var firsty = "";
+var firstyDep = new Deps.Dependency;
+​
+var getFirsty = function () {
+  firstyDep.depend();
+  if (Meteor.user()) {
+    firsty = Meteor.user().profile.first_name;
+  } else {
+    firsty = "";
+  }
+  return firsty;
+};
+​
+var setFirsty = function (newValue) {
+  firsty = newValue;
+  firstyDep.changed();
+};
+​
+Deps.autorun(function () {
+  console.log(getFirsty() + " worked");
+  setCookie("firstname", getFirsty());
+});
+
+*/
 
 
