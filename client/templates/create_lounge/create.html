@@ -3,7 +3,6 @@
 		<form class="create-form og-create-form standard-form">
 		   <p>Select a Chapter</p>
 		   <select id="select-a-chapter" name="select-a-chapter" placeholder="Select a Different Chapter">
-		 		<option value="{{#if primaryChapter}}{{primaryChapter}}{{else}}Select Primary Chapter{{/if}}">{{#if primaryChapter}}{{primaryChapter}}{{else}}Select Primary Chapter{{/if}}</option> 
 				{{#each allChapters}}
 					{{#if isHostatChapter}}
 	    				<option value= {{name}}>{{spaced_name}}</option> 

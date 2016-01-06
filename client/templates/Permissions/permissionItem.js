@@ -28,6 +28,19 @@ Template.permissionItem.events({
 		var updated_request_status = Meteor.users.findOne(request_userId).profile.request_status;
 		updated_request_status[chapter] = "none_sent";
 		Meteor.users.update(request_userId, { $set: { 'profile.request_status': updated_request_status}} );
+
+			var spaced_chapter = chapter.split('_').join(' ')
+			var data = {
+				first_name: Meteor.users.findOne(request_userId).profile.first_name,
+				chapter: spaced_chapter
+			}
+		    var to = Meteor.users.findOne(request_userId).emails[0].address;
+		    var subject = "You’ve been accepted as a Host at " + spaced_chapter +"!";
+		    var temp_name = 'hostaccEmail';
+		    var file_name = 'host_req_acc.html';
+
+		    Meteor.call('sendEmail', to, subject, data, temp_name, file_name);
+		    console.log('sent')
 	},
 
 	"click .unapprove-btn": function(event) {

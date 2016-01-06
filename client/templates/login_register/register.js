@@ -27,8 +27,8 @@ Template.register.events({
 					primary_chapter: primary_chapter,
 					notifications: {
 						tl_monthly_letter: newsletter_checked,
-						chapter_monthly_letters: {},
-						chapter_weekly_letters: {}
+						chapter_monthly_letters: [],
+						chapter_weekly_letters: []
 					},
 					role: {
 					    IsSuperAdmin: ""
@@ -56,6 +56,17 @@ Template.register.events({
 			      action: 'subscribe'
 			    });
 			}
+
+			var data = {
+				first_name: 'New Lounger'
+			}
+		    var to = email;
+		    var subject = "Welcome to Thought Lounge! You just created your profile.";
+		    var temp_name = 'welcomeEmail';
+		    var file_name = 'welcome.html';
+
+		    Meteor.call('sendEmail', to, subject, data, temp_name, file_name);
+		    console.log('sent')
 
 		}
 

@@ -5,7 +5,7 @@ Template.permissions_host.events({
 		var prof = Meteor.user().profile;
 
 		var chapter = prof.primary_chapter;
-		var updated_request_status = Meteor.users.findOne(userId).profile.request_status;
+		var updated_request_status = Meteor.user().profile.request_status;
 		updated_request_status[chapter] = "processing";
 		Meteor.users.update( { _id: userId }, { $set: { 'profile.request_status': updated_request_status}});
 
@@ -50,6 +50,6 @@ Template.permissions_host.events({
 Template.permissions_host.helpers({  
   statusIs: function(status) {
   	var chapter = Meteor.user().profile.primary_chapter
-    return Meteor.users.findOne(userId).profile.request_status[chapter] === status;
+    return Meteor.user().profile.request_status[chapter] === status;
   }
 });

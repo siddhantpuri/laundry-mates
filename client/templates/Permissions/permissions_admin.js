@@ -13,7 +13,7 @@ Template.permissions_admin.helpers({
   },
   statusIs: function(status) {
   	var chapter = Meteor.user().profile.primary_chapter
-    return Meteor.users.findOne(userId).profile.request_status[chapter] === status;
+    return Meteor.user().profile.request_status[chapter] === status;
   }
 });
 
@@ -22,7 +22,7 @@ Template.permissions_admin.events({
 		var prof = Meteor.user().profile;
 
 		var chapter = prof.primary_chapter;
-		var updated_request_status = Meteor.users.findOne(userId).profile.request_status;
+		var updated_request_status = Meteor.user().profile.request_status;
 		updated_request_status[chapter] = "processing";
 		Meteor.users.update( { _id: userId }, { $set: { 'profile.request_status': updated_request_status}});
 
@@ -88,6 +88,7 @@ Template.permissions_admin.events({
 
     console.log('loungers button clicked')
     var json_pre = '[';
+    json_pre += '{"Name":"Name","email":"email","phone":"phone","TL_Monthly_Newsletter":"TL_Monthly_Newsletter","Chapter_Monthly_Newsletter":"Chapter_Monthly_Newsletter","Chapter_Weekly_Newsletter":"Chapter_Weekly_Newsletter","Primary_chapter":"Primary_chapter","Role":"Role"},';
     
     var chapter = Meteor.user().profile.primary_chapter
     
@@ -102,9 +103,38 @@ Template.permissions_admin.events({
           role = 'lounger';
         }
 
-        json_pre += '{"Name":"'+user.profile.first_name+' '+user.profile.last_name+'","email":"'+user.emails[0].address+
-                    '","Primary_chapter":"'+ user.profile.primary_chapter +'","Role":"'+ role +'"},'
+        json_pre += '{"Name":"'+user.profile.first_name+' '+user.profile.last_name+
+                    '","email":"'+user.emails[0].address;
+        if (user.profile.phone) {
+          json_pre += '","phone":"'+user.profile.phone;
+        } else {
+          json_pre += '","phone":"'+'N/A';
+        }
+        if (user.profile.notifications) {
+            if (user.profile.notifications.tl_monthly_letter) {
+              json_pre += '","TL_Monthly_Newsletter":"'+user.profile.notifications.tl_monthly_letter;
+            } else {
+              json_pre += '","TL_Monthly_Newsletter":"'+'N/A';
+            }
+            if (user.profile.notifications.chapter_monthly_letters) {
+              json_pre += '","Chapter_Monthly_Newsletter":"'+user.profile.notifications.chapter_monthly_letters.toString();
+            } else {
+              json_pre += '","Chapter_Monthly_Newsletter":"'+'None';
+            }
+            if (user.profile.notifications.chapter_weekly_letters) {
+              json_pre += '","Chapter_Weekly_Newsletter":"'+user.profile.notifications.chapter_weekly_letters.toString();
+            } else {
+              json_pre += '","Chapter_Weekly_Newsletter":"'+'None';
+            }
+          } else {
+            json_pre += '","TL_Monthly_Newsletter":"'+'N/A';
+            json_pre += '","Chapter_Monthly_Newsletter":"'+'None';
+            json_pre += '","Chapter_Weekly_Newsletter":"'+'None';
+          }            
+          json_pre += '","Primary_chapter":"'+ user.profile.primary_chapter +
+                      '","Role":"'+ role +'"},';
       });
+
       json_pre = json_pre.slice(0, -1);
       json_pre += ']'
       console.log(json_pre)

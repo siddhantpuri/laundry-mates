@@ -10,7 +10,7 @@ Template.settings.helpers({
 
 
 Template.settings.events({
-	'click input': function(event, template) {
+	'click .monthly_newsletter': function(event, template) {
 		if (Meteor.user().profile.notifications.tl_monthly_letter) {
 	    	Meteor.users.update(Meteor.userId(), {$set: {"profile.notifications.tl_monthly_letter": false}});
 	    	handleSubscriber({

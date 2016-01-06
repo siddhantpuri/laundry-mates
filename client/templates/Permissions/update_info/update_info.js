@@ -31,12 +31,17 @@ Template.updateInfo.events({
 				Meteor.users.update( { _id: userId }, { $set: { 'profile.slack_handle': slack_handle }} );
 				Meteor.users.update( { _id: userId }, { $set: { 'profile.primary_chapter': chapter }} );
 				Meteor.users.update( { _id: userId }, { $set: { 'profile.bio': $('#bio').val() }} );
-				Meteor.users.update( { _id: userId }, { $set: { 'emails.0.address': email }} );
-		}
+	
 		
-		var updated_request_status = Meteor.users.findOne(userId).profile.request_status;
+		
+		var updated_request_status = Meteor.user().profile.request_status;
 		updated_request_status[chapter] = "processing";
 		Meteor.users.update( { _id: userId }, { $set: { 'profile.request_status': updated_request_status}} );
+
+		var prev_email = Meteor.user().emails[0].address;
+		if (prev_email != email) {
+			Meteor.users.update( { _id: userId }, { $set: { 'emails[0].address': email }} );
+		}
 
 		Requests.insert({
 		type: 'host',
@@ -52,8 +57,7 @@ Template.updateInfo.events({
 		});
 		console.log('inserted')
 
-		var search_str = 'profile.role.'+chapter  
-	    chapter_admins = Meteor.users.find({search_str: 'admin'});
+		chapter_admins = Meteor.users.find({$where: function () {return this.profile.role[chapter] == "admin"}});
 	    if (chapter_admins.fetch()){
 	      chapter_admins.forEach(function(admin) {
 	        console.log(admin.profile.first_name)
@@ -73,9 +77,10 @@ Template.updateInfo.events({
 		      console.log('sent')
 	        });
 	    }
-	    console.log('email section worked')
+	    console.log('email section ran')
 
-		location.reload();
+	    Meteor.subscribe('myProfile');
+	}
 		
 		return false;
 	},

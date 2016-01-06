@@ -26,6 +26,10 @@ Meteor.publish("userData", function () {
         {fields: {role:1}});
 });
 
+Meteor.publish('myProfile', function() {
+  return Meteor.users.find(this.userId);
+});
+
 
 Meteor.publish("allUsers", function(){
     return Meteor.users.find();

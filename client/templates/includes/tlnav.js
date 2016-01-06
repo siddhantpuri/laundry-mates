@@ -6,7 +6,7 @@ Template.tlnav.events({
 			if(err){
 				FlashMessages.sendError(err.reason);
 			} else {
-				Router.go('/');
+				window.location.replace("http://www.thoughtlounge.org");
 			}
 		});
 	}

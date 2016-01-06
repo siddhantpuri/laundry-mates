@@ -1,13 +1,14 @@
 Template.lounge_info_form.events({
 	"submit .update-lounge": function(event){
+		var id = this._id;
 
 		function participantArray(lounge) {
 
-			var participant_inputs = {e1:$('#participant1e').val(),
-									e2:$('#participant2e').val(),
-									e3:$('#participant3e').val(),
-									e4:$('#participant4e').val(),
-									e5:$('#participant5e').val() };
+			var participant_inputs = {e1:$('#participant1e' + id).val(),
+									e2:$('#participant2e' + id).val(),
+									e3:$('#participant3e' + id).val(),
+									e4:$('#participant4e' + id).val(),
+									e5:$('#participant5e' + id).val() };
 		
 			var added_participants = lounge.lounge_participants;
 			console.log(lounge)
@@ -27,8 +28,8 @@ Template.lounge_info_form.events({
 			return added_participants;
     	};
 
-		var time = $('#time').val();
-		var date = $('#date').val();
+		var time = $('#time' + id).val();
+		var date = $('#date' + id).val();
 	    var full_date = new Date(date + ' ' + time);
 
 
@@ -57,29 +58,31 @@ Template.lounge_info_form.events({
 
 		Lounges.update({_id: this._id}, { $set: {
 
-		'lounge_chapter': $('#select-a-chapter').val(),
-		'lounge_type': $('#type-of-lounge').val(),
-		'lounge_title': $('#title-of-lounge').val(),
-		'lounge_url': $('#url').val(),
-		'lounge_total_num_participants': parseInt($('#number-of-loungers').val()),
+		'lounge_chapter': $('#select-a-chapter' + id).val(),
+		'lounge_type': $('#type-of-lounge' + id).val(),
+		'lounge_title': $('#title-of-lounge' + id).val(),
+		'lounge_url': $('#url' + id).val(),
+		'lounge_total_num_participants': parseInt($('#number-of-loungers' + id).val()),
 		'lounge_date': full_date,
 		'lounge_day': weekday[full_date.getDay()],
 		'lounge_time': convertTimeAMPM(time),
 		'lounge_date_numbers': date_numbers,
-		'lounge_location': $('#location').val(),
-		'lounge_address': $('#address').val(),
-		'lounge_city': $('#city').val(),
-		'lounge_state': $('#state').val(),
-		'lounge_zipcode': $('#zipcode').val(),
+		'lounge_location': $('#location' + id).val(),
+		'lounge_address': $('#address' + id).val(),
+		'lounge_city': $('#city' + id).val(),
+		'lounge_state': $('#state' + id).val(),
+		'lounge_zipcode': $('#zipcode' + id).val(),
 		'lounge_participants': participantArray(this),
 		'lounge_num_participants': participantArray(this).length,
 		'lounge_log_link': "http://www.thoughtlounge.org/the-lounge-log",
-		'lounge_host_sent': "none"
+		'lounge_host_sent': "none",
+		'lounge_date_raw': date,
+		'lounge_time_raw': time
 		}} );
 		console.log(participantArray(this))
 		console.log(participantArray(this).length)
-		console.log(parseInt($('#number-of-loungers').val()))
-		console.log($('#location').val())
+		console.log(parseInt($('#number-of-loungers' + id).val()))
+		console.log($('#location' + id).val())
 		console.log(convertTimeAMPM(time))
 		console.log(date_numbers)
 

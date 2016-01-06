@@ -36,6 +36,7 @@ cfs:tempstore@0.1.5
 cfs:upload-http@0.0.20
 cfs:worker@0.1.4
 check@1.1.0
+chuangbo:cookie@1.1.0
 ddp@1.2.2
 ddp-client@1.2.1
 ddp-common@1.2.2
@@ -76,7 +77,10 @@ logging@1.0.8
 meteor@1.1.10
 meteor-base@1.0.1
 meteorhacks:async@1.0.0
+meteorhacks:fast-render@2.11.0
+meteorhacks:inject-data@1.4.1
 meteorhacks:npm@1.5.0
+meteorhacks:picker@1.0.3
 meteorhacks:ssr@2.2.0
 minifiers@1.1.7
 minimongo@1.0.10

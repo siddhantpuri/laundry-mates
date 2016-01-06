@@ -1,4 +1,3 @@
-viewing = "wat"
 
 Template.doatl.events({
 	"change .doatl-select": function(event){
@@ -20,5 +19,28 @@ Template.doatl.events({
 Template.doatl.helpers({
 	loggedIn: function() {
 		return Meteor.user();
+	},
+
+	selectedChapter: function () {
+		if (Session.get('selectedChapter')) {
+			console.log(Session.get('selectedChapter') + 'session')
+			return Session.get('selectedChapter');
+		} else {
+			var chapter = Meteor.user().profile.primary_chapter;
+			Session.set('selectedChapter', chapter);
+			console.log(chapter)
+			return chapter;
+		}
+	},
+
+	spacedChapter: function () {
+		var chapter = Session.get('selectedChapter');
+
+		if (chapter) {
+			return chapter.split('_').join(' ');
+		} else {
+			var str = "Select a Chapter";
+			return str;
+		}
 	}
 });
