@@ -12,7 +12,10 @@
         <p>Email Address</p>
         <input type="email" id="email" name="email" class="form-control" value="{{userEmail}}" required autofocus>
         <p>Slack Handle</p>
-        <input type="text" id="slack_handle" name="slack_handle" class="form-control" value="{{slackHandle}}" autofocus>
+        <div class="input-container">
+            <input type="text" id="slack_handle" name="slack_handle" class="form-control" required autofocus placeholder="yourslackhandle" value="{{slackHandle}}">
+            <span class="unit">@</span>
+        </div>
         <p>Phone (note: this is so that your Host can find you if you get lost on the way to the TL. No one else can see it)</p>
         <input type="text" id="phone" name="phone" class="form-control" value="{{#if phone}}{{phone}}{{/if}}" placeholder="e.g. (619)123-4566" autofocus>
         <p>Primary Chapter</p>

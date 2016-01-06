@@ -1,9 +1,9 @@
 <template name="permissions_admin">
 	<div class="description">
 		<h3>You are an Admin</h3>
-		<button class='CHAPTERNAME-loungers-list'>View List of Loungers from {{primaryChapter}}</button>
+		<button class='CHAPTERNAME-loungers-list'>Export List of Loungers from {{primaryChapter}}</button>
 	</div>
-	<div>
+	<div class="admin-req">
 		{{#if statusIs 'unapproved'}}
 			<p class="unapproved"> Your SuperAdmin Privileges have been revoked. Please contact your Axel for clarification.</p>
 		{{else}}

@@ -137,6 +137,7 @@ body#form_layout {
     margin-right: 23.5%;
     padding-top: 14px;
     color: black;
+    padding-bottom: 1.9em;
 }
 
 .lounge-spots-buttons {
@@ -1049,10 +1050,34 @@ select#primary-chapter {
 .description, .pending_admin_permission_list {
 	margin-top: 20px
 }
+.pending_host_permission_list, .approved_host_permission_list, .description,
+.add-new-chapter, .delete-chapter, .pending_admin_permission_list, .approved_admin_permission_list, 
+.pending_superadmin_permission_list, .approved_superadmin_permission_list, .host-requests, .otro-permissions-header,
+.admin-req, .text-center, .chapter-settings, .select-ch-specific-settings {
+	text-align: center;
+}
 
 .approved_admin_permission_list h3, .pending_superadmin_permission_list h3, 
 .approved_superadmin_permission_list h3 {
 	margin-top:0px;
+}
+
+.input-container {
+    position: relative;
+    width: 100%;
+}
+input#slack_handle {
+    width: 100%;
+    padding-left: 19px !important;
+}
+span.unit {
+    position: absolute;
+    display: block;
+    top: 7px;
+    color: #000000;
+    padding-left: 5px;
+    width: 45px;
+    left: 3px;
 }
 
 /* PROFILE PAGE 
