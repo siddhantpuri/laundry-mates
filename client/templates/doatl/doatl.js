@@ -2,6 +2,7 @@
 Template.doatl.events({
 	"change .doatl-select": function(event){
 		Meteor.users.update( { _id: Meteor.userId() }, { $set: { 'profile.primary_chapter': $('#primary-chapter').val() }} );
+		Session.set('selectedChapter', $('#primary-chapter').val());
 		console.log(Meteor.user().profile.primary_chapter)
 
 	return false;

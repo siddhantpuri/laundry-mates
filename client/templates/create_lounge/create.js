@@ -111,10 +111,11 @@ Template.create.events({
 
 Template.create.helpers({
 	isHostatChapter: function() {
-      var chapter = this.name
-      var role = Meteor.user().profile.role[chapter]
-      var sadmin_status = Meteor.user().profile.role.IsSuperAdmin
-    return  role == "host" || role == "admin" || sadmin_status
+      var chapter = this.name;
+      var role = Meteor.user().profile.role[chapter];
+      var sadmin_status = Meteor.user().profile.role.IsSuperAdmin;
+      var indep = Meteor.user().profile.role.Independent_Hosts;
+    return  (role == "host" || role == "admin" || sadmin_status || indep == "host" || indep == "admin") && chapter != "Independent_Hosts";
     
   }
 

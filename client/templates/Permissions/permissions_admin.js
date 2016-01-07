@@ -20,6 +20,7 @@ Template.permissions_admin.helpers({
 Template.permissions_admin.events({
 	"click .request-btn": function(event) {
 		var prof = Meteor.user().profile;
+    var userId = Meteor.userId();
 
 		var chapter = prof.primary_chapter;
 		var updated_request_status = Meteor.user().profile.request_status;

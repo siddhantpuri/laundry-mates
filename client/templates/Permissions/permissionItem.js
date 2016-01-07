@@ -29,13 +29,25 @@ Template.permissionItem.events({
 		updated_request_status[chapter] = "none_sent";
 		Meteor.users.update(request_userId, { $set: { 'profile.request_status': updated_request_status}} );
 
-			var spaced_chapter = chapter.split('_').join(' ')
+			var spaced_chapter = chapter.split('_').join(' ');
+			var req_type = this.type;
+			if (req_type == 'host') {
+				var position = 'a Host';
+			} else {
+				if (req_type == 'admin') {
+					var position = 'an Admin';
+				} else {
+					var position = 'a SuperAdmin! Lucky you! You can now do manage everything for chapters around the nation, including';
+				}
+			}
+
 			var data = {
 				first_name: Meteor.users.findOne(request_userId).profile.first_name,
+				position: position,
 				chapter: spaced_chapter
 			}
 		    var to = Meteor.users.findOne(request_userId).emails[0].address;
-		    var subject = "You’ve been accepted as a Host at " + spaced_chapter +"!";
+		    var subject = "You’ve been accepted as "+ position +" at " + spaced_chapter +"!";
 		    var temp_name = 'hostaccEmail';
 		    var file_name = 'host_req_acc.html';
 

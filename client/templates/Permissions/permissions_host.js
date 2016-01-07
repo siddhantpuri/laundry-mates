@@ -1,7 +1,8 @@
-userId = Meteor.userId();
+
 
 Template.permissions_host.events({
 	"click .request-btn": function(event) {
+		var userId = Meteor.userId();
 		var prof = Meteor.user().profile;
 
 		var chapter = prof.primary_chapter;
