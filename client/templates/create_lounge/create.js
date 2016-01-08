@@ -100,7 +100,26 @@ Template.create.events({
 		lounge_time_raw: time
 		});
 
+
+		var data = {
+	        day: weekday[full_date.getDay()],
+	        date: date_numbers,
+	        time: convertTimeAMPM(time),
+	        location: $('#location').val(),
+	        address: $('#address').val()
+	    }
+	    var to = Meteor.user().emails[0].address;
+	    var subject = "Confirmation - You have created a Thought Lounge Session.";
+	    var temp_name = 'createLoungeEmail';
+	    var file_name = 'host_create_lounge.html';
+
+	    Meteor.call('sendEmail', to, subject, data, temp_name, file_name);
+	    console.log('sent')
+
 		
+
+
+
 		Router.go('/my-upcoming-lounges');
 
 		return false;
