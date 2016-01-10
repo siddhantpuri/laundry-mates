@@ -7,7 +7,9 @@
 				<select id="primary-chapter" class="doatl-select" name="primary-chapter" placeholder="Select a Different Chapter">
 				 	<option value="{{selectedChapter}}">{{spacedChapter}}</option> 
 					{{#each allChapters}}
-		    			<option value= {{name}}>{{spaced_name}}</option> 
+						{{#if notSelectedChapter}}
+		    				<option value= {{name}}>{{spaced_name}}</option> 
+		    			{{/if}}
 					{{/each}}
 				</select>
 			</div>
@@ -21,7 +23,9 @@
 				<select id="primary-chapter" class="doatl-select-logged-out" name="primary-chapter" placeholder="Select a Different Chapter"> 
 					<option value="{{selectedChapter}}">{{spacedChapter}}</option>
 					{{#each allChapters}}
-		    			<option value= {{name}}>{{spaced_name}}</option> 
+		    			{{#if notSelectedChapter}}
+		    				<option value= {{name}}>{{spaced_name}}</option> 
+		    			{{/if}} 
 					{{/each}}
 				</select>
 			</div>

@@ -4,7 +4,13 @@ Template.permissions.helpers({
   roleIs: function(role) {
   	var chapter = Meteor.user().profile.primary_chapter
     return Meteor.user().profile.role[chapter] === role;
-  }
+  },
+
+  notSelectedChapter: function () {
+		var option_chapter = this.name;
+		var chapter = Meteor.user().profile.primary_chapter;
+		return chapter != option_chapter;
+	}
 });
 
 Template.permissions.events({
