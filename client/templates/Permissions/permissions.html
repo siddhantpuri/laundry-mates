@@ -6,7 +6,9 @@
 			<select id="primary-chapter" name="primary-chapter" placeholder="Select a Different Chapter" class="primary-chapter">
 			 	<option value="{{#if primaryChapter}}{{primaryChapter}}{{else}}Select Primary Chapter{{/if}}">{{#if primaryChapter}}{{primaryChapter}}{{else}}Select Primary Chapter{{/if}}</option> 
     			{{#each allChapters}}
-        			<option value= {{name}}>{{spaced_name}}</option> 
+        			{{#if notSelectedChapter}}
+		    			<option value= {{name}}>{{spaced_name}}</option> 
+		    		{{/if}} 
     			{{/each}}
     		</select>
 		</div>

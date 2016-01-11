@@ -43,5 +43,15 @@ Template.doatl.helpers({
 			var str = "Select a Chapter";
 			return str;
 		}
+	},
+
+	notSelectedChapter: function () {
+		var option_chapter = this.name;
+		if (Session.get('selectedChapter')) {
+			return Session.get('selectedChapter') != option_chapter;
+		} else {
+			var chapter = Meteor.user().profile.primary_chapter;
+			return chapter != option_chapter
+		}
 	}
 });

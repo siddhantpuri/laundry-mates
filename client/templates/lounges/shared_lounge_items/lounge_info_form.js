@@ -136,7 +136,33 @@ Template.lounge_info_form.events({
 	},
 
 	"click .cancel-lounge-button": function(event){
-		Lounges.remove({_id: this._id});
+		var participants = this.lounge_participants;
+		var lounge = this;
+		var x = window.confirm("Are you sure you want to delete this lounge?");
+		if (x) {
+            for (i = 1; i < participants.length; i++) {
+                var user = Meteor.users.findOne({_id: participants[i]});
+                if (user) {
+                    email = user.emails[0].address;
+                } else {
+                    email = participants[i];
+                }
+                var h_data = {
+                day: lounge.lounge_day,
+                date: lounge.lounge_date_numbers,
+                time: lounge.lounge_time,
+                location: lounge.lounge_location,
+                address: lounge.lounge_address
+                }            
+                var h_to = email;
+                var h_subject = "A Thought Lounge you signed up for has been canceled :(";
+                var temp_name = 'loungeCanceledEmail';
+                var file_name = 'host_cancel_lounge.html';
+                Meteor.call('sendEmail', h_to, h_subject, h_data,  temp_name, file_name);
+                console.log('sent');
+            }
+			Lounges.remove({_id: this._id});
+		}
 	}
 });
 
