@@ -27,10 +27,15 @@ Template.doatl.helpers({
 			console.log(Session.get('selectedChapter') + 'session')
 			return Session.get('selectedChapter');
 		} else {
-			var chapter = Meteor.user().profile.primary_chapter;
-			Session.set('selectedChapter', chapter);
-			console.log(chapter)
-			return chapter;
+			if (Meteor.user()) {
+				var chapter = Meteor.user().profile.primary_chapter;
+			} else {
+				var chapter = "Select a Chapter";
+			}
+				Session.set('selectedChapter', chapter);
+				console.log(chapter)
+				return chapter;
+			
 		}
 	},
 
