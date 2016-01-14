@@ -28,6 +28,7 @@ Template.lounge_info_form.events({
 			return added_participants;
     	};
 
+
 		var time = $('#time' + id).val();
 		var date = $('#date' + id).val();
 	    var full_date = new Date(date + ' ' + time);
@@ -54,7 +55,28 @@ Template.lounge_info_form.events({
 		weekday[5] = "Friday";
 		weekday[6] = "Saturday";
 
-		var date_numbers = (full_date.getMonth() + 1) + "/" + full_date.getDate() + "/" + full_date.getFullYear()
+		var date_numbers = (full_date.getMonth() + 1) + "/" + full_date.getDate() + "/" + full_date.getFullYear();
+		var new_participants = participantArray(this);
+		var old_name_array = this.lounge_participants_names;
+		var name_inputs =  {1: $('#participant1n' + id).val(),
+							2: $('#participant2n' + id).val(),
+							3: $('#participant3n' + id).val(),
+							4: $('#participant4n' + id).val(),
+							5: $('#participant5n' + id).val() }
+
+		function participantToName(value, index, array1) {
+			var user = Meteor.users.findOne({_id: value});
+			if (user) {
+				return ""+user.profile.first_name+" "+user.profile.last_name;
+			} else {
+				if (name_inputs[index]) {
+					return name_inputs[index];
+				} else {
+					return old_name_array[index];
+				}
+			}
+
+    	};
 
 		Lounges.update({_id: this._id}, { $set: {
 
@@ -72,19 +94,21 @@ Template.lounge_info_form.events({
 		'lounge_city': $('#city' + id).val(),
 		'lounge_state': $('#state' + id).val(),
 		'lounge_zipcode': $('#zipcode' + id).val(),
-		'lounge_participants': participantArray(this),
-		'lounge_num_participants': participantArray(this).length,
+		'lounge_participants': new_participants,
+		'lounge_num_participants': new_participants.length,
 		'lounge_log_link': "http://www.thoughtlounge.org/the-lounge-log",
 		'lounge_host_sent': "none",
 		'lounge_date_raw': date,
-		'lounge_time_raw': time
+		'lounge_time_raw': time,
+		'lounge_participants_names': new_participants.map(participantToName)
 		}} );
-		console.log(participantArray(this))
-		console.log(participantArray(this).length)
+		console.log(new_participants)
+		console.log(new_participants.length)
 		console.log(parseInt($('#number-of-loungers' + id).val()))
 		console.log($('#location' + id).val())
 		console.log(convertTimeAMPM(time))
 		console.log(date_numbers)
+		console.log(new_participants.map(participantToName))
 
 		location.reload();
 		return false;
@@ -172,6 +196,7 @@ Template.lounge_info_form.helpers({
 	participant_info: function(num) {
 
 		var participantId = this.lounge_participants[num];
+		var full_name = this.lounge_participants_names[num];
 
 		if (Meteor.users.findOne({_id:participantId})) {
 		  	var first_name = Meteor.users.findOne({_id:participantId}).profile.first_name;
@@ -180,7 +205,7 @@ Template.lounge_info_form.helpers({
 		  	var phone = Meteor.users.findOne({_id:participantId}).profile.phone;
 		  	return "" + first_name + " " + last_name + "________" + email + "  " + phone;
 		} else {
-			return participantId
+			return "" + full_name + "________" + participantId;
 		}
   	},
 
