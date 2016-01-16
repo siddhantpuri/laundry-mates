@@ -57,8 +57,8 @@ Lounges.allow({
     return (userId);
   },
   update: function (userId, doc, fields, modifier) {
-    // the user must be logged in
-    return (userId);
+    // allows updates to notifications at all times
+    return true;
   },
   remove: function (userId, doc) {
     // the user must be logged in
