@@ -17,6 +17,7 @@ Template.pastLoungeH.events({
 		'lounge_log_link': $('#lounge-log-url').val()
 		}});
 		console.log($('#lounge-log-url').val())
+		$('.lounge-insert-log-url').addClass('display-none');
 		return false;
 	}
 });

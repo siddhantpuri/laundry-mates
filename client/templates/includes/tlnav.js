@@ -27,6 +27,17 @@ $(document).mouseup(function (e)
 });
 
 
+Template.tlnav.helpers({
+  isMobile: function() {
+  	var isSmall = (window.innerWidth <= 769);
+  	if (isSmall) {
+  		console.log('is small')
+  	}
+  	var isSmallDevice = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+  	return isSmall || isSmallDevice;
+  }
+});
+
 
 /* MOBILE NAV EVENTS
 ---------------------------------*/
