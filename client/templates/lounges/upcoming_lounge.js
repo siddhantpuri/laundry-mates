@@ -6,55 +6,60 @@ Template.upcomingLounge.events({
 	},
 
   "click .cant-make-it": function(event) {
-    var host_id = this.lounge_host;
-    var host = Meteor.users.findOne(host_id);
-    var lounger = Meteor.user();
-    var id = this._id;
-    var ary = Lounges.findOne(this._id).lounge_participants
-    ary = _.without(ary, Meteor.userId());
-    Lounges.update({_id: this._id}, { $set: {
-    'lounge_participants': ary,
-    'lounge_num_participants': ary.length
-    }});
-    console.log('its working');
 
-      var data = {
-        first_name: lounger.profile.first_name,
-        day: this.lounge_day,
-        date: this.lounge_date_numbers,
-        time: this.lounge_time,
-        location: this.lounge_location,
-        address: this.lounge_address
-      }
-      var to = lounger.emails[0].address;
-      var subject = "Notification - You have been Un-RSVP’d for your Thought Lounge Session.";
-      var temp_name = 'loungerUNRSVPEmail';
-      var file_name = 'lounger_unrsvp.html';
+    var x = window.confirm("Are you sure you want to UN-RSVP?")
+    if (x) {
 
-      Meteor.call('sendEmail', to, subject, data, temp_name, file_name);
-      console.log('sent')
+      var host_id = this.lounge_host;
+      var host = Meteor.users.findOne(host_id);
+      var lounger = Meteor.user();
+      var id = this._id;
+      var ary = Lounges.findOne(this._id).lounge_participants
+      ary = _.without(ary, Meteor.userId());
+      Lounges.update({_id: this._id}, { $set: {
+      'lounge_participants': ary,
+      'lounge_num_participants': ary.length
+      }});
+      console.log('its working');
+
+        var data = {
+          first_name: lounger.profile.first_name,
+          day: this.lounge_day,
+          date: this.lounge_date_numbers,
+          time: this.lounge_time,
+          location: this.lounge_location,
+          address: this.lounge_address
+        }
+        var to = lounger.emails[0].address;
+        var subject = "Notification - You have been Un-RSVP’d for your Thought Lounge Session.";
+        var temp_name = 'loungerUNRSVPEmail';
+        var file_name = 'lounger_unrsvp.html';
+
+        Meteor.call('sendEmail', to, subject, data, temp_name, file_name);
+        console.log('sent')
 
 
-      var data = {
-        first_name: host.profile.first_name,
-        day: this.lounge_day,
-        date: this.lounge_date_numbers,
-        time: this.lounge_time,
-        location: this.lounge_location,
-        lounger_first_name: lounger.profile.first_name,
-        lounger_last_name: lounger.profile.last_name,
-        lounger_email: lounger.emails[0].address,
-        lounger_phone: lounger.profile.phone,
-        lounger_url: Files.findOne( {userId: Meteor.userId()}, { sort: { "added": -1 } } ).url
+        var data = {
+          first_name: host.profile.first_name,
+          day: this.lounge_day,
+          date: this.lounge_date_numbers,
+          time: this.lounge_time,
+          location: this.lounge_location,
+          lounger_first_name: lounger.profile.first_name,
+          lounger_last_name: lounger.profile.last_name,
+          lounger_email: lounger.emails[0].address,
+          lounger_phone: lounger.profile.phone,
+          lounger_url: Files.findOne( {userId: Meteor.userId()}, { sort: { "added": -1 } } ).url
 
-      }
-      var to = host.emails[0].address;
-      var subject = "Notification - One of the Loungers for your TLS has Un-RSVP’d.";
-      var temp_name = 'hostUNRSVPEmail';
-      var file_name = 'host_unrsvp.html';
+        }
+        var to = host.emails[0].address;
+        var subject = "Notification - One of the Loungers for your TLS has Un-RSVP’d.";
+        var temp_name = 'hostUNRSVPEmail';
+        var file_name = 'host_unrsvp.html';
 
-      Meteor.call('sendEmail', to, subject, data, temp_name, file_name);
-      console.log('sent')
+        Meteor.call('sendEmail', to, subject, data, temp_name, file_name);
+        console.log('sent')
+    }
   }
 });
 
