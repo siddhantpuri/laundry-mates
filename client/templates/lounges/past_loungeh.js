@@ -13,11 +13,12 @@ Template.pastLoungeH.events({
 		$('.lounge-info, .contact-host-div').addClass('display-none');
 	},
 	"submit .lounge-log-url-form": function(event) {
-		Lounges.update({_id: this._id}, { $set: {
+		var id = this._id;
+		Lounges.update({_id: id}, { $set: {
 		'lounge_log_link': $('#lounge-log-url').val()
 		}});
 		console.log($('#lounge-log-url').val())
-		$('.lounge-insert-log-url').addClass('display-none');
+		$('#lounge-insert-log-url' + id).addClass('display-none');
 		return false;
 	}
 });
