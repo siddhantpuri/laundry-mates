@@ -83,7 +83,6 @@ Template.lounge_info_form.events({
 
     	};
 
-    	var host_sent = this.lounge_host_sent;
 		Lounges.update({_id: this._id}, { $set: {
 
 		'lounge_chapter': $('#select-a-chapter' + id).val(),
@@ -102,7 +101,6 @@ Template.lounge_info_form.events({
 		'lounge_zipcode': $('#zipcode' + id).val(),
 		'lounge_participants': new_participants,
 		'lounge_num_participants': new_participants.length,
-		'lounge_host_sent': host_sent,
 		'lounge_date_raw': date,
 		'lounge_time_raw': time,
 		'lounge_participants_names': new_participants.map(participantToName)
