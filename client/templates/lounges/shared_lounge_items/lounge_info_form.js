@@ -102,7 +102,6 @@ Template.lounge_info_form.events({
 		'lounge_zipcode': $('#zipcode' + id).val(),
 		'lounge_participants': new_participants,
 		'lounge_num_participants': new_participants.length,
-		'lounge_log_link': "http://www.thoughtlounge.org/the-lounge-log",
 		'lounge_host_sent': host_sent,
 		'lounge_date_raw': date,
 		'lounge_time_raw': time,
