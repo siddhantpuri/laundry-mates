@@ -16,7 +16,7 @@ var intervalId = Meteor.setInterval( function () {
             var file_name = 'lounge_follow_up.html';
 
             Meteor.call('sendEmail', h_to, h_subject, h_data,  temp_name, file_name);
-            console.log('sent');
+            console.log('sent to '+h_to+" for past lounge on "+ lounge.lounge_date_numbers + " at " + lounge.lounge_location);
             Lounges.update({_id: lounge._id}, { $set: {lounge_host_sent: "sent"}});
         });
 
@@ -65,7 +65,7 @@ var intervalId = Meteor.setInterval( function () {
                     var temp_name = 'loungeReminderEmail';
                     var file_name = '7_day_reminder.html';
                     Meteor.call('sendEmail', h_to, h_subject, h_data,  temp_name, file_name);
-                    console.log('sent');
+                    console.log('sent to '+h_to+" for lounge in "+value+" days on "+lounge.lounge_date_numbers+" at "+lounge.lounge_location);
                 }
                
                 if (value == 7) {
