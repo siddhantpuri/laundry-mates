@@ -17,7 +17,7 @@ var intervalId = Meteor.setInterval( function () {
 
             Meteor.call('sendEmail', h_to, h_subject, h_data,  temp_name, file_name);
             console.log('sent to '+h_to+" for past lounge on "+ lounge.lounge_date_numbers + " at " + lounge.lounge_location);
-            Lounges.update({_id: lounge._id}, { $set: {lounge_host_sent: "sent"}});
+            Meteor.call('updateLounge', lounge._id, "host");
         });
 
         var notif_dates = {first: 7, second: 4, third: 2, fourth: 1}
@@ -67,20 +67,7 @@ var intervalId = Meteor.setInterval( function () {
                     Meteor.call('sendEmail', h_to, h_subject, h_data,  temp_name, file_name);
                     console.log('sent to '+h_to+" for lounge in "+value+" days on "+lounge.lounge_date_numbers+" at "+lounge.lounge_location);
                 }
-               
-                if (value == 7) {
-                    Lounges.update({_id: lounge._id}, { $set: {lounge_reminders_sent: "sent"}});
-                } else {
-                    if (value == 4) {
-                        Lounges.update({_id: lounge._id}, { $set: {lounge_reminders_sent4: "sent"}});
-                    } else {
-                        if (value == 2){
-                            Lounges.update({_id: lounge._id}, { $set: {lounge_reminders_sent2: "sent"}});
-                        } else {
-                            Lounges.update({_id: lounge._id}, { $set: {lounge_reminders_sent1: "sent"}});
-                        }
-                    }
-                }
+                Meteor.call('updateLounge', lounge._id, value);
             });
 
         }
