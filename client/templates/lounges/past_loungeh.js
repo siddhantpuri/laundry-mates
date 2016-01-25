@@ -15,9 +15,9 @@ Template.pastLoungeH.events({
 	"submit .lounge-log-url-form": function(event) {
 		var id = this._id;
 		Lounges.update({_id: id}, { $set: {
-		'lounge_log_link': $('#lounge-log-url').val()
+		'lounge_log_link': $('#lounge-log-url' + id).val()
 		}});
-		console.log($('#lounge-log-url').val())
+		console.log($('#lounge-log-url' + id).val())
 		$('#lounge-insert-log-url' + id).addClass('display-none');
 		return false;
 	}

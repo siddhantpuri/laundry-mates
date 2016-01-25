@@ -104,7 +104,7 @@ Template.permissions_admin.events({
           role = 'lounger';
         }
 
-        json_pre += '{"Name":"'+user.profile.first_name+' '+user.profile.last_name+
+        json_pre += '{"Name":"'+user.profile.first_name.replace(/['"]+/g, '')+' '+user.profile.last_name.replace(/['"]+/g, '')+
                     '","email":"'+user.emails[0].address;
         if (user.profile.phone) {
           json_pre += '","phone":"'+user.profile.phone;
